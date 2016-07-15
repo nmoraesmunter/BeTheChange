@@ -1,0 +1,8 @@
+api_key.json
+google_search_id.json
+.DS_Store
+.ipynb_checkpoints
+*.pyc
+.idea
+notes.json
+TO-DO
