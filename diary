@@ -1,0 +1,18 @@
+
+- to get last petition by range      #db.petitions.find({petition_id: {$gt: 2050001 ,$lt: 2100000}}).sort({petition_id:-1}).limit(1)
+
+
+After getting all petitions from change.org I'm taking care of backup copies thanks to this code
+http://sunilarora.org/database-backup-from-mongodb-to-amazon-s3-and/
+
+-   db.petitions.find({ status: { $in: ['closed', 'victory'] } }).count()
+    # 1160201
+
+    db.petitions.find({$and: [{ status: { $in: ['closed', 'victory'] }}, { "targets.type": 'us_government' }]}).count()
+    # 49221
+
+    db.petitions.find({$and: [{ status: { $in: ['closed', 'victory'] }}, { "targets.type": 'us_government' }]}).forEach(function(doc)
+        {
+            db.us_closed_petitions.insert(doc);
+        }
+    )

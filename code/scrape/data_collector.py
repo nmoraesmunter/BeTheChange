@@ -36,10 +36,10 @@ if __name__ == "__main__":
 
     mc = MongoClient()
     db = mc['changeorg']
-    mongo_petitions= db["petitions"]
+    mongo_petitions= db["us_closed_petitions"]
 
 
-    petitions = mongo_petitions.find({ "$or": [{"status": "closed"}, {"status": "victory"}]}).limit(2)
+    petitions = mongo_petitions.find().limit(2)
     dc = DataCollector()
     for petition in petitions:
         petition_id = petition["petition_id"]

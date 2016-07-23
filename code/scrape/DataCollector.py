@@ -1,5 +1,5 @@
 import requests
-from change_api import ChangeOrgApi
+from code.change_api import ChangeOrgApi
 from bs4 import BeautifulSoup
 
 import json
