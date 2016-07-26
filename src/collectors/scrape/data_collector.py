@@ -31,12 +31,12 @@ class DataCollector(object):
         htmls_dict = {'petition_id': petition_id, 'petition_url': petition_url,
                       'creator_url': creator_url, 'petition_html': petition_html,
                       'creator_html': creator_html, 'creator_type': creator_type}
-        collection.insert(htmls_dict)
+        #collection.insert(htmls_dict)
 
         return (petition_html, creator_html)
 
-    def get_detailed_data(self):
-        petitions = self.petitions_col.find()
+    def get_detailed_data(self, query):
+        petitions = self.petitions_col.find(query)
         for petition in petitions:
             petition_id = petition["petition_id"]
             print petition_id
@@ -68,7 +68,10 @@ class DataCollector(object):
         new_fields["creator_type"] = creator_type
         new_fields["creator_has_website"] = client_data["website"] != None
         new_fields["creator_city"] = client_data["city"]
-        new_fields["creator_has_photo"] = ("photo" in client_data) and (client_data["photo"]!=None)
+        try:
+            new_fields["creator_photo"] = client_data["photo"]["url"]
+        except Exception:
+            new_fields["creator_photo"] = None
         new_fields["creator_country"] = client_data["country_code"]
         new_fields["creator_state"] = client_data["state_code"]
         new_fields["creator_has_slug"] = client_data["slug"] != None
@@ -155,7 +158,10 @@ class DataCollector(object):
         new_fields["is_verified_victory"] = petition_data["is_verified_victory"]
         new_fields["languages"] = petition_data["languages"]
         new_fields["original_locale"] = petition_data["original_locale"]
-        new_fields["has_photo"] = ("photo" in petition_data) and petition_data["photo"]!=None
+        try:
+            new_fields["photo"] =  petition_data["photo"]["url"]
+        except Exception:
+            new_fields["photo"] = None
         new_fields["progress"] = petition_data["progress"]
         tags = []
         for tag in petition_data["tags"]:
@@ -173,5 +179,43 @@ class DataCollector(object):
 
 
 if __name__ == "__main__":
-    dc = DataCollector("sample_us_closed_petitions")
-    print dc.get_detailed_data()
+    dc = DataCollector("us_closed_petitions")
+    query = {"$and": [ {"targets_detailed": { "$exists": False }}, {"petition_id": { "$nin": [32426, 33751,
+                                                                                          36845, 43520,
+                                                                                          48535, 63234,
+                                                                                          95739, 169422,
+                                                                                          248762, 293042,
+                                                                                          336425, 401549,
+                                                                                          514311, 784585,
+                                                                                          828915, 926066,
+                                                                                          1029438, 5590214,
+                                                                                          5605102, 4126580,
+                                                                                              5665790, 1166686,
+                                                                                              2701491, 2701621,
+                                                                                              4483600]}}]}
+    # 32426 failed _id
+    # 33751 KeyError: 'model' ["bootstrapData"]["model"]["data"]
+    # 36845 CursorNotFound: cursor id '117680278265' not valid at server
+    # 43520 CursorNotFound: cursor id '118849559126' not valid at server
+    # 48535 CursorNotFound: cursor id '118634304577' not valid at server
+    # 63234 CursorNotFound: cursor id '116146162406' not valid at server
+    # 95739 CursorNotFound: cursor id '116919800838' not valid at server
+    # 169422 CursorNotFound: cursor id '117869467556' not valid at server
+    # 248762 cursor id '119465639947' not valid at server
+    # 293042 Unterminated string starting at: line 1 column 23746 (char 23745)
+    # 336425  cursor id '117042014479' not valid at server
+    # 401549 CursorNotFound: cursor id '119010208365' not valid at server
+    # 514311 CursorNotFound: cursor id '119833035135' not valid at server
+    # 784585 CursorNotFound: cursor id '116375545885' not valid at server
+    # 828915 Unterminated string starting at: line 1 column 23746 (char 23745)
+    # 926066 Unterminated string starting at: line 1 column 1440 (char 1439)
+    # 1029438 .CursorNotFound: cursor id '118484700345' not valid at server
+    # 5590214 'NoneType' object has no attribute 'contents'
+    # 5605102 'NoneType' object has no attribute 'contents'
+    # 4126580 'NoneType' object has no attribute 'contents'
+    # 5665790 'NoneType' object has no attribute 'contents'
+    # 1166686 KeyError: 'model'
+    # 2701491 'NoneType' object has no attribute 'contents'
+    # 2701621 ValueError: Unterminated string starting at: line 1 column 23746 (char 23745)
+    # 4483600 'NoneType' object has no attribute 'contents'
+    print dc.get_detailed_data(query)

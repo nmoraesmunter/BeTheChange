@@ -11,7 +11,7 @@ class TestDataCollector(TestCase):
         petition_html = codecs.open("test_petition.html", 'r').read()
         user_html = codecs.open("test_user.html", 'r').read()
 
-        new_fields = DataCollector.webscrape(None, petition_html, user_html, "user")
+        new_fields = DataCollector.webscrape(petition_html, user_html, "user")
 
         self.assertEqual(new_fields["creator_type"], "user")
         self.assertFalse(new_fields["creator_has_website"])
@@ -22,7 +22,7 @@ class TestDataCollector(TestCase):
         self.assertEqual(new_fields["creator_description"], None)
         self.assertEqual(new_fields["creator_display_name"], "Clenesha Garland")
         self.assertEqual(new_fields["creator_locale"], "en-US")
-        self.assertTrue(new_fields["creator_has_photo"])
+        self.assertEqual(new_fields["creator_photo"], "photos/2/im/tf/JDiMTfDinqfEyda-fullsize.jpg")
         self.assertEqual(new_fields["creator_state"], "TX")
         self.assertEqual(new_fields["creator_fb_permissions"], 0)
         self.assertTrue(new_fields["creator_has_slug"])
@@ -49,7 +49,7 @@ class TestDataCollector(TestCase):
         self.assertEqual(len(new_fields["tags"]), 9)
         self.assertEqual(new_fields["victory_date"], '2015-12-18')
         self.assertTrue(new_fields["has_video"])
-        self.assertTrue(new_fields["has_photo"])
+        self.assertEqual(new_fields["photo"], "photos/8/ut/wj/vnuTWJCdPnZLdes-fullsize.jpg")
         self.assertEqual(len(new_fields["targets_detailed"]), 1)
 
 
@@ -61,12 +61,12 @@ class TestDataCollector(TestCase):
         petition_html = codecs.open("test_petition.html", 'r').read()
         user_html = codecs.open("test_org.html", 'r').read()
 
-        new_fields = DataCollector.webscrape(None, petition_html, user_html, "org")
+        new_fields = DataCollector.webscrape(petition_html, user_html, "org")
 
         self.assertEqual(new_fields["creator_type"], "org")
         self.assertTrue(new_fields["creator_has_website"])
         self.assertEqual(new_fields["creator_city"], "Washington")
-        self.assertTrue(new_fields["creator_has_photo"])
+        self.assertEqual(new_fields["creator_photo"], "photos/5/rv/ss/EBrVSSjjVJpDkvK-fullsize.jpg")
         self.assertEqual(new_fields["creator_country"], "US")
         self.assertEqual(new_fields["creator_state"], "DC")
         self.assertTrue(new_fields["creator_has_slug"])
