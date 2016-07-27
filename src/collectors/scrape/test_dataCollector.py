@@ -1,5 +1,5 @@
 from unittest import TestCase
-from data_collector import DataCollector
+from data_collector import webscrape
 import codecs
 
 
@@ -11,7 +11,7 @@ class TestDataCollector(TestCase):
         petition_html = codecs.open("test_petition.html", 'r').read()
         user_html = codecs.open("test_user.html", 'r').read()
 
-        new_fields = DataCollector.webscrape(petition_html, user_html, "user")
+        new_fields = webscrape(petition_html, user_html, "user")
 
         self.assertEqual(new_fields["creator_type"], "user")
         self.assertFalse(new_fields["creator_has_website"])
@@ -61,7 +61,7 @@ class TestDataCollector(TestCase):
         petition_html = codecs.open("test_petition.html", 'r').read()
         user_html = codecs.open("test_org.html", 'r').read()
 
-        new_fields = DataCollector.webscrape(petition_html, user_html, "org")
+        new_fields = webscrape(petition_html, user_html, "org")
 
         self.assertEqual(new_fields["creator_type"], "org")
         self.assertTrue(new_fields["creator_has_website"])
