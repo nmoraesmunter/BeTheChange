@@ -3,6 +3,7 @@ from pymongo import MongoClient
 from datetime import datetime
 from bs4 import BeautifulSoup
 import json
+import multiprocessing
 import io
 
 
@@ -35,26 +36,105 @@ class DataCollector(object):
 
         return (petition_html, creator_html)
 
-    def get_detailed_data(self, query):
+    def get_detailed_data(self, query, webscrape_html = False, webscrape_comments = True, get_popularity = True, get_updates = True):
         petitions = self.petitions_col.find(query)
         for petition in petitions:
             petition_id = petition["petition_id"]
             print petition_id
-            # Get user
-            creator_url = petition["creator_url"]
-            org_url = petition["organization_url"]
-            creator_type = self.TYPE_USER
-            if org_url:
-                creator_type = self.TYPE_ORG
-                creator_url = org_url
-            htmls = self.get_htmls( petition["url"], creator_url, petition_id,creator_type)
-            new_fields = self.webscrape(htmls[0], htmls[1], creator_type)
-            self.petitions_col.update(
-                {'_id': petition['_id']},
-                {
-                    '$set': new_fields
-                }, upsert=True)
+            try:
+                new_fields = {}
+                if webscrape_html:
+                    creator_url = petition["creator_url"]
+                    org_url = petition["organization_url"]
+                    creator_type = self.TYPE_USER
+                    if org_url:
+                        creator_type = self.TYPE_ORG
+                        creator_url = org_url
+                    htmls = self.get_htmls( petition["url"], creator_url, petition_id,creator_type)
+                    new_fields = self.webscrape(htmls[0], htmls[1], creator_type)
+                if webscrape_comments:
+                    new_fields = self.get_comments(petition_id, new_fields)
+                if get_popularity:
+                    new_fields = self.get_popularity(petition["url"], new_fields)
+                if get_updates:
+                    new_fields = self.get_updates(petition_id, new_fields)
+                self.petitions_col.update(
+                    {'_id': petition['_id']},
+                    {
+                        '$set': new_fields
+                    }, upsert=True)
+            except Exception:
+                print "Failed:" , petition_id
 
+    def get_comments(self, petition_id, new_fields):
+
+        last_page = False
+        n_items = 0
+        idx = 0
+        likes = 0
+        while not last_page:
+            comments_url = "https://www.change.org/api-proxy/-/petitions/%d/comments?limit=10&offset=%d&order_by=voting_score" % (petition_id, idx)
+            comments_json = json.loads(requests.get(comments_url).content)
+            n_items += len(comments_json["items"])
+            for item in comments_json["items"]:
+                likes += item["likes"]
+            last_page = comments_json["last_page"]
+            idx += 10
+        new_fields["num_comments"] = n_items
+        new_fields["comments_likes"] = likes
+
+        return new_fields
+
+    def get_popularity(self, petition_url, new_fields):
+        popular_url = petition_url.replace("api.change.org", "www.change.org")
+        fb_api_url = "http://graph.facebook.com/%s"%popular_url
+        '''
+        number of likes of this URL
+        number of shares of this URL (this includes copy/pasting a link back to Facebook)
+        number of likes and comments on stories on Facebook about this URL
+        number of inbox messages containing this URL as an attachment.
+        '''
+
+        fb_popularity_json = json.loads(requests.get(fb_api_url).content)
+
+        if "shares" in fb_popularity_json:
+            fb_pop = fb_popularity_json["shares"]
+        else:
+            fb_pop = 0
+        new_fields["fb_popularity"] = fb_pop
+        return new_fields
+
+    def get_updates(self, petition_id, new_fields):
+        updates_url = "https://www.change.org/api-proxy/-/petitions/%d/updates/recent" % petition_id
+        updates_json = json.loads(requests.get(updates_url).content)
+        num_tweets = 0
+        news_coverages = 0
+        twitter_popularity = 0
+        tweets_followers = 0
+        milestones = 0
+        last_update = updates_json[0]["created_at"]
+        for item in updates_json:
+            if item["kind"] == "news_coverage":
+                news_coverages += 1
+            elif item["kind"] == "verified_tweet":
+                num_tweets += 1
+                tweets_followers += item["embedded_media"]["followers_count"]
+                twitter_popularity += item["embedded_media"]["favorite_count"] + item["embedded_media"]["retweet_count"]
+            else:
+                milestones += 1
+        new_fields["last_update"] = last_update
+        new_fields["num_tweets"] = num_tweets
+        new_fields["news_coverages"] = news_coverages
+        new_fields["milestones"] = milestones
+        return new_fields
+
+        return new_fields
+
+    def get_endorsements(self, petition_id, new_fields):
+        endorsements_url = "https://www.change.org/api-proxy/-/petitions/%d/endorsements" % petition_id
+        endorsements_json = json.loads(requests.get(endorsements_url).content)
+        new_fields["endorsements"] = endorsements_json["count"]
+        return new_fields
 
     @staticmethod
     def webscrape(petition_html, creator_html, creator_type):
@@ -180,42 +260,15 @@ class DataCollector(object):
 
 if __name__ == "__main__":
     dc = DataCollector("us_closed_petitions")
-    query = {"$and": [ {"targets_detailed": { "$exists": False }}, {"petition_id": { "$nin": [32426, 33751,
-                                                                                          36845, 43520,
-                                                                                          48535, 63234,
-                                                                                          95739, 169422,
-                                                                                          248762, 293042,
-                                                                                          336425, 401549,
-                                                                                          514311, 784585,
-                                                                                          828915, 926066,
-                                                                                          1029438, 5590214,
-                                                                                          5605102, 4126580,
-                                                                                              5665790, 1166686,
-                                                                                              2701491, 2701621,
-                                                                                              4483600]}}]}
-    # 32426 failed _id
-    # 33751 KeyError: 'model' ["bootstrapData"]["model"]["data"]
-    # 36845 CursorNotFound: cursor id '117680278265' not valid at server
-    # 43520 CursorNotFound: cursor id '118849559126' not valid at server
-    # 48535 CursorNotFound: cursor id '118634304577' not valid at server
-    # 63234 CursorNotFound: cursor id '116146162406' not valid at server
-    # 95739 CursorNotFound: cursor id '116919800838' not valid at server
-    # 169422 CursorNotFound: cursor id '117869467556' not valid at server
-    # 248762 cursor id '119465639947' not valid at server
-    # 293042 Unterminated string starting at: line 1 column 23746 (char 23745)
-    # 336425  cursor id '117042014479' not valid at server
-    # 401549 CursorNotFound: cursor id '119010208365' not valid at server
-    # 514311 CursorNotFound: cursor id '119833035135' not valid at server
-    # 784585 CursorNotFound: cursor id '116375545885' not valid at server
-    # 828915 Unterminated string starting at: line 1 column 23746 (char 23745)
-    # 926066 Unterminated string starting at: line 1 column 1440 (char 1439)
-    # 1029438 .CursorNotFound: cursor id '118484700345' not valid at server
-    # 5590214 'NoneType' object has no attribute 'contents'
-    # 5605102 'NoneType' object has no attribute 'contents'
-    # 4126580 'NoneType' object has no attribute 'contents'
-    # 5665790 'NoneType' object has no attribute 'contents'
-    # 1166686 KeyError: 'model'
-    # 2701491 'NoneType' object has no attribute 'contents'
-    # 2701621 ValueError: Unterminated string starting at: line 1 column 23746 (char 23745)
-    # 4483600 'NoneType' object has no attribute 'contents'
-    print dc.get_detailed_data(query)
+    query1 = {"$and": [ {"endorsements": { "$exists": False }}, {"petition_id": {"$gt":0 , "$lt": 400000}}]}
+    query2 = {"$and": [ {"endorsements": { "$exists": False }}, {"petition_id": {"$gt":400000 , "$lt": 1500000}}]}
+    query3 = {"$and": [ {"endorsements": { "$exists": False }}, {"petition_id": {"$gt":1500000 , "$lt": 3200000}}]}
+    query4 = {"$and": [ {"endorsements": { "$exists": False }}, {"petition_id": {"$gt":3200000 , "$lt": 9000000}}]}
+
+    queries = [query1, query2, query3, query4]
+
+    pool = multiprocessing.Pool(processes=4)
+    pool.map(dc.get_detailed_data, queries)
+
+
+    #dc.get_detailed_data(query)

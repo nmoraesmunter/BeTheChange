@@ -5,7 +5,7 @@ import numpy as np
 from sklearn.linear_model import LogisticRegression
 from sklearn.cross_validation import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score
-
+from sklearn.ensemble import RandomForestClassifier
 
 
 def read_mongo(database_name, collection_name, query={}, no_id=False):
@@ -53,7 +53,7 @@ def clean_data(df):
                   'creator_has_address', 'creator_has_contact_email', 'creator_has_fb_page',
                   'creator_has_slug', 'creator_has_verified_at', 'creator_has_verified_by',
                   'creator_has_verified_req', 'creator_has_video', 'has_video', 'is_pledge',
-                  'is_verified_victory', 'is_victory', 'discoverable'
+                  'discoverable'
                   ]
     to_category =  ['category', 'creator_country', 'creator_locale', 'creator_state',
                    'creator_type', 'original_locale']
@@ -63,7 +63,8 @@ def clean_data(df):
                'creator_tax_state_code', 'creator_url', 'description', 'display_title',
                'displayed_signature_count', 'image_url', 'languages', 'letter_body', 'targets','organization_name', 'organization_url',
                'overview', 'petition_id', 'photo', 'progress', 'signature_count', 'tags','targets_detailed',
-               'title', 'url', 'victory_date', 'created_at', 'creator_zipcode', 'creator_fb_permissions']
+               'title', 'url', 'victory_date', 'created_at', 'creator_zipcode', 'creator_fb_permissions',
+               'is_verified_victory', 'is_victory']
     to_length = ['ask', 'creator_description', 'creator_mission', 'description', 'display_title',
                  'letter_body', 'overview', 'title']
     to_num = ['languages', 'targets']
@@ -147,9 +148,36 @@ if __name__ == "__main__":
     print "train total:" , len(y)
     print "train null accuracy:" , 1-(sum(y) / len(y))
 
-    model = LogisticRegression()
+    model =  RandomForestClassifier(n_estimators=20, criterion='gini',
+                                   max_depth=None, min_samples_split=2,
+                                   min_samples_leaf=1,
+                                   min_weight_fraction_leaf=0.0,
+                                   max_features='auto', max_leaf_nodes=None,
+                                   bootstrap=True, oob_score=False, n_jobs=-1,
+                                   random_state=0, verbose=0, warm_start=False,
+                                   class_weight=None)
     model.fit(X, y)
-    y_pred = model.predict(X)
-    print "Accuracy score:", accuracy_score(y, y_pred)
 
+    y_pred_train = model.predict(X)
+    y_pred = model.predict(X_test)
+
+    y_pred_proba = model.predict_proba(X_test)
+    print y_pred_proba
+
+    print "Accuracy score train:", accuracy_score(y, y_pred_train)
+    print "Accuracy score:", accuracy_score(y_test, y_pred)
+    print sum(y_test), sum(y_pred)
+
+    print "precision:", precision_score(y_test, y_pred)
+    print "recall:", recall_score(y_test, y_pred)
+
+
+    importances = model.feature_importances_
+    indices = np.argsort(importances)[::-1]
+
+    # Print the feature ranking
+    print("Feature ranking:")
+
+    for f in range(20):
+        print("%d. feature %s (%f)" % (f + 1, clean_df.columns[indices[f]], importances[indices[f]]))
 
