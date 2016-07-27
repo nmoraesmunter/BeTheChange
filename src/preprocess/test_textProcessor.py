@@ -1,31 +1,34 @@
 from unittest import TestCase
-from text_processor import TextProcessing
+from text_processor import TextProcessor
 
+
+with open('description.xml', 'r') as file:
+    xml_example = file.read()
+tp = TextProcessor(xml_example)
 
 class TestTextProcessor(TestCase):
 
-    with open('description.xml','r') as file
-        xml_example = file.read()
-
-
     def test_count_words(self):
-        self.fail()
+        self.assertEqual(tp.count_words("hello, I am testing if the counter works"), 8)
 
     def test_count_words_bold(self):
 
-        self.fail()
+        self.assertEqual(tp.count_words_bold(), 161)
 
     def test_count_words_italic(self):
-        self.fail()
+        self.assertEqual(tp.count_words_italic(), 3)
 
     def test_count_capitalized_words(self):
-        self.fail()
+        self.assertEqual(tp.count_capitalized_words(), 2)
 
     def test_get_hashtag(self):
-        self.fail()
+        self.assertEqual(tp.get_hashtags(), ["WhatTheFork"])
 
     def test_get_links(self):
-        self.fail()
+        self.assertEqual(len(tp.get_links()), 8)
 
     def test_get_link_popularity(self):
-        self.fail()
+        links = tp.get_links()
+        self.assertEqual(tp.get_link_popularity(links[0]), 256)
+
+

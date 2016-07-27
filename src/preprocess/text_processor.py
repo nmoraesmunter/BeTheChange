@@ -1,9 +1,10 @@
 import json
 import requests
 from bs4 import BeautifulSoup
+import re
 
 
-class TextProcessing(object):
+class TextProcessor(object):
     def __init__(self, text_xml):
         self.text_xml = text_xml
         self.soup = BeautifulSoup(self.text_xml)
@@ -16,24 +17,30 @@ class TextProcessing(object):
         tags = self.soup.find_all('strong')
         num_bold = 0
         for tag in tags:
-            num_bold += self.count_words(tag)
+            num_bold += self.count_words(tag.next)
         return num_bold
 
     def count_words_italic(self):
-        "<em>Billions of pounds</em>"
-        pass
+        tags = self.soup.find_all('em')
+        num = 0
+        for tag in tags:
+            num += self.count_words(tag.next)
+        return num
 
     def count_capitalized_words(self):
-        pass
+        return len(re.findall(r"(\b[A-Z][A-Z0-9]+\b)", self.text_xml))
 
-    def get_hashtag(self):
-        "#WhatTheFork"
-        pass
+    def get_hashtags(self):
+        return re.findall(r"#(\w+)", self.text_xml)
 
     def get_links(self):
-       " < ahref =\"http://www.uglyfruitandveg.org/\"rel =\"nofollow\">UglyFruitandVeg.org< / a >"
+        tags = self.soup.find_all('a', href=True)
+        links = []
+        for tag in tags:
+            links.append(tag["href"][2:-3])
+        return links
 
-    def get_link_popularity(url):
+    def get_link_popularity(self, url):
 
         fb_api_url = "http://graph.facebook.com/%s"%url
         '''

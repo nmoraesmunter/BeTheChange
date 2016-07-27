@@ -262,10 +262,10 @@ if __name__ == "__main__":
     db = mc['changeorg']
     petitions_col = db[collection_name]
 
-    query1 = {"$and": [ {"endorsements": { "$exists": False }}, {"petition_id": {"$gt":0 , "$lt": 400000}}]}
-    query2 = {"$and": [ {"endorsements": { "$exists": False }}, {"petition_id": {"$gt":400000 , "$lt": 1500000}}]}
-    query3 = {"$and": [ {"endorsements": { "$exists": False }}, {"petition_id": {"$gt":1500000 , "$lt": 3200000}}]}
-    query4 = {"$and": [ {"endorsements": { "$exists": False }}, {"petition_id": {"$gt":3200000 , "$lt": 9000000}}]}
+    query1 = {"$and": [ {"endorsements": { "$exists": False }}, {"petition_id": {"$gt":69262 , "$lt": 400000}}]}
+    query2 = {"$and": [ {"endorsements": { "$exists": False }}, {"petition_id": {"$gt":490176 , "$lt": 1500000}}]}
+    query3 = {"$and": [ {"endorsements": { "$exists": False }}, {"petition_id": {"$gt":2625151 , "$lt": 3200000}}]}
+    query4 = {"$and": [ {"endorsements": { "$exists": False }}, {"petition_id": {"$gt":4221268 , "$lt": 9000000}}]}
 
     queries = [query1, query2, query3, query4]
 

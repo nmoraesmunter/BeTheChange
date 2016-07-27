@@ -7,6 +7,7 @@ from sklearn.cross_validation import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, confusion_matrix
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import AdaBoostClassifier
+from sklearn.naive_bayes import MultinomialNB
 
 
 
@@ -135,11 +136,23 @@ def filter_features(df):
              "num_tweets", "comments_likes", "endorsements", "signature_count"]]
     return df
 
+
+def filter_features_new_petition(df):
+    df["num_past_petitions"] = df["num_past_petitions"] - 1
+    df["num_past_verified_victories"] =  df["num_past_verified_victories"] - 1
+    df["num_past_victories"] = df["num_past_victories"] - 1
+    df = df[["status","num_past_petitions", "num_past_verified_victories" , "num_past_victories",
+            "title_len", "overview_len",
+             "letter_body_len", "ask_len", "display_title_len", "description_len",
+             "days_range_end_at", "calculated_goal", "num_targets",
+             "goal", "creator_description_len", "creator_mission_len", "creator_type_user"]]
+    return df
+
 if __name__ == "__main__":
 
     data = read_mongo("changeorg", "us_closed_petitions", {"endorsements": { "$exists": True }})
 
-    clean_df = filter_features(clean_data(data))
+    clean_df = filter_features_new_petition(clean_data(data))
     np.random.seed(29)
     num_rows = clean_df.shape[0]
     test_sample_idx = np.random.choice(num_rows, round(num_rows * 0.3), replace=False)
@@ -165,14 +178,15 @@ if __name__ == "__main__":
                                     verbose=0, warm_start=False,
                                     class_weight=None)
 
-   # model = AdaBoostClassifier(n_estimators=50)
+    #model = AdaBoostClassifier(n_estimators=50)
+    #model  = MultinomialNB()
     model.fit(X, y)
 
     y_pred_train = model.predict(X)
     y_pred = model.predict(X_test)
 
     y_pred_proba = model.predict_proba(X_test)
-  #  print y_pred_proba
+    #  print y_pred_proba
 
     print "--------------------------TRAIN-----------------------------------"
     print "victories:" , sum(y)
