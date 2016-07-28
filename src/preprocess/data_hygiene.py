@@ -63,7 +63,7 @@ def clean_data(df):
     to_drop = ['_id', 'ask', 'creator_city', 'creator_description', 'creator_display_name',
                'creator_first_name', 'creator_last_name', 'creator_mission', 'creator_name',
                'creator_org_name', 'creator_photo', 'creator_postal_code', 'creator_tax_country_code',
-               'creator_tax_state_code', 'creator_url', 'description', 'display_title',
+               'creator_tax_state_code', 'creator_url', 'display_title',
                'displayed_signature_count', 'image_url', 'languages', 'letter_body', 'targets','organization_name', 'organization_url',
                'overview', 'petition_id', 'photo', 'progress', 'tags','targets_detailed',
                'title', 'url', 'victory_date', 'created_at', 'creator_zipcode', 'creator_fb_permissions',
@@ -110,43 +110,7 @@ def clean_data(df):
     return df
 
 
-def sampling(df, target, target_ratio):
-    current_ratio = df[target].value_counts()[1]/len(df[target])
-    # oversample the victory cases
-    if current_ratio < target_ratio:
-        n = np.round(target_ratio * len(df[target])) - df[target].value_counts()[1]  # additional samples needed to meet target
-        samples = df[df[target] == 1].sample(n, replace=True, random_state=0)
-        df = df.append(samples, ignore_index=True, verify_integrity=True)
-    # undersample the victory cases
-    if current_ratio > target_ratio:
-        n = np.round(target_ratio * len(df[target]))    # total target cases to meet ratio
-        samples = df[df[target] == 1].sample(n, replace=False, random_state=0)
-        df = df[df[target] == 0].append(samples, ignore_index=True, verify_integrity=True)
-    return df
 
-def filter_features(df):
-    df["num_past_petitions"] = df["num_past_petitions"] - 1
-    df["num_past_verified_victories"] =  df["num_past_verified_victories"] - 1
-    df["num_past_victories"] = df["num_past_victories"] - 1
-    df = df[["status","num_past_petitions", "num_past_verified_victories" , "num_past_victories",
-             "num_comments", "title_len", "overview_len", "news_coverages",
-             "letter_body_len", "milestones", "ask_len", "display_title_len", "description_len",
-             "days_range_end_at", "calculated_goal", "num_targets", "comments_likes", "fb_popularity",
-             "goal", "creator_description_len", "creator_mission_len", "creator_type_user",
-             "num_tweets", "comments_likes", "endorsements", "signature_count"]]
-    return df
-
-
-def filter_features_new_petition(df):
-    df["num_past_petitions"] = df["num_past_petitions"] - 1
-    df["num_past_verified_victories"] =  df["num_past_verified_victories"] - 1
-    df["num_past_victories"] = df["num_past_victories"] - 1
-    df = df[["status","num_past_petitions", "num_past_verified_victories" , "num_past_victories",
-            "title_len", "overview_len",
-             "letter_body_len", "ask_len", "display_title_len", "description_len",
-             "days_range_end_at", "calculated_goal", "num_targets",
-             "goal", "creator_description_len", "creator_mission_len", "creator_type_user"]]
-    return df
 
 if __name__ == "__main__":
 

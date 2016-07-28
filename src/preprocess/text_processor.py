@@ -7,11 +7,14 @@ import re
 class TextProcessor(object):
     def __init__(self, text_xml):
         self.text_xml = text_xml
-        self.soup = BeautifulSoup(self.text_xml)
+        self.soup = BeautifulSoup(self.text_xml, "lxml")
 
 
     def count_words(self, text):
-        return len(text.split())
+        try:
+            return len(text.split())
+        except Exception:
+            return 0
 
     def count_words_bold(self):
         tags = self.soup.find_all('strong')
@@ -49,15 +52,26 @@ class TextProcessor(object):
         number of likes and comments on stories on Facebook about this URL
         number of inbox messages containing this URL as an attachment.
         '''
+        try:
+            fb_popularity_json = json.loads(requests.get(fb_api_url).content)
 
-        fb_popularity_json = json.loads(requests.get(fb_api_url).content)
+            if "shares" in fb_popularity_json:
+                fb_pop = fb_popularity_json["shares"]
+            else:
+                fb_pop = 0
+            return fb_pop
+        except:
+            return 0
 
-        if "shares" in fb_popularity_json:
-            fb_pop = fb_popularity_json["shares"]
+    def get_mean_link_popularity(self):
+        links = self.get_links()
+        total_popularity = 0
+        n = len(links)
+        for link in links:
+            total_popularity += self.get_link_popularity(link)
+        if n > 0:
+            return total_popularity/n
         else:
-            fb_pop = 0
-        return fb_pop
-
-
+            return 0
 
 

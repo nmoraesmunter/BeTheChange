@@ -9,7 +9,7 @@ tp = TextProcessor(xml_example)
 class TestTextProcessor(TestCase):
 
     def test_count_words(self):
-        self.assertEqual(tp.count_words("hello, I am testing if the counter works"), 8)
+        self.assertEqual(tp.count_words(), 8)
 
     def test_count_words_bold(self):
 

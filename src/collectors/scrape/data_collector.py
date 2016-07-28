@@ -1,14 +1,24 @@
 import requests
-from pymongo import MongoClient
+from pymongo import MongoClient, errors
 from datetime import datetime
 from bs4 import BeautifulSoup
 import json
 import multiprocessing
-import io
+from preprocess import text_processor
 
 
 
-def get_htmls(petition_url, creator_url, petition_id, creator_type):
+def get_htmls(petition_url, creator_url, petition_id, creator_type, save = False):
+    '''
+    Given a petition url and a creator url returns the content of response of a
+    requests GET to both urls.
+    :param petition_url:
+    :param creator_url:
+    :param petition_id:
+    :param creator_type:
+    :param save: if True it saves the raw html with a petition_id in mongo
+    :return:
+    '''
     collection = db[collection_name + "_html"]
     # get petition html
     petition_response = requests.get(petition_url)
@@ -16,48 +26,77 @@ def get_htmls(petition_url, creator_url, petition_id, creator_type):
     # get creator html
     creator_response = requests.get(creator_url)
     creator_html = creator_response.content
-    # save backup of html in mongodb
-    htmls_dict = {'petition_id': petition_id, 'petition_url': petition_url,
-                  'creator_url': creator_url, 'petition_html': petition_html,
-                  'creator_html': creator_html, 'creator_type': creator_type}
-    #collection.insert(htmls_dict)
+    if save:
+        # save backup of html in mongodb
+        htmls_dict = {'petition_id': petition_id, 'petition_url': petition_url,
+                      'creator_url': creator_url, 'petition_html': petition_html,
+                      'creator_html': creator_html, 'creator_type': creator_type}
+        collection.insert(htmls_dict)
 
-    return (petition_html, creator_html)
+    return petition_html, creator_html
 
-def get_detailed_data(query, webscrape_html = False, get_c = True, get_p = True, get_u = True, get_e = True):
-    petitions = petitions_col.find(query)
-    for petition in petitions:
-        petition_id = petition["petition_id"]
-        print petition_id
+
+def get_detailed_data(query, webscrape_html = False, get_c = True, get_p = True,
+                      get_u = True, get_e = True, get_tf = False):
+    '''
+    Given a query for the mongo db collection get the flaged information and store it into
+    the same document in mongo db. Note that it is an upsert.
+    :param query:
+    :param webscrape_html:
+    :param get_c: get comments?
+    :param get_p: get popularity?
+    :param get_u: get updates?
+    :param get_e: get endorsements?
+    :param get_tf: get text features?
+    :return: None
+    '''
+    done = False
+    while not done:
+        petitions = petitions_col.find(query)
         try:
-            new_fields = {}
-            if webscrape_html:
-                creator_url = petition["creator_url"]
-                org_url = petition["organization_url"]
-                creator_type = TYPE_USER
-                if org_url:
-                    creator_type = TYPE_ORG
-                    creator_url = org_url
-                htmls = get_htmls( petition["url"], creator_url, petition_id,creator_type)
-                new_fields = webscrape(htmls[0], htmls[1], creator_type)
-            if get_c:
-                new_fields = get_comments(petition_id, new_fields)
-            if get_p:
-                new_fields = get_popularity(petition["url"], new_fields)
-            if get_u:
-                new_fields = get_updates(petition_id, new_fields)
-            if get_e:
-                new_fields = get_endorsements(petition_id, new_fields)
-            petitions_col.update(
-                {'_id': petition['_id']},
-                {
-                    '$set': new_fields
-                }, upsert=True)
-        except Exception:
-            print "Failed:", petition_id
+            for petition in petitions:
+                petition_id = petition["petition_id"]
+                print petition_id
+
+                new_fields = {}
+                if webscrape_html:
+                    creator_url = petition["creator_url"]
+                    org_url = petition["organization_url"]
+                    creator_type = TYPE_USER
+                    if org_url:
+                        creator_type = TYPE_ORG
+                        creator_url = org_url
+                    htmls = get_htmls(petition["url"], creator_url, petition_id, creator_type)
+                    new_fields = webscrape(htmls[0], htmls[1], creator_type)
+                if get_c:
+                    new_fields = get_comments(petition_id, new_fields)
+                if get_p:
+                    new_fields = get_popularity(petition["url"], new_fields)
+                if get_u:
+                    new_fields = get_updates(petition_id, new_fields)
+                if get_e:
+                    new_fields = get_endorsements(petition_id, new_fields)
+                if get_tf:
+                    new_fields = get_text_features(petition_id, new_fields)
+                petitions_col.update(
+                    {'_id': petition['_id']},
+                    {
+                        '$set': new_fields
+                    }, upsert=True)
+
+            done = True
+        except errors.OperationFailure, e:
+            msg = e.message
+            if not (msg.startswith("cursor id") and msg.endswith("not valid at server")):
+                print msg
 
 def get_comments( petition_id, new_fields):
-
+    '''
+    Get comments of a petition and store the information in the new_fields dictionary
+    :param petition_id:
+    :param new_fields:
+    :return:
+    '''
     last_page = False
     n_items = 0
     idx = 0
@@ -77,14 +116,21 @@ def get_comments( petition_id, new_fields):
     return new_fields
 
 def get_popularity( petition_url, new_fields):
-    popular_url = petition_url.replace("api.change.org", "www.change.org")
-    fb_api_url = "http://graph.facebook.com/%s"%popular_url
     '''
+    Get facebook popularity for the petition url to get the number of shares that are
+
     number of likes of this URL
     number of shares of this URL (this includes copy/pasting a link back to Facebook)
     number of likes and comments on stories on Facebook about this URL
     number of inbox messages containing this URL as an attachment.
+
+    :param petition_url:
+    :param new_fields:
+    :return:
     '''
+    popular_url = petition_url.replace("api.change.org", "www.change.org")
+    fb_api_url = "http://graph.facebook.com/%s"%popular_url
+
 
     fb_popularity_json = json.loads(requests.get(fb_api_url).content)
 
@@ -119,7 +165,9 @@ def get_updates(petition_id, new_fields):
     new_fields["num_tweets"] = num_tweets
     new_fields["news_coverages"] = news_coverages
     new_fields["milestones"] = milestones
-    # missed to populate followers and popularity!!!
+    new_fields["tweets_followers"] = tweets_followers
+    new_fields["twitter_popularity"] = twitter_popularity
+
     return new_fields
 
 
@@ -132,7 +180,35 @@ def get_endorsements(petition_id, new_fields):
         new_fields["endorsements"] = 0
     return new_fields
 
+
+def get_text_features(petition, new_fields):
+    '''
+    Method to get text_features from the petition description and
+    save it into the new_fields dictionary.
+    :param petition: dictionary
+    :param new_fields: dictionary
+    :return:
+    '''
+    descr = petition["description"]
+    new_fields["num_capitalized_words_description"] = text_processor.TextProcessor(descr).count_capitalized_words()
+    new_fields["num_bold_words_description"] = text_processor.TextProcessor(descr).count_words_bold()
+    new_fields["num_italic_words_description"] = text_processor.TextProcessor(descr).count_words_italic()
+    new_fields["links_popularity__description"] = text_processor.TextProcessor(descr).get_mean_link_popularity()
+    new_fields["num_links__description"] = len(text_processor.TextProcessor(descr).get_links())
+    new_fields["has_hashtag_description"] = len(text_processor.TextProcessor(descr).get_hashtags()) > 0
+
+    return new_fields
+
+
 def webscrape(petition_html, creator_html, creator_type):
+    '''
+    Webscrapes the petition html and the creator html.
+
+    :param petition_html:
+    :param creator_html:
+    :param creator_type: user or org
+    :return:
+    '''
     new_fields = {}
     creator_soup = BeautifulSoup(creator_html, 'html.parser')
 
@@ -262,10 +338,10 @@ if __name__ == "__main__":
     db = mc['changeorg']
     petitions_col = db[collection_name]
 
-    query1 = {"$and": [ {"endorsements": { "$exists": False }}, {"petition_id": {"$gt":69262 , "$lt": 400000}}]}
-    query2 = {"$and": [ {"endorsements": { "$exists": False }}, {"petition_id": {"$gt":490176 , "$lt": 1500000}}]}
-    query3 = {"$and": [ {"endorsements": { "$exists": False }}, {"petition_id": {"$gt":2625151 , "$lt": 3200000}}]}
-    query4 = {"$and": [ {"endorsements": { "$exists": False }}, {"petition_id": {"$gt":4221268 , "$lt": 9000000}}]}
+    query1 = {"$and": [ {"endorsements": { "$exists": False }}, {"petition_id": {"$gt":293476 , "$lt": 400000}}]}
+    query2 = {"$and": [ {"endorsements": { "$exists": False }}, {"petition_id": {"$gt":844326 , "$lt": 1500000}}]}
+    query3 = {"$and": [ {"endorsements": { "$exists": False }}, {"petition_id": {"$gt":2929091 , "$lt": 3200000}}]}
+    query4 = {"$and": [ {"endorsements": { "$exists": False }}, {"petition_id": {"$gt":6763319 , "$lt": 9000000}}]}
 
     queries = [query1, query2, query3, query4]
 
