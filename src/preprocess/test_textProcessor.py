@@ -31,4 +31,5 @@ class TestTextProcessor(TestCase):
         links = tp.get_links()
         self.assertEqual(tp.get_link_popularity(links[0]), 256)
 
-
+    def test_get_clean_text(self):
+        self.assertEqual(tp.get_clean_text(), "hello")

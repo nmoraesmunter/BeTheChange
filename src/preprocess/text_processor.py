@@ -74,4 +74,9 @@ class TextProcessor(object):
         else:
             return 0
 
+    def get_clean_text(self):
+        page_text = ' '.join(self.soup.findAll(text=True))
+
+        return page_text
+
 

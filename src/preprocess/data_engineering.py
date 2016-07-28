@@ -17,5 +17,7 @@ def get_text_features(df, column):
         apply(lambda x: len(text_processor.TextProcessor(x).get_links()))
     df["has_hashtag_" + column] = df[column].\
         apply(lambda x: len(text_processor.TextProcessor(x).get_hashtags()) > 0)
+    df[column] = df[column].\
+        apply(lambda x: text_processor.TextProcessor(x).get_clean_text())
 
     return df

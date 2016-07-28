@@ -51,12 +51,13 @@ def clean_data(df):
 
     nans_to_neg_1 = ['creator_zipcode']
     to_datetime = ['created_at',  'end_at', 'last_past_verified_victory_date', 'last_past_victory_date']
+    to_date_details = ['created_at']
     to_days_range= ["end_at", 'last_past_verified_victory_date', 'last_past_victory_date']
     to_boolean = ['has_video', 'creator_has_website', 'creator_has_twitter',
                   'creator_has_address', 'creator_has_contact_email', 'creator_has_fb_page',
                   'creator_has_slug', 'creator_has_verified_at', 'creator_has_verified_by',
                   'creator_has_verified_req', 'creator_has_video', 'has_video', 'is_pledge',
-                  'discoverable'
+                  'discoverable', 'has_hashtag_description'
                   ]
     to_category =  ['category', 'creator_country', 'creator_locale', 'creator_state',
                    'creator_type', 'original_locale']
@@ -85,6 +86,14 @@ def clean_data(df):
             df[col] = df[col].fillna(-1)
         if col in to_datetime:
             df[col] = pd.to_datetime(df[col])
+        if col in to_date_details:
+            df[col + "_year"] = df[col].dt.year
+            df[col + "_month"] = df[col].dt.month
+            df[col + "_is_year_end"] = df[col].dt.is_year_end
+            df[col + "_is_year_start"] = df[col].dt.is_year_start
+            df[col + "_quarter"] = df[col].dt.quarter
+            df[col + "_is_quarter_end"] = df[col].dt.is_quarter_end
+            df[col + "_is_quarter_start"] = df[col].dt.is_quarter_start
         if col in to_days_range:
             df["days_range_" + col] = (df[col] - df["created_at"]).apply(lambda x: x.days if not pd.isnull(x) else -1)
             df.pop(col)
@@ -108,6 +117,8 @@ def clean_data(df):
 
     df.drop(to_drop, axis=1, inplace=True)
     return df
+
+
 
 
 
