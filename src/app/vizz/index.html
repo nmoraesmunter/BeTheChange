@@ -57,9 +57,9 @@
 
 	function tooltipHtml(n, d){	/* function to create html content string in tooltip div. */
 		return "<h4>"+n+"</h4><table>"+
-			"<tr><td>Low</td><td>"+(d.low)+"</td></tr>"+
-			"<tr><td>Average</td><td>"+(d.avg)+"</td></tr>"+
-			"<tr><td>High</td><td>"+(d.high)+"</td></tr>"+
+			"<tr><td>Closed</td><td>"+(d.low)+"</td></tr>"+
+			"<tr><td>Victories</td><td>"+(d.avg)+"</td></tr>"+
+			"<tr><td>Confirmed Victories</td><td>"+(d.high)+"</td></tr>"+
 			"</table>";
 	}
 
@@ -76,6 +76,9 @@
 			sampleData[d]={low:d3.min([low,mid,high]), high:d3.max([low,mid,high]),
 					avg:Math.round((low+mid+high)/3), color:d3.interpolate("#ffffcc", "#800026")(low/100)};
 		});
+
+
+
 
 	/* draw states on id #statesvg */
 	uStates.draw("#statesvg", sampleData, tooltipHtml);

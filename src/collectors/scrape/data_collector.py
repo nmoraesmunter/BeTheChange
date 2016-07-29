@@ -157,8 +157,9 @@ def get_updates(petition_id, new_fields):
             news_coverages += 1
         elif item["kind"] == "verified_tweet":
             num_tweets += 1
-            tweets_followers += item["embedded_media"]["followers_count"]
-            twitter_popularity += item["embedded_media"]["favorite_count"] + item["embedded_media"]["retweet_count"]
+            if "embedded_media" in item and "favorite_count" in item["embedded_media"]:
+                tweets_followers += item["embedded_media"]["followers_count"]
+                twitter_popularity += item["embedded_media"]["favorite_count"] + item["embedded_media"]["retweet_count"]
         else:
             milestones += 1
     new_fields["last_update"] = last_update
