@@ -5,6 +5,8 @@ from bs4 import BeautifulSoup
 import json
 import multiprocessing
 from preprocess import text_processor
+from collectors.api.changeorg.change_api import ChangeOrgApi
+import io
 
 
 
@@ -325,6 +327,29 @@ def webscrape(petition_html, creator_html, creator_type):
 
 
     return new_fields
+
+
+
+
+def get_info_new_petition(petition_url, mongo_petitions):
+
+    petition_html = requests.get(petition_url).content
+
+    soup = BeautifulSoup(petition_html, 'html.parser')
+    petition_data = json.loads(soup.find("script", {"id": "clientData"}).contents[0]) \
+        ["bootstrapData"]["model"]["data"]
+
+    petition_id = petition_data["id"]
+    query = {"petition_id": petition_id}
+
+    cursor = mongo_petitions.find_one({"petition_id": petition_id})
+    if cursor is None:
+        petition = api.getSinglePetitionById(petition_id)
+        mongo_petitions.insert(petition)
+    get_detailed_data(query, True, True,True, True, True,True)
+
+    cursor = mongo_petitions.find_one(query)
+    return cursor
 
 
 

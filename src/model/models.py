@@ -15,6 +15,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk import word_tokenize
 from nltk.stem.wordnet import WordNetLemmatizer as lemmatizer
 
+from utils.utils import save_model
+
 class Model(object):
 
     def __init__(self):
@@ -248,6 +250,9 @@ if __name__ == "__main__":
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
 
     petitions_model.fit(X_train, y_train)
+
+    save_model(petitions_model, "rf_new_petitions_model")
+
     y_pred_train = petitions_model.predict(X)
     y_pred = petitions_model.predict(X_test)
 
