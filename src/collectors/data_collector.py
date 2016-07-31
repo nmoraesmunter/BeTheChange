@@ -5,12 +5,12 @@ import timeit
 from bs4 import BeautifulSoup
 from datetime import datetime
 from src.preprocess.text_processor import TextProcessor
-
-
+from src.db.connection import MongoConnection
+import numpy as np
+import multiprocessing
 
 
 class DataCollector(object):
-
     def __init__(self, petition_id):
         self.petition_id = petition_id
         self.responses = []
@@ -34,11 +34,10 @@ class DataCollector(object):
         for link in links:
             total_popularity += self.get_fb_popularity(link)
         if n > 0:
-            pop_mean = total_popularity/n
-        petition_json.update({"links_fb_popularity" : pop_mean})
+            pop_mean = total_popularity / n
+        petition_json.update({"links_fb_popularity": pop_mean})
 
         return petition_json
-
 
     def collect_comments(self):
         '''
@@ -70,16 +69,15 @@ class DataCollector(object):
     def collect_creator_stats(self, is_organization, creator_id):
         creator_stats = {"is_organization": is_organization}
         if is_organization:
-            creator_html = requests.get("https://www.change.org/o/%d"%creator_id).content
+            creator_html = requests.get("https://www.change.org/o/%d" % creator_id).content
             creator_soup = BeautifulSoup(creator_html, 'html.parser')
             other_petitions = json.loads(creator_soup.find("script", {"id": "clientData"}).contents[0]) \
                 ["bootstrapData"]["petitions"]["data"]
         else:
-            creator_html = requests.get("https://www.change.org/u/%d"%creator_id).content
+            creator_html = requests.get("https://www.change.org/u/%d" % creator_id).content
             creator_soup = BeautifulSoup(creator_html, 'html.parser')
             other_petitions = json.loads(creator_soup.find("script", {"id": "clientData"}).contents[0]) \
                 ["bootstrapData"]["createdPetitions"]["data"]
-
 
         count_past_victories = 0
         count_verified_past_victories = 0
@@ -88,7 +86,7 @@ class DataCollector(object):
         verified_past_victory_dates = []
 
         for past_petition in other_petitions:
-            if past_petition["id"] != self.petition_id: # We don't count current victory as a past victory or petition
+            if past_petition["id"] != self.petition_id:  # We don't count current victory as a past victory or petition
                 count_past_petitions += 1
                 count_past_victories += past_petition["is_victory"]
                 count_verified_past_victories += past_petition["is_verified_victory"]
@@ -186,8 +184,8 @@ class DataCollector(object):
             fb_pop = fb_popularity_json["shares"]
         return fb_pop
 
-    def get_detailed_data(self, get_petition = True, get_creator = True, get_comments = True, get_updates = True,
-                          get_endorsemements = True, get_fb_popularity = True, get_responses = True):
+    def get_detailed_data(self, get_petition=True, get_creator=True, get_comments=True, get_updates=True,
+                          get_endorsemements=True, get_fb_popularity=True, get_responses=True):
 
         detailed_data = {}
 
@@ -223,15 +221,27 @@ class DataCollector(object):
         return detailed_data
 
 
+def change_petition_id_status(current, collection, status, time=None):
+    collection.update({'_id': current['_id']}, {'$set': {'status': status, 'time': time}}, upsert=True)
 
 
+def all_iteration(start):
+    count = 1000
+    while count > 0:
+        count = one_iteration(start)
+        print "[%d] Finished one iteration with count: %d" % (start, count)
 
-if __name__ == "__main__":
+    print "[%d] Arrived to the end!"
 
 
-    ids = [6501305, 1423479, 6505706, 6506345, 6520007, 6524459,6592865,6581579, 6581402, 6574643]
-    data = []
-    responses = []
+def one_iteration(start):
+    conn = MongoConnection.default_connection()
+    petition_ids = conn['changeorg']['petition_ids']
+    petitions_scrapped = conn['changeorg']['petitions_scrapped']
+    responses_scrapped = conn['changeorg']['responses_scrapped']
+
+    to_process = petition_ids.find({"$and": [{'status': 'in_progress'}, {"id": {"$gt": start}}]}).limit(1000)
+
     time_petition = 0
     time_creator = 0
     time_comments = 0
@@ -239,27 +249,61 @@ if __name__ == "__main__":
     time_popularity = 0
     time_endorsements = 0
     time_responses = 0
-    for id in ids:
-        dc = DataCollector(id)
-        data.append(dc.get_detailed_data())
-        responses = dc.responses
-        time_petition += dc.time_petition
-        time_creator += dc.time_creator
-        time_comments += dc.time_comments
-        time_updates += dc.time_updates
-        time_popularity += dc.time_popularity
-        time_endorsements += dc.time_endorsements
-        time_responses += dc.time_responses
+    time_total = 0
+    n = 0
+
+    for current in to_process:
+        try:
+            change_petition_id_status(current, petition_ids, 'in_progress_again')
+            dc = DataCollector(current['id'])
+            petitions_scrapped.update({'id': current['id']}, {'$set': dc.get_detailed_data()}, upsert=True)
+            for response in dc.responses:
+                responses_scrapped.update({'id': response['id']}, {'$set': response}, upsert=True)
+            time_petition += dc.time_petition
+            time_creator += dc.time_creator
+            time_comments += dc.time_comments
+            time_updates += dc.time_updates
+            time_popularity += dc.time_popularity
+            time_endorsements += dc.time_endorsements
+            time_responses += dc.time_responses
+            total = (dc.time_petition + dc.time_creator + dc.time_comments + dc.time_updates + dc.time_popularity
+                     + dc.time_endorsements + dc.time_responses)
+            time_total += total
+            change_petition_id_status(current, petition_ids, 'done', total)
+            n += 1
+            if n % 5 == 0:
+                print 'scrapped %d petitions, current one %s' % (n, current)
+        except Exception as excp:
+            print "[%d] {%s} exception %s" % (start, current, excp)
+
+    if n == 0:
+        print "No petition found. Start at %s" % start
+    else:
+        print "------------------TIMES-----------------------"
+        print "Petitions : %f" % (time_petition * 1. / n)
+        print "Creator : %f" % (time_creator * 1./ n)
+        print "Comments : %f" % (time_comments * 1./ n)
+        print "Updates : %f" % (time_updates * 1./ n)
+        print "Popularity : %f" % (time_popularity * 1./ n)
+        print "Endorsements : %f" % (time_endorsements * 1./ n)
+        print "Responses : %f" % (time_responses * 1./ n)
+        print "Total processed: %s" % n
+        print "TOTAL %f" % (time_total * 1./ n)
+
+    return petition_ids.find({"$and": [{'status': 'in_progress'}, {"id": {"$gt": start}}]}).count()
 
 
+def print_sth(start):
+    print start
 
 
-    print "------------------TIMES-----------------------"
-    print "Petitions : %f" % (time_petition/10)
-    print "Creator : %f"% (time_creator/10)
-    print "Comments : %f"% (time_comments/10)
-    print "Updates : %f"% (time_updates/10)
-    print "Popularity : %f" % (time_popularity/10)
-    print "Endorsements : %f" % (time_endorsements/10)
-    print "Responses : %f" % (time_responses/10)
-    print "TOTAL %f"% ((time_petition + time_creator + time_comments + time_updates + time_popularity + time_endorsements + time_responses)/10)
+if __name__ == "__main__":
+    procs = 64
+    step = 100000
+    max_id = 3000000
+
+    starts = range(31889, max_id, max_id // procs)
+    print "That's my steps: %s" % starts
+    pool = multiprocessing.Pool(processes=procs)
+    pool.map(all_iteration, starts)
+    print "finished the process, enjoy your scrapped data!"
