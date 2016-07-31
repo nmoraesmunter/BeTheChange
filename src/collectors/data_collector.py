@@ -221,26 +221,24 @@ class DataCollector(object):
         return detailed_data
 
 
-def change_petition_id_status(collection, status, time=None):
-    collection.update({'_id': id['_id']}, {'$set': {'status': status, 'time': time}}, upsert=True)
+def change_petition_id_status(current, collection, status, time=None):
+    collection.update({'_id': current['_id']}, {'$set': {'status': status, 'time': time}}, upsert=True)
 
 
 
-@staticmethod
 def all_iteration(start):
     count = 1000
     while count > 0:
         count = one_iteration(start)
         print "[%d] Finished one iteration with count: %d" % (start, count)
 
-@staticmethod
 def one_iteration(start):
     conn = MongoConnection.default_connection()
     petition_ids = conn['changeorg']['petition_ids']
     petitions_scrapped = conn['changeorg']['petitions_scrapped']
     responses_scrapped = conn['changeorg']['responses_scrapped']
 
-    to_process = petition_ids.find({'status': 'new'}).min({"id": start}).limit(1000)
+    to_process = petition_ids.find({"$and": [{'status': 'new'}, {"id": {"$gt": start}}]}).limit(1000)
 
     time_petition = 0
     time_creator = 0
@@ -252,8 +250,9 @@ def one_iteration(start):
     time_total = 0
     n = 0
 
+
     for current in to_process:
-        change_petition_id_status(petition_ids, 'in_progress')
+        change_petition_id_status(current, petition_ids, 'in_progress')
         dc = DataCollector(current['id'])
         petitions_scrapped.update({'id': current['id']}, {'$set': dc.get_detailed_data()}, upsert=True)
         for response in dc.responses:
@@ -267,7 +266,7 @@ def one_iteration(start):
         time_responses += dc.time_responses
         total = (dc.time_petition + dc.time_creator + dc.time_comments + dc.time_updates + dc.time_popularity + dc.time_endorsements + dc.time_responses)
         time_total += total
-        change_petition_id_status(petition_ids, 'done', total)
+        change_petition_id_status(current, petition_ids, 'done', total)
         n += 1
         if n % 5 == 0:
             print 'scrapped %d petitions, current one %s' % (n, current)
@@ -285,11 +284,13 @@ def one_iteration(start):
     return petition_ids.find({'status': 'new'}).count()
 
 
+def print_sth(start):
+    print start
 
 if __name__ == "__main__":
     procs = 32
+    step = 100000
 
-    min_petition_id = 30000
-    starts = np.arange(min_petition_id, step= 100000)
+    starts = range(0, procs * step, step)
     pool = multiprocessing.Pool(processes=procs)
     pool.map(all_iteration, starts)
