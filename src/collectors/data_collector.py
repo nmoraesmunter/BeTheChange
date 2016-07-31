@@ -227,7 +227,45 @@ class DataCollector(object):
 
 if __name__ == "__main__":
 
+    conn = MongoConnection.default_connection()
+    petition_ids = conn['changeorg']['petition_ids']
+    petitions_scrapped = conn['changeorg']['petitions_scrapped']
+    responses_scrapped = conn['changeorg']['responses_scrapped']
 
+    to_process = petition_ids.find().limit(10)
+
+    time_petition = 0
+    time_creator = 0
+    time_comments = 0
+    time_updates = 0
+    time_popularity = 0
+    time_endorsements = 0
+    time_responses = 0
+
+    for id in to_process:
+        dc = DataCollector(id)
+        petitions_scrapped.insert(dc.get_detailed_data())
+        for response in dc.responses:
+            responses_scrapped.insert(response)
+        time_petition += dc.time_petition
+        time_creator += dc.time_creator
+        time_comments += dc.time_comments
+        time_updates += dc.time_updates
+        time_popularity += dc.time_popularity
+        time_endorsements += dc.time_endorsements
+        time_responses += dc.time_responses
+
+    print "------------------TIMES-----------------------"
+    print "Petitions : %f" % (time_petition/10)
+    print "Creator : %f"% (time_creator/10)
+    print "Comments : %f"% (time_comments/10)
+    print "Updates : %f"% (time_updates/10)
+    print "Popularity : %f" % (time_popularity/10)
+    print "Endorsements : %f" % (time_endorsements/10)
+    print "Responses : %f" % (time_responses/10)
+    print "TOTAL %f"% ((time_petition + time_creator + time_comments + time_updates + time_popularity + time_endorsements + time_responses)/10)
+
+    """
     ids = [6501305, 1423479, 6505706, 6506345, 6520007, 6524459,6592865,6581579, 6581402, 6574643]
     data = []
     responses = []
@@ -242,17 +280,6 @@ if __name__ == "__main__":
         dc = DataCollector(id)
         data.append(dc.get_detailed_data())
         responses = dc.responses
-        time_petition += dc.time_petition
-        time_creator += dc.time_creator
-        time_comments += dc.time_comments
-        time_updates += dc.time_updates
-        time_popularity += dc.time_popularity
-        time_endorsements += dc.time_endorsements
-        time_responses += dc.time_responses
-
-    conn = MongoConnection.default_connection()
-    petition_ids = conn['changeorg']['petition_ids']
-
 
 
     print "------------------TIMES-----------------------"
@@ -264,3 +291,4 @@ if __name__ == "__main__":
     print "Endorsements : %f" % (time_endorsements/10)
     print "Responses : %f" % (time_responses/10)
     print "TOTAL %f"% ((time_petition + time_creator + time_comments + time_updates + time_popularity + time_endorsements + time_responses)/10)
+    """
