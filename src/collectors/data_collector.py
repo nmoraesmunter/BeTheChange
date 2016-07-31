@@ -274,17 +274,19 @@ def one_iteration(start):
         except Exception as excp:
             print "[%d] {%s} exception %s" % (start, current, excp)
 
-
-    print "------------------TIMES-----------------------"
-    print "Petitions : %f" % (time_petition * 1. / n)
-    print "Creator : %f" % (time_creator * 1./ n)
-    print "Comments : %f" % (time_comments * 1./ n)
-    print "Updates : %f" % (time_updates * 1./ n)
-    print "Popularity : %f" % (time_popularity * 1./ n)
-    print "Endorsements : %f" % (time_endorsements * 1./ n)
-    print "Responses : %f" % (time_responses * 1./ n)
-    print "Total processed: %s" % n
-    print "TOTAL %f" % (time_total * 1./ n)
+    if n == 0:
+        print "No petition found. Start at %s" % start
+    else:
+        print "------------------TIMES-----------------------"
+        print "Petitions : %f" % (time_petition * 1. / n)
+        print "Creator : %f" % (time_creator * 1./ n)
+        print "Comments : %f" % (time_comments * 1./ n)
+        print "Updates : %f" % (time_updates * 1./ n)
+        print "Popularity : %f" % (time_popularity * 1./ n)
+        print "Endorsements : %f" % (time_endorsements * 1./ n)
+        print "Responses : %f" % (time_responses * 1./ n)
+        print "Total processed: %s" % n
+        print "TOTAL %f" % (time_total * 1./ n)
 
     return petition_ids.find({'status': 'new'}).count()
 
