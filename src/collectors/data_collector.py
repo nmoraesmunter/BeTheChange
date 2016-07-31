@@ -4,7 +4,7 @@ import requests
 import timeit
 from bs4 import BeautifulSoup
 from datetime import datetime
-import text_processor
+from src.preprocess.text_processor import TextProcessor
 
 
 
@@ -25,7 +25,7 @@ class DataCollector(object):
         petition_url = "https://www.change.org/api-proxy/-/petitions/%d" % self.petition_id
         petition_json = json.loads(requests.get(petition_url).content)
 
-        tp = text_processor.TextProcessor(petition_json["description"])
+        tp = TextProcessor(petition_json["description"])
         links = tp.get_links()
         total_popularity = 0
         n = len(links)
