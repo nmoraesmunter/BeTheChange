@@ -225,12 +225,12 @@ def change_petition_id_status(current, collection, status, time=None):
     collection.update({'_id': current['_id']}, {'$set': {'status': status, 'time': time}}, upsert=True)
 
 
-
 def all_iteration(start):
     count = 1000
     while count > 0:
         count = one_iteration(start)
         print "[%d] Finished one iteration with count: %d" % (start, count)
+
 
 def one_iteration(start):
     conn = MongoConnection.default_connection()
@@ -250,26 +250,30 @@ def one_iteration(start):
     time_total = 0
     n = 0
 
-
     for current in to_process:
-        change_petition_id_status(current, petition_ids, 'in_progress')
-        dc = DataCollector(current['id'])
-        petitions_scrapped.update({'id': current['id']}, {'$set': dc.get_detailed_data()}, upsert=True)
-        for response in dc.responses:
-            responses_scrapped.update({'id': response['id']}, {'$set': response}, upsert=True)
-        time_petition += dc.time_petition
-        time_creator += dc.time_creator
-        time_comments += dc.time_comments
-        time_updates += dc.time_updates
-        time_popularity += dc.time_popularity
-        time_endorsements += dc.time_endorsements
-        time_responses += dc.time_responses
-        total = (dc.time_petition + dc.time_creator + dc.time_comments + dc.time_updates + dc.time_popularity + dc.time_endorsements + dc.time_responses)
-        time_total += total
-        change_petition_id_status(current, petition_ids, 'done', total)
-        n += 1
-        if n % 5 == 0:
-            print 'scrapped %d petitions, current one %s' % (n, current)
+        try:
+            change_petition_id_status(current, petition_ids, 'in_progress')
+            dc = DataCollector(current['id'])
+            petitions_scrapped.update({'id': current['id']}, {'$set': dc.get_detailed_data()}, upsert=True)
+            for response in dc.responses:
+                responses_scrapped.update({'id': response['id']}, {'$set': response}, upsert=True)
+            time_petition += dc.time_petition
+            time_creator += dc.time_creator
+            time_comments += dc.time_comments
+            time_updates += dc.time_updates
+            time_popularity += dc.time_popularity
+            time_endorsements += dc.time_endorsements
+            time_responses += dc.time_responses
+            total = (
+            dc.time_petition + dc.time_creator + dc.time_comments + dc.time_updates + dc.time_popularity + dc.time_endorsements + dc.time_responses)
+            time_total += total
+            change_petition_id_status(current, petition_ids, 'done', total)
+            n += 1
+            if n % 5 == 0:
+                print 'scrapped %d petitions, current one %s' % (n, current)
+        except Exception as excp:
+            print "[%d] {%s} exception %s" % (start, current, excp)
+
 
     print "------------------TIMES-----------------------"
     print "Petitions : %f" % (time_petition / 10)
@@ -287,9 +291,10 @@ def one_iteration(start):
 def print_sth(start):
     print start
 
+
 if __name__ == "__main__":
-    procs = 32
-    step = 100000
+    procs = 320
+    step = 10000
 
     starts = range(0, procs * step, step)
     pool = multiprocessing.Pool(processes=procs)
