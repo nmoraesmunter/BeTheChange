@@ -276,15 +276,15 @@ def one_iteration(start):
 
 
     print "------------------TIMES-----------------------"
-    print "Petitions : %f" % (time_petition / n)
-    print "Creator : %f" % (time_creator / n)
-    print "Comments : %f" % (time_comments / n)
-    print "Updates : %f" % (time_updates / n)
-    print "Popularity : %f" % (time_popularity / n)
-    print "Endorsements : %f" % (time_endorsements / n)
-    print "Responses : %f" % (time_responses / n)
+    print "Petitions : %f" % (time_petition * 1. / n)
+    print "Creator : %f" % (time_creator * 1./ n)
+    print "Comments : %f" % (time_comments * 1./ n)
+    print "Updates : %f" % (time_updates * 1./ n)
+    print "Popularity : %f" % (time_popularity * 1./ n)
+    print "Endorsements : %f" % (time_endorsements * 1./ n)
+    print "Responses : %f" % (time_responses * 1./ n)
     print "Total processed: %s" % n
-    print "TOTAL %f" % (time_total / n)
+    print "TOTAL %f" % (time_total * 1./ n)
 
     return petition_ids.find({'status': 'new'}).count()
 
