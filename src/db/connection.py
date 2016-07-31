@@ -17,8 +17,8 @@ class MongoConnection():
         Sets just the values
         :return: the MongoDB connection already initialized
         """
-        default = "configuration/default.json"
-        override = "configuration/override.json"
+        default = "src/db/configuration/default.json"
+        override = "src/db/configuration/override.json"
         with open(default, 'rb') as default_file:
             values = json.load(default_file)
             if os.path.exists(override):

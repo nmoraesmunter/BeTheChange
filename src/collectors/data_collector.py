@@ -223,8 +223,9 @@ class DataCollector(object):
 
 
 
-
-
+def change_petition_id_status(collection, status, time=None):
+    collection.update( {'_id': id['_id']}, { '$set': { 'status':status, 'time':time } }, upsert=True)
+ 
 if __name__ == "__main__":
 
     conn = MongoConnection.default_connection()
@@ -232,7 +233,7 @@ if __name__ == "__main__":
     petitions_scrapped = conn['changeorg']['petitions_scrapped']
     responses_scrapped = conn['changeorg']['responses_scrapped']
 
-    to_process = petition_ids.find().limit(10)
+    to_process = petition_ids.find({'status':'new'}).limit(1000)
 
     time_petition = 0
     time_creator = 0
@@ -241,9 +242,12 @@ if __name__ == "__main__":
     time_popularity = 0
     time_endorsements = 0
     time_responses = 0
+    time_total = 0
+    n = 0
 
     for id in to_process:
-        dc = DataCollector(id)
+        change_petition_id_status(petition_ids, 'in_progress')
+        dc = DataCollector(id['id'])
         petitions_scrapped.insert(dc.get_detailed_data())
         for response in dc.responses:
             responses_scrapped.insert(response)
@@ -254,6 +258,12 @@ if __name__ == "__main__":
         time_popularity += dc.time_popularity
         time_endorsements += dc.time_endorsements
         time_responses += dc.time_responses
+        total = (dc.time_petition + dc.time_creator + dc.time_comments + dc.time_updates + dc.time_popularity + dc.time_endorsements + dc.time_responses)
+        time_total += total
+        change_petition_id_status(petition_ids, 'done', total)
+        n += 1
+        if (n % 5 == 0):
+            print 'scrapped %d petitions, current one %s' % (n, id)
 
     print "------------------TIMES-----------------------"
     print "Petitions : %f" % (time_petition/10)
@@ -263,32 +273,4 @@ if __name__ == "__main__":
     print "Popularity : %f" % (time_popularity/10)
     print "Endorsements : %f" % (time_endorsements/10)
     print "Responses : %f" % (time_responses/10)
-    print "TOTAL %f"% ((time_petition + time_creator + time_comments + time_updates + time_popularity + time_endorsements + time_responses)/10)
-
-    """
-    ids = [6501305, 1423479, 6505706, 6506345, 6520007, 6524459,6592865,6581579, 6581402, 6574643]
-    data = []
-    responses = []
-    time_petition = 0
-    time_creator = 0
-    time_comments = 0
-    time_updates = 0
-    time_popularity = 0
-    time_endorsements = 0
-    time_responses = 0
-    for id in ids:
-        dc = DataCollector(id)
-        data.append(dc.get_detailed_data())
-        responses = dc.responses
-
-
-    print "------------------TIMES-----------------------"
-    print "Petitions : %f" % (time_petition/10)
-    print "Creator : %f"% (time_creator/10)
-    print "Comments : %f"% (time_comments/10)
-    print "Updates : %f"% (time_updates/10)
-    print "Popularity : %f" % (time_popularity/10)
-    print "Endorsements : %f" % (time_endorsements/10)
-    print "Responses : %f" % (time_responses/10)
-    print "TOTAL %f"% ((time_petition + time_creator + time_comments + time_updates + time_popularity + time_endorsements + time_responses)/10)
-    """
+    print "TOTAL %f"% (time_total/10)
