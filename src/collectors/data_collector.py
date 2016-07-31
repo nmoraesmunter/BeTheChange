@@ -238,8 +238,7 @@ def one_iteration(start):
     petitions_scrapped = conn['changeorg']['petitions_scrapped']
     responses_scrapped = conn['changeorg']['responses_scrapped']
 
-    to_process = petition_ids.find({"$and": [{'status': 'new'}, {"id": {"$gt": start}}]}, no_cursor_timeout=True)\
-        .limit(1000)
+    to_process = petition_ids.find({"$and": [{'status': 'new'}, {"id": {"$gt": start}}]}).limit(1000)
 
     time_petition = 0
     time_creator = 0
@@ -265,8 +264,8 @@ def one_iteration(start):
             time_popularity += dc.time_popularity
             time_endorsements += dc.time_endorsements
             time_responses += dc.time_responses
-            total = (
-            dc.time_petition + dc.time_creator + dc.time_comments + dc.time_updates + dc.time_popularity + dc.time_endorsements + dc.time_responses)
+            total = (dc.time_petition + dc.time_creator + dc.time_comments + dc.time_updates + dc.time_popularity
+                     + dc.time_endorsements + dc.time_responses)
             time_total += total
             change_petition_id_status(current, petition_ids, 'done', total)
             n += 1
@@ -277,14 +276,15 @@ def one_iteration(start):
 
 
     print "------------------TIMES-----------------------"
-    print "Petitions : %f" % (time_petition / 10)
-    print "Creator : %f" % (time_creator / 10)
-    print "Comments : %f" % (time_comments / 10)
-    print "Updates : %f" % (time_updates / 10)
-    print "Popularity : %f" % (time_popularity / 10)
-    print "Endorsements : %f" % (time_endorsements / 10)
-    print "Responses : %f" % (time_responses / 10)
-    print "TOTAL %f" % (time_total / 10)
+    print "Petitions : %f" % (time_petition / n)
+    print "Creator : %f" % (time_creator / n)
+    print "Comments : %f" % (time_comments / n)
+    print "Updates : %f" % (time_updates / n)
+    print "Popularity : %f" % (time_popularity / n)
+    print "Endorsements : %f" % (time_endorsements / n)
+    print "Responses : %f" % (time_responses / n)
+    print "Total processed: %s" % n
+    print "TOTAL %f" % (time_total / n)
 
     return petition_ids.find({'status': 'new'}).count()
 
