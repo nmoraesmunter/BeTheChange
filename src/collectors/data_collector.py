@@ -238,7 +238,8 @@ def one_iteration(start):
     petitions_scrapped = conn['changeorg']['petitions_scrapped']
     responses_scrapped = conn['changeorg']['responses_scrapped']
 
-    to_process = petition_ids.find({"$and": [{'status': 'new'}, {"id": {"$gt": start}}]}).limit(1000)
+    to_process = petition_ids.find({"$and": [{'status': 'new'}, {"id": {"$gt": start}}]}, no_cursor_timeout=True)\
+        .limit(1000)
 
     time_petition = 0
     time_creator = 0
@@ -293,8 +294,8 @@ def print_sth(start):
 
 
 if __name__ == "__main__":
-    procs = 320
-    step = 10000
+    procs = 64
+    step = 100000
 
     starts = range(0, procs * step, step)
     pool = multiprocessing.Pool(processes=procs)
