@@ -300,8 +300,10 @@ def print_sth(start):
 if __name__ == "__main__":
     procs = 64
     step = 100000
+    max_id = 3000000
 
-    starts = range(0, procs * step, step)
+    starts = range(0, max_id, max_id / 64)
     print "That's my steps: %s" % starts
     pool = multiprocessing.Pool(processes=procs)
     pool.map(all_iteration, starts)
+    print "finished the process, enjoy your scrapped data!"
