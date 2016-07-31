@@ -290,7 +290,7 @@ def one_iteration(start):
         print "Total processed: %s" % n
         print "TOTAL %f" % (time_total * 1./ n)
 
-    return petition_ids.find({'status': 'new'}).count()
+    return petition_ids.find({"$and": [{'status': 'new'}, {"id": {"$gt": start}}]}).count()
 
 
 def print_sth(start):
