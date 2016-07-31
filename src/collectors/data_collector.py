@@ -240,7 +240,7 @@ def one_iteration(start):
     petitions_scrapped = conn['changeorg']['petitions_scrapped']
     responses_scrapped = conn['changeorg']['responses_scrapped']
 
-    to_process = petition_ids.find({"$and": [{'status': 'new'}, {"id": {"$gt": start}}]}).limit(1000)
+    to_process = petition_ids.find({"$and": [{'status': 'in_progress'}, {"id": {"$gt": start}}]}).limit(1000)
 
     time_petition = 0
     time_creator = 0
@@ -254,7 +254,7 @@ def one_iteration(start):
 
     for current in to_process:
         try:
-            change_petition_id_status(current, petition_ids, 'in_progress')
+            change_petition_id_status(current, petition_ids, 'in_progress_again')
             dc = DataCollector(current['id'])
             petitions_scrapped.update({'id': current['id']}, {'$set': dc.get_detailed_data()}, upsert=True)
             for response in dc.responses:
@@ -290,7 +290,7 @@ def one_iteration(start):
         print "Total processed: %s" % n
         print "TOTAL %f" % (time_total * 1./ n)
 
-    return petition_ids.find({"$and": [{'status': 'new'}, {"id": {"$gt": start}}]}).count()
+    return petition_ids.find({"$and": [{'status': 'in_progress'}, {"id": {"$gt": start}}]}).count()
 
 
 def print_sth(start):
@@ -302,7 +302,7 @@ if __name__ == "__main__":
     step = 100000
     max_id = 3000000
 
-    starts = range(0, max_id, max_id // procs)
+    starts = range(31889, max_id, max_id // procs)
     print "That's my steps: %s" % starts
     pool = multiprocessing.Pool(processes=procs)
     pool.map(all_iteration, starts)
