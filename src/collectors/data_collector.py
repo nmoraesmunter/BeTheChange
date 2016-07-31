@@ -300,5 +300,6 @@ if __name__ == "__main__":
     step = 100000
 
     starts = range(0, procs * step, step)
+    print "That's my steps: %s" % starts
     pool = multiprocessing.Pool(processes=procs)
     pool.map(all_iteration, starts)
