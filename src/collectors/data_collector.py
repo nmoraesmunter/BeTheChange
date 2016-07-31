@@ -5,8 +5,7 @@ import timeit
 from bs4 import BeautifulSoup
 from datetime import datetime
 from src.preprocess.text_processor import TextProcessor
-
-
+from src.db.connection import MongoConnection
 
 
 class DataCollector(object):
@@ -251,6 +250,8 @@ if __name__ == "__main__":
         time_endorsements += dc.time_endorsements
         time_responses += dc.time_responses
 
+    conn = MongoConnection.default_connection()
+    petition_ids = conn['changeorg']['petition_ids']
 
 
 
