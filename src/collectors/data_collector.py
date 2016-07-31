@@ -13,6 +13,7 @@ class DataCollector(object):
 
     def __init__(self, petition_id):
         self.petition_id = petition_id
+        self.responses = []
         self.time_petition = 0
         self.time_popularity = 0
         self.time_creator = 0
@@ -82,11 +83,13 @@ class DataCollector(object):
 
         count_past_victories = 0
         count_verified_past_victories = 0
+        count_past_petitions = 0
         past_victory_dates = []
         verified_past_victory_dates = []
 
         for past_petition in other_petitions:
             if past_petition["id"] != self.petition_id: # We don't count current victory as a past victory or petition
+                count_past_petitions += 1
                 count_past_victories += past_petition["is_victory"]
                 count_verified_past_victories += past_petition["is_verified_victory"]
                 victory_date = None
@@ -97,7 +100,7 @@ class DataCollector(object):
                 if past_petition["is_verified_victory"] and victory_date:
                     verified_past_victory_dates.append(victory_date)
 
-        creator_stats["num_past_petitions"] = len(other_petitions)
+        creator_stats["num_past_petitions"] = count_past_petitions
         creator_stats["num_past_victories"] = count_past_victories
         creator_stats["num_past_verified_victories"] = count_verified_past_victories
 
@@ -130,10 +133,12 @@ class DataCollector(object):
                 news_coverages += 1
             elif item["kind"] == "verified_tweet":
                 num_tweets += 1
-                if "embedded_media" in item and "favorite_count" in item["embedded_media"]:
-                    tweets_followers += item["embedded_media"]["followers_count"]
-                    twitter_popularity += item["embedded_media"]["favorite_count"] \
-                                          + item["embedded_media"]["retweet_count"]
+                if "embedded_media" in item:
+                    if "followers_count" in item["embedded_media"]:
+                        tweets_followers += item["embedded_media"]["followers_count"]
+                    if "favorite_count" in item["embedded_media"]:
+                        twitter_popularity += item["embedded_media"]["favorite_count"] \
+                                              + item["embedded_media"]["retweet_count"]
             else:
                 milestones += 1
         updates_stats["last_update"] = last_update
@@ -158,11 +163,8 @@ class DataCollector(object):
     def collect_responses(self):
         responses_url = "https://www.change.org/api-proxy/-/petitions/%d/responses" % self.petition_id
         responses_json = json.loads(requests.get(responses_url).content)
-        responses_stats = {}
-        if "count" in responses_json:
-            responses_stats["num_responses"] = responses_json["count"]
-        else:
-            responses_stats["num:responses"] = 0
+        responses_stats = {"num_responses": len(responses_json["items"])}
+        self.responses = responses_json["items"]
         return responses_stats
 
     def get_fb_popularity(self, url):
@@ -229,6 +231,7 @@ if __name__ == "__main__":
 
     ids = [6501305, 1423479, 6505706, 6506345, 6520007, 6524459,6592865,6581579, 6581402, 6574643]
     data = []
+    responses = []
     time_petition = 0
     time_creator = 0
     time_comments = 0
@@ -239,6 +242,7 @@ if __name__ == "__main__":
     for id in ids:
         dc = DataCollector(id)
         data.append(dc.get_detailed_data())
+        responses = dc.responses
         time_petition += dc.time_petition
         time_creator += dc.time_creator
         time_comments += dc.time_comments
