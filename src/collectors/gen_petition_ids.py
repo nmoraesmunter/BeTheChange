@@ -3,11 +3,11 @@ from pymongo import MongoClient
 # Get MongoDB
 mc = MongoClient()
 db = mc['changeorg']
-mongo_petitions = db["us_closed_petitions"]
-db.drop_collection("petition_ids")
-mongo_ids = db["petition_ids"]
+mongo_petitions = db["petitions"]
+db.drop_collection("open_petition_ids")
+mongo_ids = db["open_petition_ids"]
 
-cursor = mongo_petitions.find({"petition_id":{"$gt":0}}, {"petition_id":1})
+cursor = mongo_petitions.find({"$and": [{ "status": { "$nin": ['preview','closed', 'victory'] }}, { "targets.type": 'us_government' }]}, {"petition_id":1})
 
 
 for petition_id in cursor:

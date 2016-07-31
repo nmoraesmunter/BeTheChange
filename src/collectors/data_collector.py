@@ -236,11 +236,11 @@ def all_iteration(start):
 
 def one_iteration(start):
     conn = MongoConnection.default_connection()
-    petition_ids = conn['changeorg']['petition_ids']
-    petitions_scrapped = conn['changeorg']['petitions_scrapped']
-    responses_scrapped = conn['changeorg']['responses_scrapped']
+    petition_ids = conn['changeorg']['open_petition_ids']
+    petitions_scrapped = conn['changeorg']['open_petitions_scrapped']
+    responses_scrapped = conn['changeorg']['open_responses_scrapped']
 
-    to_process = petition_ids.find({"$and": [{'status': 'in_progress'}, {"id": {"$gt": start}}]}).limit(1000)
+    to_process = petition_ids.find({"$and": [{'status': 'new'}, {"id": {"$gt": start}}]}).limit(1000)
 
     time_petition = 0
     time_creator = 0
@@ -254,7 +254,7 @@ def one_iteration(start):
 
     for current in to_process:
         try:
-            change_petition_id_status(current, petition_ids, 'in_progress_again')
+            change_petition_id_status(current, petition_ids, 'in_progress')
             dc = DataCollector(current['id'])
             petitions_scrapped.update({'id': current['id']}, {'$set': dc.get_detailed_data()}, upsert=True)
             for response in dc.responses:
@@ -300,9 +300,9 @@ def print_sth(start):
 if __name__ == "__main__":
     procs = 64
     step = 100000
-    max_id = 3000000
+    max_id = 5000000
 
-    starts = range(31889, max_id, max_id // procs)
+    starts = range(0, max_id, max_id // procs)
     print "That's my steps: %s" % starts
     pool = multiprocessing.Pool(processes=procs)
     pool.map(all_iteration, starts)
