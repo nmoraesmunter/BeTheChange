@@ -231,6 +231,8 @@ def all_iteration(start):
         count = one_iteration(start)
         print "[%d] Finished one iteration with count: %d" % (start, count)
 
+    print "[%d] Arrived to the end!"
+
 
 def one_iteration(start):
     conn = MongoConnection.default_connection()
