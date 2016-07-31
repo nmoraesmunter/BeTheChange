@@ -193,7 +193,7 @@ class DataCollector(object):
             t = timeit.Timer(lambda: detailed_data.update(self.collect_petition()))
             self.time_petition += t.timeit(number=1)
         if get_fb_popularity:
-            known_url = "www.change.org/p/" + detailed_data["slug"]
+            known_url = "http://www.change.org/p/" + detailed_data["slug"]
             t = timeit.Timer(lambda: detailed_data.update({"fb_popularity": self.get_fb_popularity(known_url)}))
             self.time_popularity += t.timeit(number=1)
         if get_creator:
