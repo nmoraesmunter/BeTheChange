@@ -253,7 +253,7 @@ def one_iteration(start, prefix, limit=1000):
     """
     conn = MongoConnection.default_connection()
     tasks = conn[DB_NAME]['%spetition_ids' % prefix]
-    petitions_scrapped = conn[DB_NAME]['petitions_scrapped' % prefix]
+    petitions_scrapped = conn[DB_NAME]['%spetitions_scrapped' % prefix]
 
     to_process = tasks.find({"$and": [{'status': 'done'}, {"fb_status": "new"}, {"id": {"$gt": start}}]}).limit(limit)
 
