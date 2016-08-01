@@ -186,6 +186,8 @@ class DataCollector(object):
         fb_pop = 0
         if "shares" in fb_popularity_json:
             fb_pop = fb_popularity_json["shares"]
+        if "error" in fb_popularity_json:
+            print 'Error: %s' % fb_popularity_json
         return fb_pop
 
     def get_detailed_data(self, get_petition=True, get_creator=True, get_comments=True, get_updates=True,
