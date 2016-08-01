@@ -179,10 +179,7 @@ class DataCollector(object):
         :param petition_url:
         :return: fb_pop
         '''
-        fixed_url = url
-        if not url.startswith("http"):
-            fixed_url = "http://%s" % url  # Assume we want http and not https ... TODO Try first with http then https?
-        fb_api_url = "http://graph.facebook.com/%s" % fixed_url
+        fb_api_url = "http://graph.facebook.com/%s" % url
         fb_popularity_json = json.loads(requests.get(fb_api_url).content)
         fb_pop = 0
         if "shares" in fb_popularity_json:
