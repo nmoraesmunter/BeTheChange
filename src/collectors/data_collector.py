@@ -305,9 +305,9 @@ if __name__ == "__main__":
     print "[%s] That's my steps: %s." % (datetime.now(), starts)
     # First update the closed petitions
     pool = multiprocessing.Pool(processes=procs)
-    pool.startmap(all_iteration, [(x, "", 1) for x in starts])
+    pool.starmap(all_iteration, [(x, "", 1) for x in starts])
     print "[%s] Finished the process, enjoy your scrapped data!" % (datetime.now())
     # Then update the open petitions
     pool = multiprocessing.Pool(processes=procs)
-    pool.startmap(all_iteration, [(x, "open_", 1) for x in starts])
+    pool.starmap(all_iteration, [(x, "open_", 1) for x in starts])
 
