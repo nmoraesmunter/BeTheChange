@@ -230,10 +230,10 @@ def change_petition_id_status(current, collection, status, time=None):
     collection.update({'_id': current['_id']}, {'$set': {'fb_status': status, 'fb_time': time}}, upsert=True)
 
 
-def all_iteration(start):
+def all_iteration(start, prefix):
     count = 1000
     while count > 0:
-        count = one_iteration(start)
+        count = one_iteration(start, prefix)
         print "[%d] Finished one iteration with count: %d" % (start, count)
 
     print "[%d] Arrived to the end!"
@@ -297,15 +297,17 @@ def print_sth(start):
 
 
 if __name__ == "__main__":
-    procs = 64
+    procs = 4
     step = 100000
     max_id = 5000000
 
     starts = range(0, max_id, max_id // procs)
     print "[%s] That's my steps: %s." % (datetime.now(), starts)
-    """ TODO uncomment when it works for one case.
+    # First update the closed petitions
     pool = multiprocessing.Pool(processes=procs)
-    pool.map(all_iteration, starts)
-    """
-    one_iteration(1000, "", 1)
+    pool.map(all_iteration, [(x, "", 1) for x in starts])
     print "[%s] Finished the process, enjoy your scrapped data!" % (datetime.now())
+    # Then update the open petitions
+    pool = multiprocessing.Pool(processes=procs)
+    pool.map(all_iteration, [(x, "open_", 1) for x in starts])
+
