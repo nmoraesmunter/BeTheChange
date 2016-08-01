@@ -1,5 +1,7 @@
 from __future__ import division
 import json
+import traceback
+
 import requests
 import timeit
 from bs4 import BeautifulSoup
@@ -266,16 +268,18 @@ def one_iteration(start, prefix, limit=1000):
             change_petition_id_status(current, tasks, 'in_progress')
             dc = DataCollector(current['id'])
             url = "https://www.change.org/p/%s" % current['id']
-            t = timeit.Timer(lambda: petitions_scrapped.update({'id': current['id']}, {'$set': {"fb_popularity": dc.get_fb_popularity(url)}}, upsert=True))
+            t = timeit.Timer(lambda: petitions_scrapped.update({'id': current['id']},
+                                                               {'$set': {"fb_popularity": dc.get_fb_popularity(url)}},
+                                                               upsert=True))
 
             time_popularity += t.timeit(number=1)
             change_petition_id_status(current, tasks, 'done', time_popularity)
             n += 1
             if n % 5 == 0:
                 print 'scrapped %d petitions, current one %s' % (n, current)
-            print "[%s] Done with: %s" % (datetime.now(), petitions_scrapped.findOne({'id': current['id']}))
         except Exception as excp:
             print "[%d] {%s} exception %s" % (start, current, excp)
+            traceback.print_stack()
 
 
     if n == 0:
