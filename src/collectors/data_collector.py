@@ -177,7 +177,10 @@ class DataCollector(object):
         :param petition_url:
         :return: fb_pop
         '''
-        fb_api_url = "http://graph.facebook.com/%s" % url
+        fixed_url = url
+        if not url.startswith("http"):
+            fixed_url = "http://%s" % url  # Assume we want http and not https ... TODO Try first with http then https?
+        fb_api_url = "http://graph.facebook.com/%s" % fixed_url
         fb_popularity_json = json.loads(requests.get(fb_api_url).content)
         fb_pop = 0
         if "shares" in fb_popularity_json:
@@ -222,7 +225,7 @@ class DataCollector(object):
 
 
 def change_petition_id_status(current, collection, status, time=None):
-    collection.update({'_id': current['_id']}, {'$set': {'status': status, 'time': time}}, upsert=True)
+    collection.update({'_id': current['_id']}, {'$set': {'fb_status': status, 'fb_time': time}}, upsert=True)
 
 
 def all_iteration(start):
@@ -233,64 +236,56 @@ def all_iteration(start):
 
     print "[%d] Arrived to the end!"
 
+DB_NAME = 'changeorg'
 
-def one_iteration(start):
+
+def one_iteration(start, prefix, limit=1000):
+    """
+    It will do the following:
+        - Find a petition that is status='done' and fb_status='new'
+        - Mark this petition_id (or open_petition_id) as 'in_progress'
+        - Update the petitions_scrapped with the new fb_popularity field
+        - Mark this petition_id (or open_petition_id) as 'done'
+    :param start: where to start the filtering to avoid multiple processes doing the same work
+    :param prefix: It is a prefix to be used while searching for the collection.
+    :param limit: Limit of documents to process in one iteration. It's a desired number.
+    :return: the count of petitions still needed to be cleaned
+    """
     conn = MongoConnection.default_connection()
-    petition_ids = conn['changeorg']['open_petition_ids']
-    petitions_scrapped = conn['changeorg']['open_petitions_scrapped']
-    responses_scrapped = conn['changeorg']['open_responses_scrapped']
+    tasks = conn[DB_NAME]['%spetition_ids' % prefix]
+    petitions_scrapped = conn[DB_NAME]['petitions_scrapped' % prefix]
 
-    to_process = petition_ids.find({"$and": [{'status': 'new'}, {"id": {"$gt": start}}]}).limit(1000)
+    to_process = tasks.find({"$and": [{'status': 'done'}, {"fb_status": "new"}, {"id": {"$gt": start}}]}).limit(limit)
 
-    time_petition = 0
-    time_creator = 0
-    time_comments = 0
-    time_updates = 0
     time_popularity = 0
-    time_endorsements = 0
-    time_responses = 0
-    time_total = 0
     n = 0
 
     for current in to_process:
         try:
-            change_petition_id_status(current, petition_ids, 'in_progress')
+            print "[%s] Going to process %s" % (datetime.now(), current)
+            change_petition_id_status(current, tasks, 'in_progress')
             dc = DataCollector(current['id'])
-            petitions_scrapped.update({'id': current['id']}, {'$set': dc.get_detailed_data()}, upsert=True)
-            for response in dc.responses:
-                responses_scrapped.update({'id': response['id']}, {'$set': response}, upsert=True)
-            time_petition += dc.time_petition
-            time_creator += dc.time_creator
-            time_comments += dc.time_comments
-            time_updates += dc.time_updates
-            time_popularity += dc.time_popularity
-            time_endorsements += dc.time_endorsements
-            time_responses += dc.time_responses
-            total = (dc.time_petition + dc.time_creator + dc.time_comments + dc.time_updates + dc.time_popularity
-                     + dc.time_endorsements + dc.time_responses)
-            time_total += total
-            change_petition_id_status(current, petition_ids, 'done', total)
+            url = "https://www.change.org/p/%s" % current['id']
+            t = timeit.Timer(lambda: petitions_scrapped.update({'id': current['id']}, {'$set': {"fb_popularity": dc.get_fb_popularity(url)}}, upsert=True))
+
+            time_popularity += t.timeit(number=1)
+            change_petition_id_status(current, tasks, 'done', time_popularity)
             n += 1
             if n % 5 == 0:
                 print 'scrapped %d petitions, current one %s' % (n, current)
+            print "[%s] Done with: %s" % (datetime.now(), petitions_scrapped.findOne({'id': current['id']}))
         except Exception as excp:
             print "[%d] {%s} exception %s" % (start, current, excp)
+
 
     if n == 0:
         print "No petition found. Start at %s" % start
     else:
         print "------------------TIMES-----------------------"
-        print "Petitions : %f" % (time_petition * 1. / n)
-        print "Creator : %f" % (time_creator * 1./ n)
-        print "Comments : %f" % (time_comments * 1./ n)
-        print "Updates : %f" % (time_updates * 1./ n)
-        print "Popularity : %f" % (time_popularity * 1./ n)
-        print "Endorsements : %f" % (time_endorsements * 1./ n)
-        print "Responses : %f" % (time_responses * 1./ n)
         print "Total processed: %s" % n
-        print "TOTAL %f" % (time_total * 1./ n)
+        print "Popularity : %f" % (time_popularity * 1./ n)
 
-    return petition_ids.find({"$and": [{'status': 'in_progress'}, {"id": {"$gt": start}}]}).count()
+    return tasks.find({"$and": [{'status': 'in_progress'}, {"id": {"$gt": start}}]}).count()
 
 
 def print_sth(start):
@@ -303,7 +298,10 @@ if __name__ == "__main__":
     max_id = 5000000
 
     starts = range(0, max_id, max_id // procs)
-    print "That's my steps: %s" % starts
+    print "[%s] That's my steps: %s." % (datetime.now(), starts)
+    """ TODO uncomment when it works for one case.
     pool = multiprocessing.Pool(processes=procs)
     pool.map(all_iteration, starts)
-    print "finished the process, enjoy your scrapped data!"
+    """
+    one_iteration(1000, "", 1)
+    print "[%s] Finished the process, enjoy your scrapped data!" % (datetime.now())
