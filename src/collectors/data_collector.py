@@ -230,10 +230,10 @@ def change_petition_id_status(current, collection, status, time=None):
     collection.update({'_id': current['_id']}, {'$set': {'fb_status': status, 'fb_time': time}}, upsert=True)
 
 
-def all_iteration(start, prefix):
+def all_iteration(start, prefix, limit=1000):
     count = 1000
     while count > 0:
-        count = one_iteration(start, prefix)
+        count = one_iteration(start, prefix, limit)
         print "[%d] Finished one iteration with count: %d" % (start, count)
 
     print "[%d] Arrived to the end!"
