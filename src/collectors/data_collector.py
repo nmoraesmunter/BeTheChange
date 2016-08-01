@@ -180,6 +180,7 @@ class DataCollector(object):
         :return: fb_pop
         '''
         fb_api_url = "http://graph.facebook.com/%s" % url
+        print fb_api_url
         fb_popularity_json = json.loads(requests.get(fb_api_url).content)
         fb_pop = 0
         if "shares" in fb_popularity_json:
