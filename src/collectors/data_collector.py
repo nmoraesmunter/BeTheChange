@@ -4,6 +4,8 @@ import traceback
 
 import requests
 import timeit
+
+import time
 from bs4 import BeautifulSoup
 from datetime import datetime
 from src.preprocess.text_processor import TextProcessor
@@ -184,7 +186,6 @@ class DataCollector(object):
         fb_pop = 0
         if "shares" in fb_popularity_json:
             fb_pop = fb_popularity_json["shares"]
-        print "%s url: %s, shares: %s" % ('Y' if fb_pop == 0 else 'N', url, fb_pop)
         return fb_pop
 
     def get_detailed_data(self, get_petition=True, get_creator=True, get_comments=True, get_updates=True,
@@ -279,7 +280,7 @@ def one_iteration(start, prefix, limit=1000):
         except Exception as excp:
             print "[%d] {%s} exception %s" % (start, current, excp)
             traceback.print_stack()
-
+        time.sleep(1)
 
     if n == 0:
         print "No petition found. Start at %s" % start
@@ -296,6 +297,10 @@ def print_sth(start):
 
 
 if __name__ == "__main__":
+    all_iteration({"start": 0, "prefix": "", "limit": 100})
+    all_iteration({"start": 0, "prefix": "open_", "limit": 100})
+    print "finished"
+    """
     procs = 4
     step = 100000
     max_id = 5000000
@@ -310,3 +315,4 @@ if __name__ == "__main__":
     pool = multiprocessing.Pool(processes=procs)
     pool.map(all_iteration, [{"start": x, "prefix": "open_", "limit": 1000} for x in starts])
     print "[%s] (closed) Finished the process, enjoy your scrapped data!" % (datetime.now())
+    """
