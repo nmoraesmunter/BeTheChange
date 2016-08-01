@@ -267,7 +267,8 @@ def one_iteration(start, prefix, limit=1000):
             print "[%s] Going to process %s" % (datetime.now(), current)
             change_petition_id_status(current, tasks, 'in_progress')
             dc = DataCollector(current['id'])
-            url = "https://www.change.org/p/%s" % current['id']
+            slug = petitions_scrapped.find({"id": current['id']}).limit(1)[0]['slug']
+            url = "https://www.change.org/p/http://graph.facebook.com/https://www.change.org/p/%s" % slug
             t = timeit.Timer(lambda: petitions_scrapped.update({'id': current['id']},
                                                                {'$set': {"fb_popularity": dc.get_fb_popularity(url)}},
                                                                upsert=True))
@@ -297,7 +298,7 @@ def print_sth(start):
 
 
 if __name__ == "__main__":
-    procs = 32
+    procs = 4
     step = 100000
     max_id = 5000000
 
@@ -306,8 +307,8 @@ if __name__ == "__main__":
     # First update the closed petitions
     pool = multiprocessing.Pool(processes=procs)
     pool.map(all_iteration, [{"start": x, "prefix": "", "limit": 1000} for x in starts])
-    print "[%s] Finished the process, enjoy your scrapped data!" % (datetime.now())
+    print "[%s] (closed) Finished the process, enjoy your scrapped data!" % (datetime.now())
     # Then update the open petitions
     pool = multiprocessing.Pool(processes=procs)
     pool.map(all_iteration, [{"start": x, "prefix": "open_", "limit": 1000} for x in starts])
-
+    print "[%s] (closed) Finished the process, enjoy your scrapped data!" % (datetime.now())
