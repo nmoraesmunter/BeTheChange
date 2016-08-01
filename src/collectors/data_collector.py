@@ -230,13 +230,13 @@ def change_petition_id_status(current, collection, status, time=None):
     collection.update({'_id': current['_id']}, {'$set': {'fb_status': status, 'fb_time': time}}, upsert=True)
 
 
-def all_iteration(start, prefix, limit=1000):
+def all_iteration(tuple_arg):
     count = 1000
     while count > 0:
-        count = one_iteration(start, prefix, limit)
-        print "[%d] Finished one iteration with count: %d" % (start, count)
+        count = one_iteration(**tuple_arg)
+        print "Finished one iteration with count: %s" % tuple_arg
 
-    print "[%d] Arrived to the end!"
+    print "[%d] Arrived to the end!" % tuple_arg['start']
 
 DB_NAME = 'changeorg'
 
@@ -305,9 +305,9 @@ if __name__ == "__main__":
     print "[%s] That's my steps: %s." % (datetime.now(), starts)
     # First update the closed petitions
     pool = multiprocessing.Pool(processes=procs)
-    pool.starmap(all_iteration, [(x, "", 1) for x in starts])
+    pool.map(all_iteration, [{"start": x, "prefix": "", "limit": 1} for x in starts])
     print "[%s] Finished the process, enjoy your scrapped data!" % (datetime.now())
     # Then update the open petitions
     pool = multiprocessing.Pool(processes=procs)
-    pool.starmap(all_iteration, [(x, "open_", 1) for x in starts])
+    pool.map(all_iteration, [{"start": x, "prefix": "open_", "limit": 1} for x in starts])
 
