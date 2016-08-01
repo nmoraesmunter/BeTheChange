@@ -3,18 +3,22 @@ import pandas as pd
 import numpy as np
 from utils.utils import read_mongo
 import text_processor
+from targets_processor import TargetsProcessor
 
 
 class DataPipeline(object):
 
     def __init__(self, df):
         self.df = df
-        self.featured_columns = ["calculated_goal", "comments_likes", "displayed_signature_count",
-                                 "displayed_supporter_count", "endorsements", "is_pledge", "is_organization",
+        self.featured_columns = ["calculated_goal", "comments_likes",
+                                 #"displayed_signature_count",
+                                 #"displayed_supporter_count",
+                                 "endorsements",
                                  "fb_popularity", "links_fb_popularity", "milestones", "news_coverages",
                                  "num_comments", "num_past_petitions", "num_past_verified_victories",
-                                 "num_past_victories", "num_responses", "num_tweets", "progress",
-                                 "status", "twitter_popularity", "tweets_followers"]
+                                 "num_past_victories", "num_responses", "num_tweets",
+                                 "status", "twitter_popularity", "tweets_followers", "description"]
+        self.target = "status"
 
 
     def drop_columns(self, to_drop):
@@ -45,6 +49,7 @@ class DataPipeline(object):
     def generate_text_features(self, columns):
 
         text_features_df = pd.DataFrame()
+        has_cols = []
         for column in columns:
             text_features_df["num_capitalized_words_" + column] = self.df[column]. \
                 apply(lambda x: text_processor.TextProcessor(x).count_capitalized_words())
@@ -56,7 +61,8 @@ class DataPipeline(object):
                 apply(lambda x: len(text_processor.TextProcessor(x).get_links()))
             text_features_df["has_hashtag_" + column] = self.df[column]. \
                 apply(lambda x: len(text_processor.TextProcessor(x).get_hashtags()) > 0)
-            text_features_df[column] = self.df[column]. \
+            has_cols.append("has_hashtag_" + column)
+            self.df[column] = self.df[column]. \
                 apply(lambda x: text_processor.TextProcessor(x).get_clean_text())
             text_features_df[column + "_len"] = self.df[column].replace(np.nan, '', regex=True).apply(len)
             text_features_df["num_words_" + column] = self.df[column].\
@@ -64,23 +70,31 @@ class DataPipeline(object):
 
         self.featured_columns += list(text_features_df.columns)
         self.df = pd.concat([self.df, text_features_df], axis=1)
+        self.convert_boolean(has_cols, False)
 
 
 
     def generate_date_features(self, columns):
 
         date_features_df = pd.DataFrame()
+        bool_cols = []
         for col in columns:
             date_features_df[col + "_year"] = self.df[col].dt.year
             date_features_df[col + "_month"] = self.df[col].dt.month
             date_features_df[col + "_is_year_end"] = self.df[col].dt.is_year_end
+            bool_cols.append(col + "_is_year_end")
             date_features_df[col + "_is_year_start"] = self.df[col].dt.is_year_start
+            bool_cols.append(col + "_is_year_start")
             date_features_df[col + "_quarter"] = self.df[col].dt.quarter
             date_features_df[col + "_is_quarter_end"] = self.df[col].dt.is_quarter_end
+            bool_cols.append(col + "_is_quarter_end")
             date_features_df[col + "_is_quarter_start"] = self.df[col].dt.is_quarter_start
+            bool_cols.append(col + "_is_quarter_start")
 
         self.featured_columns+= list(date_features_df.columns)
         self.df = pd.concat([self.df, date_features_df], axis=1)
+        self.convert_boolean(bool_cols, False)
+
 
 
 
@@ -128,20 +142,34 @@ class DataPipeline(object):
         if add_to_featured_columns:
             self.featured_columns+=columns
 
+    @staticmethod
+    def relevant_country(location):
+        if location is not None:
+            return location["country_code"]
+        else:
+            return "US"
+
+    @staticmethod
+    def relevant_state(location):
+        if location is not None:
+            return location["state_code"]
+        else:
+            return None
+
 
     def feature_engineering(self):
-        nlp = ["display_title", "description", "letter_body"]
-        feature_engineering = ["creator_photo", "languages", "media", "photo", "video","original_locale", "targets",
-                               "relevant_location", "restricted_location", "tags", "topic", "responses**", "user"]
 
-        to_has = ["creator_photo",  "media", "photo", "video", "topic"]
+        feature_engineering = ["tags"]
+
+        to_has = ["creator_photo",  "media", "photo", "video", "topic", "restricted_location"]
         to_count = ["languages",  "targets", "tags"]
         to_days_from_created_at = ["end_date", "last_past_verified_victory_date",
                         "last_past_victory_date", "last_update"]
         to_date_features = ["created_at"]
         to_text_features = ["ask", "display_title", "description", "letter_body"]
 
-        to_convert_boolean = ["comments_last_page","is_victory", "is_verified_victory", "is_en_US"]
+        to_convert_boolean = ["comments_last_page", "is_en_US",
+                              "is_organization", "is_pledge"]
 
         self.generate_text_features(to_text_features)
         self.generate_date_features(to_date_features)
@@ -150,21 +178,64 @@ class DataPipeline(object):
         self.generate_count_features(to_count)
 
         self.df["is_en_US"] = self.df["original_locale"] == "en-US"
-
         self.convert_boolean(to_convert_boolean, True)
+
+        #Get details from relevant location
+        self.df["relevant_country"] = self.df["relevant_location"].apply(lambda x: DataPipeline.relevant_country(x))
+        self.df["relevant_state"] = self.df["relevant_location"].apply(lambda x: DataPipeline.relevant_state(x))
+
+        #Get details from user
+        self.df["user_country"] = self.df["user"].apply(lambda x: x["country_code"])
+        self.df["user_state"] = self.df["user"].apply(lambda x: x["state_code"])
+
+        #Get Target information
+        self.generate_target_features()
+
+        #Get Languages
+        self.df["languages"] = self.df["languages"].apply(lambda x: x[0])
+        self.df["languages"] = self.df["languages"].astype('category')
+        dummies = pd.get_dummies(self.df["languages"], drop_first=True).rename(columns=lambda x: "languages" + "_" + str(x))
+        self.featured_columns += list(dummies.columns)
+        self.df = pd.concat([self.df, dummies], axis=1)
+
+
+    def generate_target_features(self):
+        target_features = pd.DataFrame()
+       # target_features["count_past_responses"] = self.df[["targets"]]. \
+       #     apply(lambda x: [TargetsProcessor(target).get_count_past_responses("0") for target in x])
+        target_features["count_past_responses"] = self.df[["targets", "id"]]. \
+            apply(lambda x: TargetsProcessor(x[0]).get_count_past_responses(x[1]), axis= 1)
+        target_features["count_democrat_targets"] = self.df[["targets", "created_at_year"]]. \
+            apply(lambda x: TargetsProcessor(x[0]).get_count_democrat_targets(x[1]), axis=1)
+        target_features["count_republican_targets"] = self.df[["targets", "created_at_year"]]. \
+            apply(lambda x: TargetsProcessor(x[0]).get_count_republican_targets(x[1]), axis=1)
+        target_features["count_not_found_targets"] = self.df[["targets", "created_at_year"]]. \
+            apply(lambda x: TargetsProcessor(x[0]).get_count_not_found_target(x[1]), axis =1)
+        target_features["count_custom_targets"] = self.df["targets"]. \
+            apply(lambda x: TargetsProcessor(x).get_count_customs() )
+        target_features["count_group_targets"] = self.df["targets"]. \
+            apply(lambda x: TargetsProcessor(x).get_count_groups())
+
+        self.featured_columns += list(target_features.columns)
+        self.df = pd.concat([self.df, target_features], axis=1)
 
 
     def get_filtered_df(self):
         return self.df[self.featured_columns]
 
+    def convert_target(self):
+        d = {"victory": 1, "closed": 0}
+        self.df[self.target] = self.df[self.target].map(d)
+
     def apply_pipeline(self):
-        data_pipeline.clean_data()
-        data_pipeline.feature_engineering()
-        return data_pipeline.get_filtered_df()
+        self.clean_data()
+        self.feature_engineering()
+        self.convert_target()
+        return self.get_filtered_df()
 
 if __name__ == "__main__":
 
-    data = read_mongo("changeorg", "petitions_scraped", {"id": {"$gt": 5000000}})
+    data = read_mongo("changeorg", "petitions_scraped", {"id": {"$gt": 6500000}})
 
     data_pipeline = DataPipeline(data)
     data_pipeline.clean_data()
