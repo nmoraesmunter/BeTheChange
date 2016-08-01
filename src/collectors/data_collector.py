@@ -268,7 +268,7 @@ def one_iteration(start, prefix, limit=1000):
             change_petition_id_status(current, tasks, 'in_progress')
             dc = DataCollector(current['id'])
             slug = petitions_scrapped.find({"id": current['id']}).limit(1)[0]['slug']
-            url = "https://www.change.org/p/http://graph.facebook.com/https://www.change.org/p/%s" % slug
+            url = "http://graph.facebook.com/http://www.change.org/p/%s" % slug
             t = timeit.Timer(lambda: petitions_scrapped.update({'id': current['id']},
                                                                {'$set': {"fb_popularity": dc.get_fb_popularity(url)}},
                                                                upsert=True))
