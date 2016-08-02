@@ -1,6 +1,40 @@
 import cPickle as pickle
-import pandas as pd
 from pymongo import MongoClient
+from src.db.connection import MongoConnection
+import requests
+from bs4 import BeautifulSoup
+import json
+from src.collectors.data_collector import DataCollector
+from src.preprocess.data_pipeline import DataPipeline
+import pandas as pd
+
+
+
+def preprocess_data(url):
+    conn = MongoConnection.default_connection()
+    featured_petitions = conn['changeorg']['featured_petitions']
+
+    html = requests.get(url).content
+    petition_soup = BeautifulSoup(html, 'html.parser')
+
+    petition_id = json.loads(petition_soup.find("script", {"id": "clientData"}).contents[0]) \
+        ["bootstrapData"]["model"]["data"]["id"]
+
+    cursor = featured_petitions.find({"id": petition_id})
+
+    if cursor.count() == 0:
+        dc = DataCollector(petition_id)
+        petition_json = dc.get_detailed_data()
+        df = pd.DataFrame.from_dict(petition_json)
+        dp = DataPipeline(df)
+        final_df = dp.apply_pipeline()
+    else:
+        final_df = pd.DataFrame.from_dict(cursor[0])
+
+    y = final_df.pop("status")
+    X = final_df
+
+    return X,y
 
 def save_pickle(filename, obj):
     with open(filename, 'w') as f:

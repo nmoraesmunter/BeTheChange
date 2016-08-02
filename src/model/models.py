@@ -12,6 +12,7 @@ from preprocess.data_pipeline import DataPipeline
 from utils.utils import read_mongo
 
 
+
 from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk import word_tokenize
 from nltk.stem.wordnet import WordNetLemmatizer as lemmatizer
@@ -98,6 +99,8 @@ if __name__ == "__main__":
     data_pipeline = DataPipeline(data)
 
     df = data_pipeline.apply_pipeline()
+
+
 
     petitions_model = Model()
 

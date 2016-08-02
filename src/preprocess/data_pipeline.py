@@ -1,9 +1,10 @@
 from __future__ import division
 import pandas as pd
 import numpy as np
-from utils.utils import read_mongo
 import text_processor
 from targets_processor import TargetsProcessor
+from src.db.connection import MongoConnection
+import json
 
 
 class DataPipeline(object):
@@ -11,13 +12,12 @@ class DataPipeline(object):
     def __init__(self, df):
         self.df = df
         self.featured_columns = ["calculated_goal", "comments_likes",
-                                 #"displayed_signature_count",
-                                 #"displayed_supporter_count",
                                  "endorsements",
                                  "fb_popularity", "links_fb_popularity", "milestones", "news_coverages",
                                  "num_comments", "num_past_petitions", "num_past_verified_victories",
                                  "num_past_victories", "num_responses", "num_tweets",
-                                 "status", "twitter_popularity", "tweets_followers", "description"]
+                                 "status", "twitter_popularity", "tweets_followers", "description",
+                                 "display_title", "letter_body", "id"]
         self.target = "status"
 
 
@@ -31,6 +31,7 @@ class DataPipeline(object):
     def fill_nan_with_zeros(self, to_fill_with_zeros):
         for col in to_fill_with_zeros:
             self.df[col].fillna(0, inplace=True)
+            self.featured_columns += [col]
 
     def clean_data(self):
 
@@ -40,7 +41,7 @@ class DataPipeline(object):
                    "victory_date", "victory_description", "weekly_signature_count"]
         to_date_time = ["created_at", "end_date", "last_past_verified_victory_date",
                         "last_past_victory_date", "last_update"]
-        to_fill_with_zeros = ["displayed_signature_count"]
+        to_fill_with_zeros = ["displayed_signature_count", "displayed_supporter_count"]
 
         self.drop_columns(to_drop)
         self.to_datetime(to_date_time)
@@ -169,7 +170,7 @@ class DataPipeline(object):
         to_text_features = ["ask", "display_title", "description", "letter_body"]
 
         to_convert_boolean = ["comments_last_page", "is_en_US",
-                              "is_organization", "is_pledge"]
+                              "is_organization", "is_pledge", "is_verified_victory"]
 
         self.generate_text_features(to_text_features)
         self.generate_date_features(to_date_features)
@@ -219,12 +220,21 @@ class DataPipeline(object):
         self.df = pd.concat([self.df, target_features], axis=1)
 
 
-    def get_filtered_df(self):
-        return self.df[self.featured_columns]
+    def get_filtered_df(self, cache_data = False):
+        self.df = self.df[self.featured_columns]
+
+        if cache_data:
+            conn = MongoConnection.default_connection()
+            featured_petitions = conn['changeorg']['featured_petitions']
+
+            records = json.loads(self.df.T.to_json()).values()
+            featured_petitions.insert(records)
+
+        return self.df
 
     def convert_target(self):
         d = {"victory": 1, "closed": 0}
-        self.df[self.target] = self.df[self.target].map(d)
+        self.df[self.target] = self.df[self.target].apply(lambda x: 1 if x == "victory" else 0)
 
     def apply_pipeline(self):
         self.clean_data()
@@ -233,13 +243,19 @@ class DataPipeline(object):
         return self.get_filtered_df()
 
 if __name__ == "__main__":
+    conn = MongoConnection.default_connection()
+    petitions_scraped = conn['changeorg']['petitions_scraped']
 
-    data = read_mongo("changeorg", "petitions_scraped", {"id": {"$gt": 6800000}})
+    cursor = petitions_scraped.find( {"id": {"$gt": 0}})
+    data = pd.DataFrame(list(cursor))
 
     data_pipeline = DataPipeline(data)
     data_pipeline.clean_data()
     data_pipeline.feature_engineering()
-    f_data = data_pipeline.get_filtered_df()
+    f_data = data_pipeline.get_filtered_df(True)
+
+
+
 
     print f_data.shape
 
