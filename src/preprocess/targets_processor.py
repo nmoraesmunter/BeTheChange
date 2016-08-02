@@ -30,8 +30,7 @@ class TargetsProcessor(object):
     We want to compare the data with the congress dataset and get number of democrat targets, number od republican targets and how many responses they did in the past
 
     '''
-    def __init__(self, targets):
-        self.targets = targets
+    def __init__(self):
         # Get MongoDB
         mc = MongoClient()
         db = mc["changeorg"]
@@ -39,10 +38,10 @@ class TargetsProcessor(object):
         self.responses_scraped = db["responses_scraped"]
 
 
-    def get_target_stats(self):
+    def get_target_stats(self, targets):
 
 
-        for target in self.targets:
+        for target in targets:
             if target["type"] == "Politician":
                 self.count_past_responses += self.get_past_responses(target)
                 if self.get_party(target) == "D":
@@ -57,47 +56,47 @@ class TargetsProcessor(object):
                 self.count_customs +=1
 
 
-    def get_count_past_responses(self, petition_id):
+    def get_count_past_responses(self, targets, petition_id):
         count_past_responses = 0
-        for target in self.targets:
+        for target in targets:
             if target["type"] == "Politician":
                 count_past_responses += self.get_past_responses(target, petition_id)
         return count_past_responses
 
-    def get_count_democrat_targets(self, start_year):
+    def get_count_democrat_targets(self, targets, start_year):
         count_democrat_targets = 0
-        for target in self.targets:
+        for target in targets:
             if target["type"] == "Politician":
                 if self.get_party(target, start_year) == "D":
                     count_democrat_targets += 1
         return count_democrat_targets
 
-    def get_count_republican_targets(self, start_year):
+    def get_count_republican_targets(self, targets, start_year):
         count_republican_targets = 0
-        for target in self.targets:
+        for target in targets:
             if target["type"] == "Politician":
                 if self.get_party(target, start_year) == "R":
                     count_republican_targets += 1
         return count_republican_targets
 
-    def get_count_not_found_target(self, start_year):
+    def get_count_not_found_target(self, targets, start_year):
         count_politician_not_found = 0
-        for target in self.targets:
+        for target in targets:
             if target["type"] == "Politician":
                 if self.get_party(target, start_year) == "Not found":
                     count_politician_not_found += 1
         return count_politician_not_found
 
-    def get_count_groups(self):
+    def get_count_groups(self, targets):
         count_groups = 0
-        for target in self.targets:
+        for target in targets:
             if target["type"] == "Group":
                 count_groups += 1
         return count_groups
 
-    def get_count_customs(self):
+    def get_count_customs(self, targets):
         count_customs = 0
-        for target in self.targets:
+        for target in targets:
             if target["type"] == "Custom":
                 count_customs += 1
         return count_customs

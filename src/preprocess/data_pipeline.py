@@ -201,20 +201,21 @@ class DataPipeline(object):
 
     def generate_target_features(self):
         target_features = pd.DataFrame()
+        tp = TargetsProcessor()
        # target_features["count_past_responses"] = self.df[["targets"]]. \
        #     apply(lambda x: [TargetsProcessor(target).get_count_past_responses("0") for target in x])
         target_features["count_past_responses"] = self.df[["targets", "id"]]. \
-            apply(lambda x: TargetsProcessor(x[0]).get_count_past_responses(x[1]), axis= 1)
+            apply(lambda x: tp.get_count_past_responses(x[0],x[1]), axis= 1)
         target_features["count_democrat_targets"] = self.df[["targets", "created_at_year"]]. \
-            apply(lambda x: TargetsProcessor(x[0]).get_count_democrat_targets(x[1]), axis=1)
+            apply(lambda x: tp.get_count_democrat_targets(x[0],x[1]), axis=1)
         target_features["count_republican_targets"] = self.df[["targets", "created_at_year"]]. \
-            apply(lambda x: TargetsProcessor(x[0]).get_count_republican_targets(x[1]), axis=1)
+            apply(lambda x: tp.get_count_republican_targets(x[0],x[1]), axis=1)
         target_features["count_not_found_targets"] = self.df[["targets", "created_at_year"]]. \
-            apply(lambda x: TargetsProcessor(x[0]).get_count_not_found_target(x[1]), axis =1)
+            apply(lambda x: tp.get_count_not_found_target(x[0],x[1]), axis =1)
         target_features["count_custom_targets"] = self.df["targets"]. \
-            apply(lambda x: TargetsProcessor(x).get_count_customs() )
+            apply(lambda x: tp.get_count_customs(x) )
         target_features["count_group_targets"] = self.df["targets"]. \
-            apply(lambda x: TargetsProcessor(x).get_count_groups())
+            apply(lambda x: tp.get_count_groups(x))
 
         self.featured_columns += list(target_features.columns)
         self.df = pd.concat([self.df, target_features], axis=1)
