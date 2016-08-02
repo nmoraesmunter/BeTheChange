@@ -29,6 +29,7 @@ if __name__ == "__main__":
     cursor = petitions_scraped.find({"id": {"$gt": 0}})
     df = pd.DataFrame(list(cursor))
 
+    print df.columns
 
     list_targets = np.asarray(df["targets"].apply(
         lambda x: [[target["display_name"],
