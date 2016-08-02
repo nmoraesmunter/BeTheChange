@@ -183,7 +183,7 @@ class DataCollector(object):
         :return: fb_pop
         '''
         token = "Replace-Me"
-        fb_api_url = "https://graph.facebook.com/v2.1/?access_token=%s&id=/%s" % (token, url)
+        fb_api_url = "https://graph.facebook.com/v2.1/?access_token=%s&id=%s" % (token, url)
         fb_popularity_json = json.loads(requests.get(fb_api_url).content)
         fb_pop = 0
         if "shares" in fb_popularity_json:
