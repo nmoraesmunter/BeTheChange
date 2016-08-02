@@ -188,6 +188,7 @@ class DataCollector(object):
         if "shares" in fb_popularity_json:
             fb_pop = fb_popularity_json["shares"]
         if "error" in fb_popularity_json:
+            print '[%s]Error: %s' % (datetime.now(), fb_popularity_json)
             raise ValueError('Error: %s' % fb_popularity_json)
         return fb_pop
 
