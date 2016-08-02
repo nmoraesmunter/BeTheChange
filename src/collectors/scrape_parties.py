@@ -41,7 +41,6 @@ if __name__ == "__main__":
     cursor = petitions_scraped.find({"id": {"$gt": 0}})
     df = pd.DataFrame(list(cursor))
 
-    print df.columns
 
     list_targets = np.asarray(df["targets"].apply(
         lambda x: [[target["display_name"],
@@ -73,7 +72,8 @@ if __name__ == "__main__":
 
     samples = []
     for start in range(0, list_df.shape[0], step):
-        samples.append[list_df[start:start + step]]
+        samples.append(list_df[start:start + step])
+
     pool = multiprocessing.Pool(processes=procs)
     pool.map(get_slice_parties, samples)
     print "finished the process, enjoy your parties!"
