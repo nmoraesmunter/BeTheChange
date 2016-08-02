@@ -271,7 +271,9 @@ def one_iteration(start, prefix, limit=1000):
             dc = DataCollector(current['id'])
             previous = petitions_scrapped.find({"id": current['id']}).limit(1)[0]
             if previous['fb_popularity'] != 0:
-                break  # Do not scrap something already scraped
+                # Do not scrap something already scraped. Also mark as done
+                change_petition_id_status(current, tasks, 'done', 'already_found')
+                break
             slug = previous['slug']
             url = "http://www.change.org/p/%s" % slug
             t = timeit.Timer(lambda: petitions_scrapped.update({'id': current['id']},
