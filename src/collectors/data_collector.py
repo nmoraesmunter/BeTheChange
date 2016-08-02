@@ -182,11 +182,12 @@ class DataCollector(object):
         :param petition_url:
         :return: fb_pop
         '''
-        fb_api_url = "http://graph.facebook.com/%s" % url
+        token = "Replace-Me"
+        fb_api_url = "https://graph.facebook.com/v2.1/?access_token=%s&id=/%s" % (token, url)
         fb_popularity_json = json.loads(requests.get(fb_api_url).content)
         fb_pop = 0
         if "shares" in fb_popularity_json:
-            fb_pop = fb_popularity_json["shares"]
+            fb_pop = fb_popularity_json["share"]["share_count"]
         if "error" in fb_popularity_json:
             print '[%s]Error: %s' % (datetime.now(), fb_popularity_json)
             raise ValueError('Error: %s' % fb_popularity_json)
