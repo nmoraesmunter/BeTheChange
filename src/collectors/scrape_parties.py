@@ -1,4 +1,3 @@
-from utils.utils import read_mongo
 import pandas as pd
 import numpy as np
 from bs4 import BeautifulSoup
@@ -26,8 +25,10 @@ if __name__ == "__main__":
     #Get MongoDB
     conn = MongoConnection.default_connection()
     target_parties = conn['changeorg']['target_parties']
+    petitions_scraped = conn['changeorg']['petitions_scraped']
+    cursor = petitions_scraped.find({"id": {"$gt": 0}})
+    df = pd.DataFrame(list(cursor))
 
-    df = read_mongo("changeorg", "petitions_scraped", {"id": {"$gt": 0}})
 
     list_targets = np.asarray(df["targets"].apply(
         lambda x: [[target["display_name"],
