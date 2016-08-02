@@ -12,7 +12,7 @@ from src.preprocess.text_processor import TextProcessor
 from src.db.connection import MongoConnection
 import numpy as np
 import multiprocessing
-
+from retrying import retry
 
 class DataCollector(object):
     def __init__(self, petition_id):
@@ -169,6 +169,7 @@ class DataCollector(object):
         self.responses = responses_json["items"]
         return responses_stats
 
+    @retry(wait_exponential_multiplier=100, wait_exponential_max=5000)
     def get_fb_popularity(self, url):
         '''
         Get facebook popularity for the url to get the number of shares defined as:
@@ -187,7 +188,7 @@ class DataCollector(object):
         if "shares" in fb_popularity_json:
             fb_pop = fb_popularity_json["shares"]
         if "error" in fb_popularity_json:
-            print 'Error: %s' % fb_popularity_json
+            raise ValueError('Error: %s' % fb_popularity_json)
         return fb_pop
 
     def get_detailed_data(self, get_petition=True, get_creator=True, get_comments=True, get_updates=True,
