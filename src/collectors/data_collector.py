@@ -231,13 +231,14 @@ def change_petition_id_status(current, collection, status, time=None):
     collection.update({'_id': current['_id']}, {'$set': {'fb_status': status, 'fb_time': time}}, upsert=True)
 
 
-def all_iteration(tuple_arg):
+def all_iteration(start, prefix, limit=1000):
     count = 1000
     while count > 0:
-        count = one_iteration(**tuple_arg)
-        print "Finished one iteration with count: %s" % tuple_arg
+        count = one_iteration(start, prefix, limit)
+        print "Finished one iteration with count: {%s}" % (start, count)
 
-    print "[%d] Arrived to the end!" % tuple_arg['start']
+    print "[%d] Arrived to the end!" % start
+
 
 DB_NAME = 'changeorg'
 
@@ -268,7 +269,10 @@ def one_iteration(start, prefix, limit=1000):
             print "[%s] Going to process %s" % (datetime.now(), current)
             change_petition_id_status(current, tasks, 'in_progress')
             dc = DataCollector(current['id'])
-            slug = petitions_scrapped.find({"id": current['id']}).limit(1)[0]['slug']
+            previous = petitions_scrapped.find({"id": current['id']}).limit(1)[0]
+            if previous['fb_popularity'] != 0:
+                break  # Do not scrap something already scraped
+            slug = previous['slug']
             url = "http://www.change.org/p/%s" % slug
             t = timeit.Timer(lambda: petitions_scrapped.update({'id': current['id']},
                                                                {'$set': {"fb_popularity": dc.get_fb_popularity(url)}},
@@ -282,14 +286,14 @@ def one_iteration(start, prefix, limit=1000):
         except Exception as excp:
             print "[%d] {%s} exception %s" % (start, current, excp)
             traceback.print_stack()
-        time.sleep(1)
+        time.sleep(2)
 
     if n == 0:
         print "No petition found. Start at %s" % start
     else:
         print "------------------TIMES-----------------------"
         print "Total processed: %s" % n
-        print "Popularity : %f" % (time_popularity * 1./ n)
+        print "Popularity : %f" % (time_popularity * 1. / n)
 
     return tasks.find({"$and": [{'status': 'in_progress'}, {"id": {"$gt": start}}]}).count()
 
@@ -299,22 +303,4 @@ def print_sth(start):
 
 
 if __name__ == "__main__":
-    all_iteration({"start": 0, "prefix": "", "limit": 100})
-    all_iteration({"start": 0, "prefix": "open_", "limit": 100})
-    print "finished"
-    """
-    procs = 4
-    step = 100000
-    max_id = 5000000
-
-    starts = range(0, max_id, max_id // procs)
-    print "[%s] That's my steps: %s." % (datetime.now(), starts)
-    # First update the closed petitions
-    pool = multiprocessing.Pool(processes=procs)
-    pool.map(all_iteration, [{"start": x, "prefix": "", "limit": 1000} for x in starts])
-    print "[%s] (closed) Finished the process, enjoy your scrapped data!" % (datetime.now())
-    # Then update the open petitions
-    pool = multiprocessing.Pool(processes=procs)
-    pool.map(all_iteration, [{"start": x, "prefix": "open_", "limit": 1000} for x in starts])
-    print "[%s] (closed) Finished the process, enjoy your scrapped data!" % (datetime.now())
-    """
+    all_iteration(0, "", 100)
