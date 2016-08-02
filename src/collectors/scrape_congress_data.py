@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup, Tag
 from os import listdir
 from pymongo import MongoClient
 
+
 class CongressDataScrape():
 
     # info from http://bioguide.congress.gov/biosearch/biosearch.asp
@@ -31,9 +32,13 @@ class CongressDataScrape():
                 member["party"] = content[7].next
                 member["state"] = content[9].next
                 member["congress"] = content[11].contents[0]
-                congress_years = content[11].contents[2][1:-1]
-                member["start_year"] = congress_years[:congress_years.find("-")]
-                member["end_year"] = congress_years[congress_years.find("-") + 1:]
+                try:
+                    congress_years = content[11].contents[2][1:-1]
+                    member["start_year"] = congress_years[:congress_years.find("-")]
+                    member["end_year"] = congress_years[congress_years.find("-") + 1:]
+                except:
+                    member["start_year"] = None
+                    member["end_year"] = None
                 members_list.append(member)
 
         return members_list
@@ -56,10 +61,10 @@ if __name__ == "__main__":
 
     cds = CongressDataScrape("../../data/congress/")
     for doc in cds.scrape_data():
-        try:
-            mongo_congress.insert(doc)
-        except Exception:
-            print doc
+            try:
+                mongo_congress.insert(doc)
+            except Exception:
+                print doc
 
 
 
