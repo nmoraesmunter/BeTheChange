@@ -36,6 +36,7 @@ class TargetsProcessor(object):
         db = mc["changeorg"]
         self.congress = db["congress"]
         self.responses_scraped = db["responses_scraped"]
+        self.target_parties = db["target_parties"]
 
 
     def get_target_stats(self, targets):
@@ -63,27 +64,27 @@ class TargetsProcessor(object):
                 count_past_responses += self.get_past_responses(target, petition_id)
         return count_past_responses
 
-    def get_count_democrat_targets(self, targets, start_year):
+    def get_count_democrat_targets(self, targets):
         count_democrat_targets = 0
         for target in targets:
             if target["type"] == "Politician":
-                if self.get_party(target, start_year) == "D":
+                if self.get_party(target) == "D":
                     count_democrat_targets += 1
         return count_democrat_targets
 
-    def get_count_republican_targets(self, targets, start_year):
+    def get_count_republican_targets(self, targets):
         count_republican_targets = 0
         for target in targets:
             if target["type"] == "Politician":
-                if self.get_party(target, start_year) == "R":
+                if self.get_party(target) == "R":
                     count_republican_targets += 1
         return count_republican_targets
 
-    def get_count_not_found_target(self, targets, start_year):
+    def get_count_not_found_target(self, targets):
         count_politician_not_found = 0
         for target in targets:
             if target["type"] == "Politician":
-                if self.get_party(target, start_year) == "Not found":
+                if self.get_party(target) == "Not found":
                     count_politician_not_found += 1
         return count_politician_not_found
 
@@ -101,72 +102,55 @@ class TargetsProcessor(object):
                 count_customs += 1
         return count_customs
 
-    def get_party(self, politician_target, start_year):
+    def get_party(self, politician_target):
 
-        if politician_target["description"] is not None:
-            description = politician_target["description"].lower()
-
-            if "republican" in description and "democrat" not in description:
-                return "R"
-            elif "democrat" in description and "republican" not in description:
-                return "D"
-
-        state_code = politician_target["additional_data"]["state"]
-
-
-        position = politician_target["additional_data"]["title"]
-        if position.find("Representative") >= 0:
-            position = "Representative"
-        elif position.find("Senator") >= 0:
-            position = "Senator"
-        elif position.find("President") >= 0:
-            position = "President"
+        cursor = self.target_parties.find({"id":politician_target["id"]})
         full_name = politician_target["display_name"]
-
         first_name = full_name.split()[0]
         last_name = full_name.split()[-1].upper()
+        state_code = politician_target["additional_data"]["state"]
+        position = politician_target["additional_data"]["title"]
 
-        regx_full_name = re.compile('.*%s(.)*(\\n)?(.)*(%s)(.)*'%(last_name, first_name))
-        regx_last_name = re.compile('.*%s(.)*'%last_name)
-
-        query_full_name = {"$and": [
-            {"state": state_code},
-            {"position": position},
-            #{"start_year": {"$lte": str(start_year)}},
-            #      {"end_year": {"$gte":str(start_year)}},
-            {"name": {'$regex': regx_full_name}}
-        ]}
-
-        query_last_name = {"$and": [
-            {"state": state_code},
-            {"position": position},
-            #{"start_year": {"$lte": str(start_year)}},
-            #      {"end_year": {"$gte":str(start_year)}},
-            {"name": {'$regex': regx_last_name}}
-        ]}
-
-        if state_code == None:
-            state_code = "No state"
-            query_full_name = {"$and":[
-                    {"position": position},
-              #      {"start_year": {"$lte": str(start_year)}},
-              #      {"end_year": {"$gte":str(start_year)}},
-                    {"name":{'$regex': regx_full_name}}
-                    ]}
-
-
-
-        cursor = self.congress.find(query_full_name).limit(1)
         if cursor.count() == 0:
-            cursor = self.congress.find(query_last_name).limit(1)
 
+            if position.find("Representative") >= 0:
+                position = "Representative"
+            elif position.find("Senator") >= 0:
+                position = "Senator"
+            elif position.find("President") >= 0:
+                position = "President"
 
+            regx_full_name = re.compile('.*%s(.)*(\\n)?(.)*(%s)(.)*'%(last_name, first_name))
+            regx_last_name = re.compile('.*%s(.)*'%last_name)
+
+            query_full_name = {"$and": [
+                {"state": state_code},
+                {"position": position},
+                {"name": {'$regex': regx_full_name}}
+            ]}
+
+            query_last_name = {"$and": [
+                {"state": state_code},
+                {"position": position},
+                {"name": {'$regex': regx_last_name}}
+            ]}
+
+            if state_code == None:
+                state_code = "No state"
+                query_full_name = {"$and":[
+                        {"position": position},
+                        {"name":{'$regex': regx_full_name}}
+                        ]}
+
+            cursor = self.congress.find(query_full_name).limit(1)
+            if cursor.count() == 0:
+                cursor = self.congress.find(query_last_name).limit(1)
 
         for politician in cursor:
-            return politician["party"][0]
+            return politician["party"]
 
         if cursor.count() == 0:
-      #      print full_name + " " + position + " " + state_code
+            print full_name + " " + position + " " + state_code
             return "Not found"
 
     def get_past_responses(self, politician_target, petition_id):
@@ -177,9 +161,4 @@ class TargetsProcessor(object):
 
         return cursor.count()
 
-    def _parse_names(self, name):
-        {
-            "Bernie Sanders": "Bernard Sanders",
-            "Bob Goodlatte": "William Goodlatte",
 
-        }

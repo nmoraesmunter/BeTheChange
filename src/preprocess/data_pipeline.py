@@ -202,16 +202,14 @@ class DataPipeline(object):
     def generate_target_features(self):
         target_features = pd.DataFrame()
         tp = TargetsProcessor()
-       # target_features["count_past_responses"] = self.df[["targets"]]. \
-       #     apply(lambda x: [TargetsProcessor(target).get_count_past_responses("0") for target in x])
         target_features["count_past_responses"] = self.df[["targets", "id"]]. \
             apply(lambda x: tp.get_count_past_responses(x[0],x[1]), axis= 1)
-        target_features["count_democrat_targets"] = self.df[["targets", "created_at_year"]]. \
-            apply(lambda x: tp.get_count_democrat_targets(x[0],x[1]), axis=1)
-        target_features["count_republican_targets"] = self.df[["targets", "created_at_year"]]. \
-            apply(lambda x: tp.get_count_republican_targets(x[0],x[1]), axis=1)
-        target_features["count_not_found_targets"] = self.df[["targets", "created_at_year"]]. \
-            apply(lambda x: tp.get_count_not_found_target(x[0],x[1]), axis =1)
+        target_features["count_democrat_targets"] = self.df["targets"]. \
+            apply(lambda x: tp.get_count_democrat_targets(x))
+        target_features["count_republican_targets"] = self.df["targets"]. \
+            apply(lambda x: tp.get_count_republican_targets(x))
+        target_features["count_not_found_targets"] = self.df["targets"]. \
+            apply(lambda x: tp.get_count_not_found_target(x))
         target_features["count_custom_targets"] = self.df["targets"]. \
             apply(lambda x: tp.get_count_customs(x) )
         target_features["count_group_targets"] = self.df["targets"]. \
@@ -236,7 +234,7 @@ class DataPipeline(object):
 
 if __name__ == "__main__":
 
-    data = read_mongo("changeorg", "petitions_scraped", {"id": {"$gt": 6500000}})
+    data = read_mongo("changeorg", "petitions_scraped", {"id": {"$gt": 6800000}})
 
     data_pipeline = DataPipeline(data)
     data_pipeline.clean_data()

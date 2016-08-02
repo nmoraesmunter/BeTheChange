@@ -93,7 +93,7 @@ if __name__ == "__main__":
                     "KS", "LS", "VA"]
     nlp = ["display_title", "description", "letter_body"]
 
-    data = read_mongo("changeorg", "petitions_scraped", {"id": {"$gt": 3000000}})
+    data = read_mongo("changeorg", "petitions_scraped", {"id": {"$gt": 3500000}})
 
     data_pipeline = DataPipeline(data)
 
