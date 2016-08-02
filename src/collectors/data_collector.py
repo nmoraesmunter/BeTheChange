@@ -186,7 +186,7 @@ class DataCollector(object):
         fb_api_url = "https://graph.facebook.com/v2.7/?access_token=%s&id=%s" % (token, url)
         fb_popularity_json = json.loads(requests.get(fb_api_url).content)
         fb_pop = 0
-        if "shares" in fb_popularity_json:
+        if "share" in fb_popularity_json:
             fb_pop = fb_popularity_json["share"]["share_count"]
         if "error" in fb_popularity_json:
             print '[%s]Error: %s' % (datetime.now(), fb_popularity_json)
