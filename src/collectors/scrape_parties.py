@@ -24,13 +24,13 @@ def get_slice_parties(sample):
     conn = MongoConnection.default_connection()
     target_parties = conn['changeorg']['target_parties']
 
-    print "Start Get party from petition %d to %d"%(sample[:1]["id"], sample[:-1]["id"])
+    print "Start Get party from petition %d to %d"%(sample[:1]["id"][0], sample[:-1]["id"][0])
     sample["party"] = sample.apply(lambda x: get_party(x["slug"]) if x["party"] is None else x, axis=1)
 
 
     records = json.loads(sample.T.to_json()).values()
     target_parties.insert(records)
-    print "End Get party from petition %d to %d"%(sample[:1]["id"], sample[:-1]["id"])
+    print "End Get party from petition %d to %d"%(sample[:1]["id"][0], sample[:-1]["id"][0])
 
 
 if __name__ == "__main__":
@@ -68,7 +68,7 @@ if __name__ == "__main__":
         lambda x: "R" if x[4] is not None and x[4].lower().find("republican") >= 0 else x["party"], axis=1)
     list_df.columns = ["name", "position", "state", "id", "description", "slug", "party"]
 
-    procs = 64
+    procs = 32
     step = list_df.shape[0]/procs
 
     samples = []
