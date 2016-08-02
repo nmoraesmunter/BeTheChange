@@ -289,7 +289,6 @@ def one_iteration(start, prefix, limit=1000):
         except Exception as excp:
             print "[%d] {%s} exception %s" % (start, current, excp)
             traceback.print_stack()
-        time.sleep(2)
 
     if n == 0:
         print "No petition found. Start at %s" % start
