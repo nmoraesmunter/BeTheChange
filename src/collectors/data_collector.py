@@ -235,7 +235,7 @@ def all_iteration(start, prefix, limit=1000):
     count = 1000
     while count > 0:
         count = one_iteration(start, prefix, limit)
-        print "Finished one iteration with count: {%s}" % (start, count)
+        print "Finished one iteration with count: {%s, %s}" % (start, count)
 
     print "[%d] Arrived to the end!" % start
 
