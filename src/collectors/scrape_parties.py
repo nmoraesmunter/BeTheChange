@@ -66,7 +66,7 @@ if __name__ == "__main__":
         lambda x: "D" if x[4] is not None and x[4].lower().find("democrat") >= 0 else None, axis=1)
     list_df["party"] = list_df.apply(
         lambda x: "R" if x[4] is not None and x[4].lower().find("republican") >= 0 else x["party"], axis=1)
-    list_df.columns = ["name", "position", "state", "id", "description", "slug"]
+    list_df.columns = ["name", "position", "state", "id", "description", "slug", "party"]
 
     procs = 64
     step = list_df.shape[0]/procs
