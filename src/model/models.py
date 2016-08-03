@@ -9,8 +9,9 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.naive_bayes import MultinomialNB
 from preprocess.data_pipeline import DataPipeline
+from sklearn.pipeline import  Pipeline, FeatureUnion
 from utils.utils import read_mongo
-
+from sklearn.feature_selection import SelectKBest
 
 
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -94,17 +95,31 @@ if __name__ == "__main__":
                     "KS", "LS", "VA"]
     nlp = ["display_title", "description", "letter_body"]
 
-    data = read_mongo("changeorg", "petitions_scraped", {"id": {"$gt": 3500000}})
+    df = read_mongo("changeorg", "featured_petitions",
+                    {"$and":[{"displayed_signature_count": {"$gt": 100}},
+                             {"created_at_year": {"$gt": 2010}},
+                            {"status": {"$in": ["victory", "closed"]}},
+                             {"languages_en":1}]})
 
-    data_pipeline = DataPipeline(data)
 
-    df = data_pipeline.apply_pipeline()
+
+    #data_pipeline = DataPipeline(data)
+
+    #df = data_pipeline.apply_pipeline()
 
 
 
     petitions_model = Model()
-
+    df.pop("display_title")
+    df.pop("letter_body")
+    df.pop("id")
+    df.pop("_id")
+  #  df.pop("displayed_signature_count")
+  #  df.pop("displayed_supporter_count")
+    df.pop("is_verified_victory")
     df.pop("description")
+    df["status"] = df["status"].apply(lambda x: 1 if x == "victory" else 0)
+    print df.shape
     y = df.pop("status")
     X = df
 

@@ -29,12 +29,17 @@ def preprocess_data(url):
         dp = DataPipeline(df)
         final_df = dp.apply_pipeline()
     else:
-        final_df = pd.DataFrame.from_dict(cursor[0])
+        final_df = pd.DataFrame.from_dict(list(cursor))
 
     y = final_df.pop("status")
+    final_df.pop("display_title")
+    final_df.pop("letter_body")
+    final_df.pop("id")
+    final_df.pop("_id")
+    final_df.pop("is_verified_victory")
     X = final_df
 
-    return X,y
+    return X,y, petition_id
 
 def save_pickle(filename, obj):
     with open(filename, 'w') as f:
@@ -46,10 +51,10 @@ def load_pickle(filename):
     return out
 
 def save_model(model, model_name):
-    save_pickle('../app/models/%s.pkl'% model_name, model)
+    save_pickle('src/app/models/%s.pkl'% model_name, model)
 
 def load_model(model_name):
-    model = load_pickle('../app/models/%s.pkl'% model_name)
+    model = load_pickle('src/app/models/%s.pkl'% model_name)
     return model
 
 

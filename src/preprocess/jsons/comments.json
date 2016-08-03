@@ -1,0 +1,4535 @@
+{
+  "items": [
+    {
+      "id": 376069334,
+      "comment": "I am signing this because Mo is my sister.  I love her. She loves her country and has fought for it.  This is the definition of injustice and lack of support for our troops.  Her and Larissa need to be freed immediately.",
+      "created_at": "2016-01-15T01:04:21Z",
+      "user_id": 467120786,
+      "petition_id": 5526942,
+      "likes": 124,
+      "user": {
+        "id": 467120786,
+        "slug": "467120786",
+        "first_name": "Ashley",
+        "last_name": "Frank",
+        "short_display_name": "Ashley",
+        "display_name": "Ashley Frank",
+        "city": "Utica",
+        "state_code": "MI",
+        "country_code": "US",
+        "website": null,
+        "locale": "en-US",
+        "description": null,
+        "photo": {
+          "id": 116307826,
+          "url": "photos/8/qi/af/oaqiAfJmnHAWpJj-fullsize.jpg",
+          "sizes": {
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/8/qi/af/oaqiAfJmnHAWpJj-48x48-noPad.jpg?1452820097",
+              "processing": false,
+              "size": {
+                "width": 48,
+                "height": 48
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/8/qi/af/oaqiAfJmnHAWpJj-128x128-noPad.jpg?1452820097",
+              "processing": false,
+              "size": {
+                "width": 128,
+                "height": 128
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/8/qi/af/oaqiAfJmnHAWpJj-400x400-noPad.jpg?1452820097",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "xlarge": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/8/qi/af/oaqiAfJmnHAWpJj-800x800-noPad.jpg?1453772957",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 800
+              }
+            }
+          }
+        }
+      },
+      "petition": {
+        "id": 5526942,
+        "document_id": "5526942",
+        "ask": "Free Monique and Larissa Campaign: U.S. citizens unjustly imprisoned in Kuwait Prison",
+        "created_at": "2016-01-14T23:08:49Z",
+        "original_locale": "en-US",
+        "languages": [
+          "en"
+        ],
+        "title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "description": "<p><strong>My daughter Monique earned a stellar record for her seven years as a soldier in the United States Army, stationed in Kuwait. Now, she and her partner wallow in a Kuwaiti prison, facing 25 years on baseless charges.</strong></p>\n<p>After active duty, Monique and her partner Larissa later returned to Kuwait to work as military contractors. On the the morning of May 8, 2015, their house was raided and police confiscated one ounce of a “tobacco-like” substance. It was sent to a lab in Germany for analysis, and <strong>it was determined to be a substance that is completely legal in Kuwait.</strong> Yet, Kuwaiti officials held them in prison anyway. After 8 months of uncharged incarceration, <strong>the one ounce of legal substance magically turned into one pound of marijuana,</strong> and on January 12, 2016, Monique and Larissa were sentenced to 20-25 years  in prison.</p>\n<p><strong>I am begging the US Government to do what it can to get my daughter and her partner out of jail and back</strong> <strong>to the States. They have clearly been targeted by the Kuwaiti government for their lifestyle, and could spend half their lives in prison for it.</strong></p>\n<p>This whole ordeal is a nightmare. One minute, I was expecting her for Mother’s Day, and the next, I was told she was in prison. Everything I have learned has been through her friends and her lawyer, who has only called to demand more money -- money for services he hasn’t rendered. <strong>Right now, I would do anything just to hear her voice.</strong></p>\n<p>To this day, I cannot understand how the US government has allowed them to remain in prison. They were not in possession of an illegal substance, yet their freedom and belongings have been taken away from them. <strong>They are being held captive in a foreign land for a crime they did not commit, with no help in sight.</strong></p>\n<p><strong>I need all of you who read this to help me send a message to the US Government, and ask them to do what is right and get Monique and Larissa out of jail and bring them home. This injustice cannot stand. Please sign my petition.</strong></p>",
+        "targeting_description": "Douglas A. Silliman",
+        "letter_body": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "end_date": "2017-01-14",
+        "goal": null,
+        "relevant_location": {
+          "city": "Washington",
+          "country_code": "US",
+          "lat": 38.9406,
+          "lng": -77.0592,
+          "state_code": "DC",
+          "google_places_id": "ChIJE74dmc3Jt4kR7i5YvujUdms",
+          "photo_id": null
+        },
+        "restricted_location": null,
+        "slug": "free-monique-and-larissa-campaign-us-citizens-wrongfully-imprisoned-in-kuwait",
+        "status": "victory",
+        "victory_date": "2016-04-04",
+        "victory_description": "",
+        "is_verified_victory": true,
+        "is_victory": true,
+        "video": null,
+        "is_pledge": false,
+        "topic": "humanrights",
+        "tags": [
+          {
+            "id": 7579,
+            "locale": "en-US",
+            "name": "Criminal Justice",
+            "slug": "criminal-justice-11",
+            "photo_id": 141650750,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 2417,
+            "locale": "en-US",
+            "name": "Wrongful Convictions",
+            "slug": "wrongful-convictions",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 8820,
+            "locale": "en-US",
+            "name": "kuwait",
+            "slug": "kuwait",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 8534,
+            "locale": "en-US",
+            "name": "LGBT rights",
+            "slug": "lgbt-rights-3",
+            "photo_id": 141650801,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 3079,
+            "locale": "en-US",
+            "name": "lesbian",
+            "slug": "lesbian-2",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 17865,
+            "locale": "en-US",
+            "name": "LGBT families",
+            "slug": "lgbt-families",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 4382,
+            "locale": "en-US",
+            "name": "marijuana",
+            "slug": "marijuana-2",
+            "photo_id": null,
+            "created_by_staff_member": true
+          }
+        ],
+        "discoverable": true,
+        "total_signature_count": 172376,
+        "weekly_signature_count": 0,
+        "photo": {
+          "id": 116294762,
+          "url": "photos/2/wc/hq/vrWchQUtCfztgTh-fullsize.jpg",
+          "sizes": {
+            "square": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x400-noPad.jpg?1452814189",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x225-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 225
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-800x450-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 450
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-1600x900-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 1600,
+                "height": 900
+              }
+            }
+          },
+          "type": "photo"
+        },
+        "user": {
+          "id": 467083970,
+          "slug": "467083970",
+          "first_name": "Jasmine",
+          "last_name": "Coverson",
+          "short_display_name": "Jasmine",
+          "display_name": "Jasmine Coverson",
+          "city": "Phenix City",
+          "state_code": "AL",
+          "country_code": "US",
+          "website": null,
+          "locale": "en-US",
+          "description": null,
+          "photo": {
+            "id": 116295662,
+            "url": "photos/2/dr/xq/eoDRXqbkHAfxbsl-fullsize.jpg",
+            "sizes": {
+              "small": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-48x48-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 48,
+                  "height": 48
+                }
+              },
+              "medium": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-128x128-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 128,
+                  "height": 128
+                }
+              },
+              "large": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-400x400-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 400,
+                  "height": 400
+                }
+              },
+              "xlarge": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-800x800-noPad.jpg?1453772955",
+                "processing": false,
+                "size": {
+                  "width": 800,
+                  "height": 800
+                }
+              }
+            }
+          }
+        },
+        "targets": [
+          {
+            "id": 750542,
+            "display_name": "Barack Obama",
+            "email": null,
+            "type": "Politician",
+            "slug": "barack-obama",
+            "description": "Barack Obama is the 44th and current President of the United States, and the first African American to hold the office. He was formerly a United States Senator from Illinois, a constitutional law professor and a community organizer.",
+            "publicly_visible": true,
+            "verified_at": null,
+            "summary": "President of the United States",
+            "locale": "en-US",
+            "confirmed_at": "2014-06-13T21:09:33Z",
+            "is_person": true,
+            "member_of": {},
+            "additional_data": {
+              "state": null,
+              "title": "President",
+              "district": null,
+              "active": true
+            },
+            "photo": {
+              "id": 17846428,
+              "url": "photos/3/be/jr/aLBEJRhxynnCyDY-fullsize.jpg",
+              "sizes": {
+                "small": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-48x48-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 48,
+                    "height": 48
+                  }
+                },
+                "medium": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-128x128-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 128,
+                    "height": 128
+                  }
+                },
+                "large": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-400x400-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 400,
+                    "height": 400
+                  }
+                },
+                "xlarge": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-800x800-noPad.jpg?1453772756",
+                  "processing": false,
+                  "size": {
+                    "width": 800,
+                    "height": 800
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": 4448290,
+            "display_name": "Douglas A. Silliman",
+            "email": null,
+            "type": "Custom",
+            "slug": "douglas-a-silliman",
+            "description": null,
+            "photo_id": null,
+            "publicly_visible": false,
+            "verified_at": null,
+            "summary": null,
+            "locale": "en-US",
+            "confirmed_at": null,
+            "is_person": true,
+            "member_of": {},
+            "additional_data": {
+              "first_name": "Douglas",
+              "last_name": "A. Silliman",
+              "title": "U.S. Ambassador to Kuwait"
+            }
+          }
+        ],
+        "creator_name": "Jasmine Coverson",
+        "creator_photo": {
+          "id": 116295662,
+          "url": "photos/2/dr/xq/eoDRXqbkHAfxbsl-fullsize.jpg",
+          "sizes": {
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-48x48-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 48,
+                "height": 48
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-128x128-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 128,
+                "height": 128
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-400x400-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "xlarge": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-800x800-noPad.jpg?1453772955",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 800
+              }
+            }
+          }
+        },
+        "display_title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "displayed_signature_count": 172376,
+        "petition_title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "petition_status": "victory",
+        "calculated_goal": 200000,
+        "media": {
+          "id": 116294762,
+          "url": "photos/2/wc/hq/vrWchQUtCfztgTh-fullsize.jpg",
+          "sizes": {
+            "square": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x400-noPad.jpg?1452814189",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x225-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 225
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-800x450-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 450
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-1600x900-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 1600,
+                "height": 900
+              }
+            }
+          },
+          "type": "photo"
+        },
+        "primary_target": {
+          "id": 750542,
+          "display_name": "Barack Obama",
+          "email": null,
+          "type": "Politician",
+          "slug": "barack-obama",
+          "description": "Barack Obama is the 44th and current President of the United States, and the first African American to hold the office. He was formerly a United States Senator from Illinois, a constitutional law professor and a community organizer.",
+          "publicly_visible": true,
+          "verified_at": null,
+          "summary": "President of the United States",
+          "locale": "en-US",
+          "confirmed_at": "2014-06-13T21:09:33Z",
+          "is_person": true,
+          "member_of": {},
+          "additional_data": {
+            "state": null,
+            "title": "President",
+            "district": null,
+            "active": true
+          },
+          "photo": {
+            "id": 17846428,
+            "url": "photos/3/be/jr/aLBEJRhxynnCyDY-fullsize.jpg",
+            "sizes": {
+              "small": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-48x48-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 48,
+                  "height": 48
+                }
+              },
+              "medium": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-128x128-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 128,
+                  "height": 128
+                }
+              },
+              "large": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-400x400-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 400,
+                  "height": 400
+                }
+              },
+              "xlarge": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-800x800-noPad.jpg?1453772756",
+                "processing": false,
+                "size": {
+                  "width": 800,
+                  "height": 800
+                }
+              }
+            }
+          }
+        },
+        "progress": 86.188
+      }
+    },
+    {
+      "id": 376091994,
+      "comment": "I'm signing this petition requesting the release and safe evacuation of both U.S citizens Monique Coverson and Larissa Joseph being held in a foreign country under unproven circumstances without significant and sufficient U.S legal representation. ",
+      "created_at": "2016-01-15T02:13:26Z",
+      "user_id": 467140058,
+      "petition_id": 5526942,
+      "likes": 67,
+      "user": {
+        "id": 467140058,
+        "slug": "467140058",
+        "first_name": "Kyle",
+        "last_name": "Still",
+        "short_display_name": "Kyle",
+        "display_name": "Kyle Still",
+        "city": "Fort Hood",
+        "state_code": "TX",
+        "country_code": "US",
+        "website": null,
+        "locale": "en-US",
+        "description": null
+      },
+      "petition": {
+        "id": 5526942,
+        "document_id": "5526942",
+        "ask": "Free Monique and Larissa Campaign: U.S. citizens unjustly imprisoned in Kuwait Prison",
+        "created_at": "2016-01-14T23:08:49Z",
+        "original_locale": "en-US",
+        "languages": [
+          "en"
+        ],
+        "title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "description": "<p><strong>My daughter Monique earned a stellar record for her seven years as a soldier in the United States Army, stationed in Kuwait. Now, she and her partner wallow in a Kuwaiti prison, facing 25 years on baseless charges.</strong></p>\n<p>After active duty, Monique and her partner Larissa later returned to Kuwait to work as military contractors. On the the morning of May 8, 2015, their house was raided and police confiscated one ounce of a “tobacco-like” substance. It was sent to a lab in Germany for analysis, and <strong>it was determined to be a substance that is completely legal in Kuwait.</strong> Yet, Kuwaiti officials held them in prison anyway. After 8 months of uncharged incarceration, <strong>the one ounce of legal substance magically turned into one pound of marijuana,</strong> and on January 12, 2016, Monique and Larissa were sentenced to 20-25 years  in prison.</p>\n<p><strong>I am begging the US Government to do what it can to get my daughter and her partner out of jail and back</strong> <strong>to the States. They have clearly been targeted by the Kuwaiti government for their lifestyle, and could spend half their lives in prison for it.</strong></p>\n<p>This whole ordeal is a nightmare. One minute, I was expecting her for Mother’s Day, and the next, I was told she was in prison. Everything I have learned has been through her friends and her lawyer, who has only called to demand more money -- money for services he hasn’t rendered. <strong>Right now, I would do anything just to hear her voice.</strong></p>\n<p>To this day, I cannot understand how the US government has allowed them to remain in prison. They were not in possession of an illegal substance, yet their freedom and belongings have been taken away from them. <strong>They are being held captive in a foreign land for a crime they did not commit, with no help in sight.</strong></p>\n<p><strong>I need all of you who read this to help me send a message to the US Government, and ask them to do what is right and get Monique and Larissa out of jail and bring them home. This injustice cannot stand. Please sign my petition.</strong></p>",
+        "targeting_description": "Douglas A. Silliman",
+        "letter_body": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "end_date": "2017-01-14",
+        "goal": null,
+        "relevant_location": {
+          "city": "Washington",
+          "country_code": "US",
+          "lat": 38.9406,
+          "lng": -77.0592,
+          "state_code": "DC",
+          "google_places_id": "ChIJE74dmc3Jt4kR7i5YvujUdms",
+          "photo_id": null
+        },
+        "restricted_location": null,
+        "slug": "free-monique-and-larissa-campaign-us-citizens-wrongfully-imprisoned-in-kuwait",
+        "status": "victory",
+        "victory_date": "2016-04-04",
+        "victory_description": "",
+        "is_verified_victory": true,
+        "is_victory": true,
+        "video": null,
+        "is_pledge": false,
+        "topic": "humanrights",
+        "tags": [
+          {
+            "id": 7579,
+            "locale": "en-US",
+            "name": "Criminal Justice",
+            "slug": "criminal-justice-11",
+            "photo_id": 141650750,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 2417,
+            "locale": "en-US",
+            "name": "Wrongful Convictions",
+            "slug": "wrongful-convictions",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 8820,
+            "locale": "en-US",
+            "name": "kuwait",
+            "slug": "kuwait",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 8534,
+            "locale": "en-US",
+            "name": "LGBT rights",
+            "slug": "lgbt-rights-3",
+            "photo_id": 141650801,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 3079,
+            "locale": "en-US",
+            "name": "lesbian",
+            "slug": "lesbian-2",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 17865,
+            "locale": "en-US",
+            "name": "LGBT families",
+            "slug": "lgbt-families",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 4382,
+            "locale": "en-US",
+            "name": "marijuana",
+            "slug": "marijuana-2",
+            "photo_id": null,
+            "created_by_staff_member": true
+          }
+        ],
+        "discoverable": true,
+        "total_signature_count": 172376,
+        "weekly_signature_count": 0,
+        "photo": {
+          "id": 116294762,
+          "url": "photos/2/wc/hq/vrWchQUtCfztgTh-fullsize.jpg",
+          "sizes": {
+            "square": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x400-noPad.jpg?1452814189",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x225-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 225
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-800x450-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 450
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-1600x900-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 1600,
+                "height": 900
+              }
+            }
+          },
+          "type": "photo"
+        },
+        "user": {
+          "id": 467083970,
+          "slug": "467083970",
+          "first_name": "Jasmine",
+          "last_name": "Coverson",
+          "short_display_name": "Jasmine",
+          "display_name": "Jasmine Coverson",
+          "city": "Phenix City",
+          "state_code": "AL",
+          "country_code": "US",
+          "website": null,
+          "locale": "en-US",
+          "description": null,
+          "photo": {
+            "id": 116295662,
+            "url": "photos/2/dr/xq/eoDRXqbkHAfxbsl-fullsize.jpg",
+            "sizes": {
+              "small": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-48x48-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 48,
+                  "height": 48
+                }
+              },
+              "medium": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-128x128-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 128,
+                  "height": 128
+                }
+              },
+              "large": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-400x400-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 400,
+                  "height": 400
+                }
+              },
+              "xlarge": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-800x800-noPad.jpg?1453772955",
+                "processing": false,
+                "size": {
+                  "width": 800,
+                  "height": 800
+                }
+              }
+            }
+          }
+        },
+        "targets": [
+          {
+            "id": 750542,
+            "display_name": "Barack Obama",
+            "email": null,
+            "type": "Politician",
+            "slug": "barack-obama",
+            "description": "Barack Obama is the 44th and current President of the United States, and the first African American to hold the office. He was formerly a United States Senator from Illinois, a constitutional law professor and a community organizer.",
+            "publicly_visible": true,
+            "verified_at": null,
+            "summary": "President of the United States",
+            "locale": "en-US",
+            "confirmed_at": "2014-06-13T21:09:33Z",
+            "is_person": true,
+            "member_of": {},
+            "additional_data": {
+              "state": null,
+              "title": "President",
+              "district": null,
+              "active": true
+            },
+            "photo": {
+              "id": 17846428,
+              "url": "photos/3/be/jr/aLBEJRhxynnCyDY-fullsize.jpg",
+              "sizes": {
+                "small": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-48x48-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 48,
+                    "height": 48
+                  }
+                },
+                "medium": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-128x128-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 128,
+                    "height": 128
+                  }
+                },
+                "large": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-400x400-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 400,
+                    "height": 400
+                  }
+                },
+                "xlarge": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-800x800-noPad.jpg?1453772756",
+                  "processing": false,
+                  "size": {
+                    "width": 800,
+                    "height": 800
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": 4448290,
+            "display_name": "Douglas A. Silliman",
+            "email": null,
+            "type": "Custom",
+            "slug": "douglas-a-silliman",
+            "description": null,
+            "photo_id": null,
+            "publicly_visible": false,
+            "verified_at": null,
+            "summary": null,
+            "locale": "en-US",
+            "confirmed_at": null,
+            "is_person": true,
+            "member_of": {},
+            "additional_data": {
+              "first_name": "Douglas",
+              "last_name": "A. Silliman",
+              "title": "U.S. Ambassador to Kuwait"
+            }
+          }
+        ],
+        "creator_name": "Jasmine Coverson",
+        "creator_photo": {
+          "id": 116295662,
+          "url": "photos/2/dr/xq/eoDRXqbkHAfxbsl-fullsize.jpg",
+          "sizes": {
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-48x48-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 48,
+                "height": 48
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-128x128-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 128,
+                "height": 128
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-400x400-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "xlarge": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-800x800-noPad.jpg?1453772955",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 800
+              }
+            }
+          }
+        },
+        "display_title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "displayed_signature_count": 172376,
+        "petition_title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "petition_status": "victory",
+        "calculated_goal": 200000,
+        "media": {
+          "id": 116294762,
+          "url": "photos/2/wc/hq/vrWchQUtCfztgTh-fullsize.jpg",
+          "sizes": {
+            "square": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x400-noPad.jpg?1452814189",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x225-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 225
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-800x450-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 450
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-1600x900-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 1600,
+                "height": 900
+              }
+            }
+          },
+          "type": "photo"
+        },
+        "primary_target": {
+          "id": 750542,
+          "display_name": "Barack Obama",
+          "email": null,
+          "type": "Politician",
+          "slug": "barack-obama",
+          "description": "Barack Obama is the 44th and current President of the United States, and the first African American to hold the office. He was formerly a United States Senator from Illinois, a constitutional law professor and a community organizer.",
+          "publicly_visible": true,
+          "verified_at": null,
+          "summary": "President of the United States",
+          "locale": "en-US",
+          "confirmed_at": "2014-06-13T21:09:33Z",
+          "is_person": true,
+          "member_of": {},
+          "additional_data": {
+            "state": null,
+            "title": "President",
+            "district": null,
+            "active": true
+          },
+          "photo": {
+            "id": 17846428,
+            "url": "photos/3/be/jr/aLBEJRhxynnCyDY-fullsize.jpg",
+            "sizes": {
+              "small": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-48x48-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 48,
+                  "height": 48
+                }
+              },
+              "medium": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-128x128-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 128,
+                  "height": 128
+                }
+              },
+              "large": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-400x400-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 400,
+                  "height": 400
+                }
+              },
+              "xlarge": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-800x800-noPad.jpg?1453772756",
+                "processing": false,
+                "size": {
+                  "width": 800,
+                  "height": 800
+                }
+              }
+            }
+          }
+        },
+        "progress": 86.188
+      }
+    },
+    {
+      "id": 376063274,
+      "comment": "No one should be wrongfully charged and sentenced for something that is legal. I stand with what is right and this sentence is not right. My prayers are with the Coverson family. God will make this right. God bless!",
+      "created_at": "2016-01-15T00:47:01Z",
+      "user_id": 467115830,
+      "petition_id": 5526942,
+      "likes": 55,
+      "user": {
+        "id": 467115830,
+        "slug": "467115830",
+        "first_name": "Farisha",
+        "last_name": "Christian",
+        "short_display_name": "Farisha",
+        "display_name": "Farisha Christian",
+        "city": "Columbus",
+        "state_code": "GA",
+        "country_code": "US",
+        "website": null,
+        "locale": "en-US",
+        "description": null
+      },
+      "petition": {
+        "id": 5526942,
+        "document_id": "5526942",
+        "ask": "Free Monique and Larissa Campaign: U.S. citizens unjustly imprisoned in Kuwait Prison",
+        "created_at": "2016-01-14T23:08:49Z",
+        "original_locale": "en-US",
+        "languages": [
+          "en"
+        ],
+        "title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "description": "<p><strong>My daughter Monique earned a stellar record for her seven years as a soldier in the United States Army, stationed in Kuwait. Now, she and her partner wallow in a Kuwaiti prison, facing 25 years on baseless charges.</strong></p>\n<p>After active duty, Monique and her partner Larissa later returned to Kuwait to work as military contractors. On the the morning of May 8, 2015, their house was raided and police confiscated one ounce of a “tobacco-like” substance. It was sent to a lab in Germany for analysis, and <strong>it was determined to be a substance that is completely legal in Kuwait.</strong> Yet, Kuwaiti officials held them in prison anyway. After 8 months of uncharged incarceration, <strong>the one ounce of legal substance magically turned into one pound of marijuana,</strong> and on January 12, 2016, Monique and Larissa were sentenced to 20-25 years  in prison.</p>\n<p><strong>I am begging the US Government to do what it can to get my daughter and her partner out of jail and back</strong> <strong>to the States. They have clearly been targeted by the Kuwaiti government for their lifestyle, and could spend half their lives in prison for it.</strong></p>\n<p>This whole ordeal is a nightmare. One minute, I was expecting her for Mother’s Day, and the next, I was told she was in prison. Everything I have learned has been through her friends and her lawyer, who has only called to demand more money -- money for services he hasn’t rendered. <strong>Right now, I would do anything just to hear her voice.</strong></p>\n<p>To this day, I cannot understand how the US government has allowed them to remain in prison. They were not in possession of an illegal substance, yet their freedom and belongings have been taken away from them. <strong>They are being held captive in a foreign land for a crime they did not commit, with no help in sight.</strong></p>\n<p><strong>I need all of you who read this to help me send a message to the US Government, and ask them to do what is right and get Monique and Larissa out of jail and bring them home. This injustice cannot stand. Please sign my petition.</strong></p>",
+        "targeting_description": "Douglas A. Silliman",
+        "letter_body": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "end_date": "2017-01-14",
+        "goal": null,
+        "relevant_location": {
+          "city": "Washington",
+          "country_code": "US",
+          "lat": 38.9406,
+          "lng": -77.0592,
+          "state_code": "DC",
+          "google_places_id": "ChIJE74dmc3Jt4kR7i5YvujUdms",
+          "photo_id": null
+        },
+        "restricted_location": null,
+        "slug": "free-monique-and-larissa-campaign-us-citizens-wrongfully-imprisoned-in-kuwait",
+        "status": "victory",
+        "victory_date": "2016-04-04",
+        "victory_description": "",
+        "is_verified_victory": true,
+        "is_victory": true,
+        "video": null,
+        "is_pledge": false,
+        "topic": "humanrights",
+        "tags": [
+          {
+            "id": 7579,
+            "locale": "en-US",
+            "name": "Criminal Justice",
+            "slug": "criminal-justice-11",
+            "photo_id": 141650750,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 2417,
+            "locale": "en-US",
+            "name": "Wrongful Convictions",
+            "slug": "wrongful-convictions",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 8820,
+            "locale": "en-US",
+            "name": "kuwait",
+            "slug": "kuwait",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 8534,
+            "locale": "en-US",
+            "name": "LGBT rights",
+            "slug": "lgbt-rights-3",
+            "photo_id": 141650801,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 3079,
+            "locale": "en-US",
+            "name": "lesbian",
+            "slug": "lesbian-2",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 17865,
+            "locale": "en-US",
+            "name": "LGBT families",
+            "slug": "lgbt-families",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 4382,
+            "locale": "en-US",
+            "name": "marijuana",
+            "slug": "marijuana-2",
+            "photo_id": null,
+            "created_by_staff_member": true
+          }
+        ],
+        "discoverable": true,
+        "total_signature_count": 172376,
+        "weekly_signature_count": 0,
+        "photo": {
+          "id": 116294762,
+          "url": "photos/2/wc/hq/vrWchQUtCfztgTh-fullsize.jpg",
+          "sizes": {
+            "square": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x400-noPad.jpg?1452814189",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x225-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 225
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-800x450-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 450
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-1600x900-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 1600,
+                "height": 900
+              }
+            }
+          },
+          "type": "photo"
+        },
+        "user": {
+          "id": 467083970,
+          "slug": "467083970",
+          "first_name": "Jasmine",
+          "last_name": "Coverson",
+          "short_display_name": "Jasmine",
+          "display_name": "Jasmine Coverson",
+          "city": "Phenix City",
+          "state_code": "AL",
+          "country_code": "US",
+          "website": null,
+          "locale": "en-US",
+          "description": null,
+          "photo": {
+            "id": 116295662,
+            "url": "photos/2/dr/xq/eoDRXqbkHAfxbsl-fullsize.jpg",
+            "sizes": {
+              "small": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-48x48-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 48,
+                  "height": 48
+                }
+              },
+              "medium": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-128x128-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 128,
+                  "height": 128
+                }
+              },
+              "large": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-400x400-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 400,
+                  "height": 400
+                }
+              },
+              "xlarge": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-800x800-noPad.jpg?1453772955",
+                "processing": false,
+                "size": {
+                  "width": 800,
+                  "height": 800
+                }
+              }
+            }
+          }
+        },
+        "targets": [
+          {
+            "id": 750542,
+            "display_name": "Barack Obama",
+            "email": null,
+            "type": "Politician",
+            "slug": "barack-obama",
+            "description": "Barack Obama is the 44th and current President of the United States, and the first African American to hold the office. He was formerly a United States Senator from Illinois, a constitutional law professor and a community organizer.",
+            "publicly_visible": true,
+            "verified_at": null,
+            "summary": "President of the United States",
+            "locale": "en-US",
+            "confirmed_at": "2014-06-13T21:09:33Z",
+            "is_person": true,
+            "member_of": {},
+            "additional_data": {
+              "state": null,
+              "title": "President",
+              "district": null,
+              "active": true
+            },
+            "photo": {
+              "id": 17846428,
+              "url": "photos/3/be/jr/aLBEJRhxynnCyDY-fullsize.jpg",
+              "sizes": {
+                "small": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-48x48-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 48,
+                    "height": 48
+                  }
+                },
+                "medium": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-128x128-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 128,
+                    "height": 128
+                  }
+                },
+                "large": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-400x400-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 400,
+                    "height": 400
+                  }
+                },
+                "xlarge": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-800x800-noPad.jpg?1453772756",
+                  "processing": false,
+                  "size": {
+                    "width": 800,
+                    "height": 800
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": 4448290,
+            "display_name": "Douglas A. Silliman",
+            "email": null,
+            "type": "Custom",
+            "slug": "douglas-a-silliman",
+            "description": null,
+            "photo_id": null,
+            "publicly_visible": false,
+            "verified_at": null,
+            "summary": null,
+            "locale": "en-US",
+            "confirmed_at": null,
+            "is_person": true,
+            "member_of": {},
+            "additional_data": {
+              "first_name": "Douglas",
+              "last_name": "A. Silliman",
+              "title": "U.S. Ambassador to Kuwait"
+            }
+          }
+        ],
+        "creator_name": "Jasmine Coverson",
+        "creator_photo": {
+          "id": 116295662,
+          "url": "photos/2/dr/xq/eoDRXqbkHAfxbsl-fullsize.jpg",
+          "sizes": {
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-48x48-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 48,
+                "height": 48
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-128x128-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 128,
+                "height": 128
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-400x400-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "xlarge": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-800x800-noPad.jpg?1453772955",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 800
+              }
+            }
+          }
+        },
+        "display_title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "displayed_signature_count": 172376,
+        "petition_title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "petition_status": "victory",
+        "calculated_goal": 200000,
+        "media": {
+          "id": 116294762,
+          "url": "photos/2/wc/hq/vrWchQUtCfztgTh-fullsize.jpg",
+          "sizes": {
+            "square": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x400-noPad.jpg?1452814189",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x225-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 225
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-800x450-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 450
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-1600x900-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 1600,
+                "height": 900
+              }
+            }
+          },
+          "type": "photo"
+        },
+        "primary_target": {
+          "id": 750542,
+          "display_name": "Barack Obama",
+          "email": null,
+          "type": "Politician",
+          "slug": "barack-obama",
+          "description": "Barack Obama is the 44th and current President of the United States, and the first African American to hold the office. He was formerly a United States Senator from Illinois, a constitutional law professor and a community organizer.",
+          "publicly_visible": true,
+          "verified_at": null,
+          "summary": "President of the United States",
+          "locale": "en-US",
+          "confirmed_at": "2014-06-13T21:09:33Z",
+          "is_person": true,
+          "member_of": {},
+          "additional_data": {
+            "state": null,
+            "title": "President",
+            "district": null,
+            "active": true
+          },
+          "photo": {
+            "id": 17846428,
+            "url": "photos/3/be/jr/aLBEJRhxynnCyDY-fullsize.jpg",
+            "sizes": {
+              "small": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-48x48-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 48,
+                  "height": 48
+                }
+              },
+              "medium": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-128x128-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 128,
+                  "height": 128
+                }
+              },
+              "large": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-400x400-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 400,
+                  "height": 400
+                }
+              },
+              "xlarge": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-800x800-noPad.jpg?1453772756",
+                "processing": false,
+                "size": {
+                  "width": 800,
+                  "height": 800
+                }
+              }
+            }
+          }
+        },
+        "progress": 86.188
+      }
+    },
+    {
+      "id": 376809946,
+      "comment": "The sentence is excessive ! Anyone of Kuwaiti nationality living in kuwait is free to do anything and they will be protected. I know first hand living in kuwait that other nationals are treated unfair and it's ashame . Justice does need to be served property. These ppl can't call home , can't send letters , how are we suppose to know if their being mistreated . Yet we as Americans serve and protect this very country ( kuwait)  Don't give up this Fight , Lets see it to the end .",
+      "created_at": "2016-01-16T01:05:45Z",
+      "user_id": 467552854,
+      "petition_id": 5526942,
+      "likes": 12,
+      "user": {
+        "id": 467552854,
+        "slug": "467552854",
+        "first_name": "Ms",
+        "last_name": "Jay",
+        "short_display_name": "Ms",
+        "display_name": "Ms Jay",
+        "city": "Kuwait",
+        "state_code": "",
+        "country_code": "KW",
+        "website": null,
+        "locale": "en-US",
+        "description": null
+      },
+      "petition": {
+        "id": 5526942,
+        "document_id": "5526942",
+        "ask": "Free Monique and Larissa Campaign: U.S. citizens unjustly imprisoned in Kuwait Prison",
+        "created_at": "2016-01-14T23:08:49Z",
+        "original_locale": "en-US",
+        "languages": [
+          "en"
+        ],
+        "title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "description": "<p><strong>My daughter Monique earned a stellar record for her seven years as a soldier in the United States Army, stationed in Kuwait. Now, she and her partner wallow in a Kuwaiti prison, facing 25 years on baseless charges.</strong></p>\n<p>After active duty, Monique and her partner Larissa later returned to Kuwait to work as military contractors. On the the morning of May 8, 2015, their house was raided and police confiscated one ounce of a “tobacco-like” substance. It was sent to a lab in Germany for analysis, and <strong>it was determined to be a substance that is completely legal in Kuwait.</strong> Yet, Kuwaiti officials held them in prison anyway. After 8 months of uncharged incarceration, <strong>the one ounce of legal substance magically turned into one pound of marijuana,</strong> and on January 12, 2016, Monique and Larissa were sentenced to 20-25 years  in prison.</p>\n<p><strong>I am begging the US Government to do what it can to get my daughter and her partner out of jail and back</strong> <strong>to the States. They have clearly been targeted by the Kuwaiti government for their lifestyle, and could spend half their lives in prison for it.</strong></p>\n<p>This whole ordeal is a nightmare. One minute, I was expecting her for Mother’s Day, and the next, I was told she was in prison. Everything I have learned has been through her friends and her lawyer, who has only called to demand more money -- money for services he hasn’t rendered. <strong>Right now, I would do anything just to hear her voice.</strong></p>\n<p>To this day, I cannot understand how the US government has allowed them to remain in prison. They were not in possession of an illegal substance, yet their freedom and belongings have been taken away from them. <strong>They are being held captive in a foreign land for a crime they did not commit, with no help in sight.</strong></p>\n<p><strong>I need all of you who read this to help me send a message to the US Government, and ask them to do what is right and get Monique and Larissa out of jail and bring them home. This injustice cannot stand. Please sign my petition.</strong></p>",
+        "targeting_description": "Douglas A. Silliman",
+        "letter_body": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "end_date": "2017-01-14",
+        "goal": null,
+        "relevant_location": {
+          "city": "Washington",
+          "country_code": "US",
+          "lat": 38.9406,
+          "lng": -77.0592,
+          "state_code": "DC",
+          "google_places_id": "ChIJE74dmc3Jt4kR7i5YvujUdms",
+          "photo_id": null
+        },
+        "restricted_location": null,
+        "slug": "free-monique-and-larissa-campaign-us-citizens-wrongfully-imprisoned-in-kuwait",
+        "status": "victory",
+        "victory_date": "2016-04-04",
+        "victory_description": "",
+        "is_verified_victory": true,
+        "is_victory": true,
+        "video": null,
+        "is_pledge": false,
+        "topic": "humanrights",
+        "tags": [
+          {
+            "id": 7579,
+            "locale": "en-US",
+            "name": "Criminal Justice",
+            "slug": "criminal-justice-11",
+            "photo_id": 141650750,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 2417,
+            "locale": "en-US",
+            "name": "Wrongful Convictions",
+            "slug": "wrongful-convictions",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 8820,
+            "locale": "en-US",
+            "name": "kuwait",
+            "slug": "kuwait",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 8534,
+            "locale": "en-US",
+            "name": "LGBT rights",
+            "slug": "lgbt-rights-3",
+            "photo_id": 141650801,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 3079,
+            "locale": "en-US",
+            "name": "lesbian",
+            "slug": "lesbian-2",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 17865,
+            "locale": "en-US",
+            "name": "LGBT families",
+            "slug": "lgbt-families",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 4382,
+            "locale": "en-US",
+            "name": "marijuana",
+            "slug": "marijuana-2",
+            "photo_id": null,
+            "created_by_staff_member": true
+          }
+        ],
+        "discoverable": true,
+        "total_signature_count": 172376,
+        "weekly_signature_count": 0,
+        "photo": {
+          "id": 116294762,
+          "url": "photos/2/wc/hq/vrWchQUtCfztgTh-fullsize.jpg",
+          "sizes": {
+            "square": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x400-noPad.jpg?1452814189",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x225-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 225
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-800x450-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 450
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-1600x900-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 1600,
+                "height": 900
+              }
+            }
+          },
+          "type": "photo"
+        },
+        "user": {
+          "id": 467083970,
+          "slug": "467083970",
+          "first_name": "Jasmine",
+          "last_name": "Coverson",
+          "short_display_name": "Jasmine",
+          "display_name": "Jasmine Coverson",
+          "city": "Phenix City",
+          "state_code": "AL",
+          "country_code": "US",
+          "website": null,
+          "locale": "en-US",
+          "description": null,
+          "photo": {
+            "id": 116295662,
+            "url": "photos/2/dr/xq/eoDRXqbkHAfxbsl-fullsize.jpg",
+            "sizes": {
+              "small": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-48x48-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 48,
+                  "height": 48
+                }
+              },
+              "medium": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-128x128-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 128,
+                  "height": 128
+                }
+              },
+              "large": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-400x400-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 400,
+                  "height": 400
+                }
+              },
+              "xlarge": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-800x800-noPad.jpg?1453772955",
+                "processing": false,
+                "size": {
+                  "width": 800,
+                  "height": 800
+                }
+              }
+            }
+          }
+        },
+        "targets": [
+          {
+            "id": 750542,
+            "display_name": "Barack Obama",
+            "email": null,
+            "type": "Politician",
+            "slug": "barack-obama",
+            "description": "Barack Obama is the 44th and current President of the United States, and the first African American to hold the office. He was formerly a United States Senator from Illinois, a constitutional law professor and a community organizer.",
+            "publicly_visible": true,
+            "verified_at": null,
+            "summary": "President of the United States",
+            "locale": "en-US",
+            "confirmed_at": "2014-06-13T21:09:33Z",
+            "is_person": true,
+            "member_of": {},
+            "additional_data": {
+              "state": null,
+              "title": "President",
+              "district": null,
+              "active": true
+            },
+            "photo": {
+              "id": 17846428,
+              "url": "photos/3/be/jr/aLBEJRhxynnCyDY-fullsize.jpg",
+              "sizes": {
+                "small": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-48x48-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 48,
+                    "height": 48
+                  }
+                },
+                "medium": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-128x128-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 128,
+                    "height": 128
+                  }
+                },
+                "large": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-400x400-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 400,
+                    "height": 400
+                  }
+                },
+                "xlarge": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-800x800-noPad.jpg?1453772756",
+                  "processing": false,
+                  "size": {
+                    "width": 800,
+                    "height": 800
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": 4448290,
+            "display_name": "Douglas A. Silliman",
+            "email": null,
+            "type": "Custom",
+            "slug": "douglas-a-silliman",
+            "description": null,
+            "photo_id": null,
+            "publicly_visible": false,
+            "verified_at": null,
+            "summary": null,
+            "locale": "en-US",
+            "confirmed_at": null,
+            "is_person": true,
+            "member_of": {},
+            "additional_data": {
+              "first_name": "Douglas",
+              "last_name": "A. Silliman",
+              "title": "U.S. Ambassador to Kuwait"
+            }
+          }
+        ],
+        "creator_name": "Jasmine Coverson",
+        "creator_photo": {
+          "id": 116295662,
+          "url": "photos/2/dr/xq/eoDRXqbkHAfxbsl-fullsize.jpg",
+          "sizes": {
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-48x48-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 48,
+                "height": 48
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-128x128-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 128,
+                "height": 128
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-400x400-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "xlarge": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-800x800-noPad.jpg?1453772955",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 800
+              }
+            }
+          }
+        },
+        "display_title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "displayed_signature_count": 172376,
+        "petition_title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "petition_status": "victory",
+        "calculated_goal": 200000,
+        "media": {
+          "id": 116294762,
+          "url": "photos/2/wc/hq/vrWchQUtCfztgTh-fullsize.jpg",
+          "sizes": {
+            "square": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x400-noPad.jpg?1452814189",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x225-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 225
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-800x450-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 450
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-1600x900-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 1600,
+                "height": 900
+              }
+            }
+          },
+          "type": "photo"
+        },
+        "primary_target": {
+          "id": 750542,
+          "display_name": "Barack Obama",
+          "email": null,
+          "type": "Politician",
+          "slug": "barack-obama",
+          "description": "Barack Obama is the 44th and current President of the United States, and the first African American to hold the office. He was formerly a United States Senator from Illinois, a constitutional law professor and a community organizer.",
+          "publicly_visible": true,
+          "verified_at": null,
+          "summary": "President of the United States",
+          "locale": "en-US",
+          "confirmed_at": "2014-06-13T21:09:33Z",
+          "is_person": true,
+          "member_of": {},
+          "additional_data": {
+            "state": null,
+            "title": "President",
+            "district": null,
+            "active": true
+          },
+          "photo": {
+            "id": 17846428,
+            "url": "photos/3/be/jr/aLBEJRhxynnCyDY-fullsize.jpg",
+            "sizes": {
+              "small": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-48x48-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 48,
+                  "height": 48
+                }
+              },
+              "medium": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-128x128-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 128,
+                  "height": 128
+                }
+              },
+              "large": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-400x400-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 400,
+                  "height": 400
+                }
+              },
+              "xlarge": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-800x800-noPad.jpg?1453772756",
+                "processing": false,
+                "size": {
+                  "width": 800,
+                  "height": 800
+                }
+              }
+            }
+          }
+        },
+        "progress": 86.188
+      }
+    },
+    {
+      "id": 376095170,
+      "comment": "These are our American former soldiers... 20-25 yrs for artificial or real marijuana... Give me a break! They deserve our support!",
+      "created_at": "2016-01-15T02:24:05Z",
+      "user_id": 69831215,
+      "petition_id": 5526942,
+      "likes": 12,
+      "user": {
+        "id": 69831215,
+        "slug": "69831215",
+        "first_name": "Christine",
+        "last_name": "Lennon",
+        "short_display_name": "Christine",
+        "display_name": "Christine Lennon",
+        "city": "Asheboro",
+        "state_code": "NC",
+        "country_code": "US",
+        "website": null,
+        "locale": "en-US",
+        "description": null,
+        "photo": {
+          "id": 80637808,
+          "url": "photos/8/mk/je/MQMkjejRWIjnDIb-fullsize.jpg",
+          "sizes": {
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/8/mk/je/MQMkjejRWIjnDIb-48x48-noPad.jpg?1438617946",
+              "processing": false,
+              "size": {
+                "width": 48,
+                "height": 48
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/8/mk/je/MQMkjejRWIjnDIb-128x128-noPad.jpg?1438617948",
+              "processing": false,
+              "size": {
+                "width": 128,
+                "height": 128
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/8/mk/je/MQMkjejRWIjnDIb-400x400-noPad.jpg?1438617948",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "xlarge": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/8/mk/je/MQMkjejRWIjnDIb-800x800-noPad.jpg?1453803339",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 800
+              }
+            }
+          }
+        }
+      },
+      "petition": {
+        "id": 5526942,
+        "document_id": "5526942",
+        "ask": "Free Monique and Larissa Campaign: U.S. citizens unjustly imprisoned in Kuwait Prison",
+        "created_at": "2016-01-14T23:08:49Z",
+        "original_locale": "en-US",
+        "languages": [
+          "en"
+        ],
+        "title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "description": "<p><strong>My daughter Monique earned a stellar record for her seven years as a soldier in the United States Army, stationed in Kuwait. Now, she and her partner wallow in a Kuwaiti prison, facing 25 years on baseless charges.</strong></p>\n<p>After active duty, Monique and her partner Larissa later returned to Kuwait to work as military contractors. On the the morning of May 8, 2015, their house was raided and police confiscated one ounce of a “tobacco-like” substance. It was sent to a lab in Germany for analysis, and <strong>it was determined to be a substance that is completely legal in Kuwait.</strong> Yet, Kuwaiti officials held them in prison anyway. After 8 months of uncharged incarceration, <strong>the one ounce of legal substance magically turned into one pound of marijuana,</strong> and on January 12, 2016, Monique and Larissa were sentenced to 20-25 years  in prison.</p>\n<p><strong>I am begging the US Government to do what it can to get my daughter and her partner out of jail and back</strong> <strong>to the States. They have clearly been targeted by the Kuwaiti government for their lifestyle, and could spend half their lives in prison for it.</strong></p>\n<p>This whole ordeal is a nightmare. One minute, I was expecting her for Mother’s Day, and the next, I was told she was in prison. Everything I have learned has been through her friends and her lawyer, who has only called to demand more money -- money for services he hasn’t rendered. <strong>Right now, I would do anything just to hear her voice.</strong></p>\n<p>To this day, I cannot understand how the US government has allowed them to remain in prison. They were not in possession of an illegal substance, yet their freedom and belongings have been taken away from them. <strong>They are being held captive in a foreign land for a crime they did not commit, with no help in sight.</strong></p>\n<p><strong>I need all of you who read this to help me send a message to the US Government, and ask them to do what is right and get Monique and Larissa out of jail and bring them home. This injustice cannot stand. Please sign my petition.</strong></p>",
+        "targeting_description": "Douglas A. Silliman",
+        "letter_body": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "end_date": "2017-01-14",
+        "goal": null,
+        "relevant_location": {
+          "city": "Washington",
+          "country_code": "US",
+          "lat": 38.9406,
+          "lng": -77.0592,
+          "state_code": "DC",
+          "google_places_id": "ChIJE74dmc3Jt4kR7i5YvujUdms",
+          "photo_id": null
+        },
+        "restricted_location": null,
+        "slug": "free-monique-and-larissa-campaign-us-citizens-wrongfully-imprisoned-in-kuwait",
+        "status": "victory",
+        "victory_date": "2016-04-04",
+        "victory_description": "",
+        "is_verified_victory": true,
+        "is_victory": true,
+        "video": null,
+        "is_pledge": false,
+        "topic": "humanrights",
+        "tags": [
+          {
+            "id": 7579,
+            "locale": "en-US",
+            "name": "Criminal Justice",
+            "slug": "criminal-justice-11",
+            "photo_id": 141650750,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 2417,
+            "locale": "en-US",
+            "name": "Wrongful Convictions",
+            "slug": "wrongful-convictions",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 8820,
+            "locale": "en-US",
+            "name": "kuwait",
+            "slug": "kuwait",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 8534,
+            "locale": "en-US",
+            "name": "LGBT rights",
+            "slug": "lgbt-rights-3",
+            "photo_id": 141650801,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 3079,
+            "locale": "en-US",
+            "name": "lesbian",
+            "slug": "lesbian-2",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 17865,
+            "locale": "en-US",
+            "name": "LGBT families",
+            "slug": "lgbt-families",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 4382,
+            "locale": "en-US",
+            "name": "marijuana",
+            "slug": "marijuana-2",
+            "photo_id": null,
+            "created_by_staff_member": true
+          }
+        ],
+        "discoverable": true,
+        "total_signature_count": 172376,
+        "weekly_signature_count": 0,
+        "photo": {
+          "id": 116294762,
+          "url": "photos/2/wc/hq/vrWchQUtCfztgTh-fullsize.jpg",
+          "sizes": {
+            "square": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x400-noPad.jpg?1452814189",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x225-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 225
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-800x450-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 450
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-1600x900-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 1600,
+                "height": 900
+              }
+            }
+          },
+          "type": "photo"
+        },
+        "user": {
+          "id": 467083970,
+          "slug": "467083970",
+          "first_name": "Jasmine",
+          "last_name": "Coverson",
+          "short_display_name": "Jasmine",
+          "display_name": "Jasmine Coverson",
+          "city": "Phenix City",
+          "state_code": "AL",
+          "country_code": "US",
+          "website": null,
+          "locale": "en-US",
+          "description": null,
+          "photo": {
+            "id": 116295662,
+            "url": "photos/2/dr/xq/eoDRXqbkHAfxbsl-fullsize.jpg",
+            "sizes": {
+              "small": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-48x48-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 48,
+                  "height": 48
+                }
+              },
+              "medium": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-128x128-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 128,
+                  "height": 128
+                }
+              },
+              "large": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-400x400-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 400,
+                  "height": 400
+                }
+              },
+              "xlarge": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-800x800-noPad.jpg?1453772955",
+                "processing": false,
+                "size": {
+                  "width": 800,
+                  "height": 800
+                }
+              }
+            }
+          }
+        },
+        "targets": [
+          {
+            "id": 750542,
+            "display_name": "Barack Obama",
+            "email": null,
+            "type": "Politician",
+            "slug": "barack-obama",
+            "description": "Barack Obama is the 44th and current President of the United States, and the first African American to hold the office. He was formerly a United States Senator from Illinois, a constitutional law professor and a community organizer.",
+            "publicly_visible": true,
+            "verified_at": null,
+            "summary": "President of the United States",
+            "locale": "en-US",
+            "confirmed_at": "2014-06-13T21:09:33Z",
+            "is_person": true,
+            "member_of": {},
+            "additional_data": {
+              "state": null,
+              "title": "President",
+              "district": null,
+              "active": true
+            },
+            "photo": {
+              "id": 17846428,
+              "url": "photos/3/be/jr/aLBEJRhxynnCyDY-fullsize.jpg",
+              "sizes": {
+                "small": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-48x48-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 48,
+                    "height": 48
+                  }
+                },
+                "medium": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-128x128-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 128,
+                    "height": 128
+                  }
+                },
+                "large": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-400x400-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 400,
+                    "height": 400
+                  }
+                },
+                "xlarge": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-800x800-noPad.jpg?1453772756",
+                  "processing": false,
+                  "size": {
+                    "width": 800,
+                    "height": 800
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": 4448290,
+            "display_name": "Douglas A. Silliman",
+            "email": null,
+            "type": "Custom",
+            "slug": "douglas-a-silliman",
+            "description": null,
+            "photo_id": null,
+            "publicly_visible": false,
+            "verified_at": null,
+            "summary": null,
+            "locale": "en-US",
+            "confirmed_at": null,
+            "is_person": true,
+            "member_of": {},
+            "additional_data": {
+              "first_name": "Douglas",
+              "last_name": "A. Silliman",
+              "title": "U.S. Ambassador to Kuwait"
+            }
+          }
+        ],
+        "creator_name": "Jasmine Coverson",
+        "creator_photo": {
+          "id": 116295662,
+          "url": "photos/2/dr/xq/eoDRXqbkHAfxbsl-fullsize.jpg",
+          "sizes": {
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-48x48-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 48,
+                "height": 48
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-128x128-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 128,
+                "height": 128
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-400x400-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "xlarge": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-800x800-noPad.jpg?1453772955",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 800
+              }
+            }
+          }
+        },
+        "display_title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "displayed_signature_count": 172376,
+        "petition_title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "petition_status": "victory",
+        "calculated_goal": 200000,
+        "media": {
+          "id": 116294762,
+          "url": "photos/2/wc/hq/vrWchQUtCfztgTh-fullsize.jpg",
+          "sizes": {
+            "square": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x400-noPad.jpg?1452814189",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x225-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 225
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-800x450-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 450
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-1600x900-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 1600,
+                "height": 900
+              }
+            }
+          },
+          "type": "photo"
+        },
+        "primary_target": {
+          "id": 750542,
+          "display_name": "Barack Obama",
+          "email": null,
+          "type": "Politician",
+          "slug": "barack-obama",
+          "description": "Barack Obama is the 44th and current President of the United States, and the first African American to hold the office. He was formerly a United States Senator from Illinois, a constitutional law professor and a community organizer.",
+          "publicly_visible": true,
+          "verified_at": null,
+          "summary": "President of the United States",
+          "locale": "en-US",
+          "confirmed_at": "2014-06-13T21:09:33Z",
+          "is_person": true,
+          "member_of": {},
+          "additional_data": {
+            "state": null,
+            "title": "President",
+            "district": null,
+            "active": true
+          },
+          "photo": {
+            "id": 17846428,
+            "url": "photos/3/be/jr/aLBEJRhxynnCyDY-fullsize.jpg",
+            "sizes": {
+              "small": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-48x48-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 48,
+                  "height": 48
+                }
+              },
+              "medium": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-128x128-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 128,
+                  "height": 128
+                }
+              },
+              "large": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-400x400-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 400,
+                  "height": 400
+                }
+              },
+              "xlarge": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-800x800-noPad.jpg?1453772756",
+                "processing": false,
+                "size": {
+                  "width": 800,
+                  "height": 800
+                }
+              }
+            }
+          }
+        },
+        "progress": 86.188
+      }
+    },
+    {
+      "id": 376029902,
+      "comment": "This matter is important because justice is justice whether you are a citizen of the country or not. My sister is thousands upon thousands of miles away from any of those people who love her and I will not stop until my sister is home. ",
+      "created_at": "2016-01-14T23:21:39Z",
+      "user_id": 467083970,
+      "petition_id": 5526942,
+      "likes": 12,
+      "user": {
+        "id": 467083970,
+        "slug": "467083970",
+        "first_name": "Jasmine",
+        "last_name": "Coverson",
+        "short_display_name": "Jasmine",
+        "display_name": "Jasmine Coverson",
+        "city": "Phenix City",
+        "state_code": "AL",
+        "country_code": "US",
+        "website": null,
+        "locale": "en-US",
+        "description": null,
+        "photo": {
+          "id": 116295662,
+          "url": "photos/2/dr/xq/eoDRXqbkHAfxbsl-fullsize.jpg",
+          "sizes": {
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-48x48-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 48,
+                "height": 48
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-128x128-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 128,
+                "height": 128
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-400x400-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "xlarge": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-800x800-noPad.jpg?1453772955",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 800
+              }
+            }
+          }
+        }
+      },
+      "petition": {
+        "id": 5526942,
+        "document_id": "5526942",
+        "ask": "Free Monique and Larissa Campaign: U.S. citizens unjustly imprisoned in Kuwait Prison",
+        "created_at": "2016-01-14T23:08:49Z",
+        "original_locale": "en-US",
+        "languages": [
+          "en"
+        ],
+        "title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "description": "<p><strong>My daughter Monique earned a stellar record for her seven years as a soldier in the United States Army, stationed in Kuwait. Now, she and her partner wallow in a Kuwaiti prison, facing 25 years on baseless charges.</strong></p>\n<p>After active duty, Monique and her partner Larissa later returned to Kuwait to work as military contractors. On the the morning of May 8, 2015, their house was raided and police confiscated one ounce of a “tobacco-like” substance. It was sent to a lab in Germany for analysis, and <strong>it was determined to be a substance that is completely legal in Kuwait.</strong> Yet, Kuwaiti officials held them in prison anyway. After 8 months of uncharged incarceration, <strong>the one ounce of legal substance magically turned into one pound of marijuana,</strong> and on January 12, 2016, Monique and Larissa were sentenced to 20-25 years  in prison.</p>\n<p><strong>I am begging the US Government to do what it can to get my daughter and her partner out of jail and back</strong> <strong>to the States. They have clearly been targeted by the Kuwaiti government for their lifestyle, and could spend half their lives in prison for it.</strong></p>\n<p>This whole ordeal is a nightmare. One minute, I was expecting her for Mother’s Day, and the next, I was told she was in prison. Everything I have learned has been through her friends and her lawyer, who has only called to demand more money -- money for services he hasn’t rendered. <strong>Right now, I would do anything just to hear her voice.</strong></p>\n<p>To this day, I cannot understand how the US government has allowed them to remain in prison. They were not in possession of an illegal substance, yet their freedom and belongings have been taken away from them. <strong>They are being held captive in a foreign land for a crime they did not commit, with no help in sight.</strong></p>\n<p><strong>I need all of you who read this to help me send a message to the US Government, and ask them to do what is right and get Monique and Larissa out of jail and bring them home. This injustice cannot stand. Please sign my petition.</strong></p>",
+        "targeting_description": "Douglas A. Silliman",
+        "letter_body": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "end_date": "2017-01-14",
+        "goal": null,
+        "relevant_location": {
+          "city": "Washington",
+          "country_code": "US",
+          "lat": 38.9406,
+          "lng": -77.0592,
+          "state_code": "DC",
+          "google_places_id": "ChIJE74dmc3Jt4kR7i5YvujUdms",
+          "photo_id": null
+        },
+        "restricted_location": null,
+        "slug": "free-monique-and-larissa-campaign-us-citizens-wrongfully-imprisoned-in-kuwait",
+        "status": "victory",
+        "victory_date": "2016-04-04",
+        "victory_description": "",
+        "is_verified_victory": true,
+        "is_victory": true,
+        "video": null,
+        "is_pledge": false,
+        "topic": "humanrights",
+        "tags": [
+          {
+            "id": 7579,
+            "locale": "en-US",
+            "name": "Criminal Justice",
+            "slug": "criminal-justice-11",
+            "photo_id": 141650750,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 2417,
+            "locale": "en-US",
+            "name": "Wrongful Convictions",
+            "slug": "wrongful-convictions",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 8820,
+            "locale": "en-US",
+            "name": "kuwait",
+            "slug": "kuwait",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 8534,
+            "locale": "en-US",
+            "name": "LGBT rights",
+            "slug": "lgbt-rights-3",
+            "photo_id": 141650801,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 3079,
+            "locale": "en-US",
+            "name": "lesbian",
+            "slug": "lesbian-2",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 17865,
+            "locale": "en-US",
+            "name": "LGBT families",
+            "slug": "lgbt-families",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 4382,
+            "locale": "en-US",
+            "name": "marijuana",
+            "slug": "marijuana-2",
+            "photo_id": null,
+            "created_by_staff_member": true
+          }
+        ],
+        "discoverable": true,
+        "total_signature_count": 172376,
+        "weekly_signature_count": 0,
+        "photo": {
+          "id": 116294762,
+          "url": "photos/2/wc/hq/vrWchQUtCfztgTh-fullsize.jpg",
+          "sizes": {
+            "square": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x400-noPad.jpg?1452814189",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x225-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 225
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-800x450-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 450
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-1600x900-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 1600,
+                "height": 900
+              }
+            }
+          },
+          "type": "photo"
+        },
+        "user": {
+          "id": 467083970,
+          "slug": "467083970",
+          "first_name": "Jasmine",
+          "last_name": "Coverson",
+          "short_display_name": "Jasmine",
+          "display_name": "Jasmine Coverson",
+          "city": "Phenix City",
+          "state_code": "AL",
+          "country_code": "US",
+          "website": null,
+          "locale": "en-US",
+          "description": null,
+          "photo": {
+            "id": 116295662,
+            "url": "photos/2/dr/xq/eoDRXqbkHAfxbsl-fullsize.jpg",
+            "sizes": {
+              "small": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-48x48-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 48,
+                  "height": 48
+                }
+              },
+              "medium": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-128x128-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 128,
+                  "height": 128
+                }
+              },
+              "large": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-400x400-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 400,
+                  "height": 400
+                }
+              },
+              "xlarge": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-800x800-noPad.jpg?1453772955",
+                "processing": false,
+                "size": {
+                  "width": 800,
+                  "height": 800
+                }
+              }
+            }
+          }
+        },
+        "targets": [
+          {
+            "id": 750542,
+            "display_name": "Barack Obama",
+            "email": null,
+            "type": "Politician",
+            "slug": "barack-obama",
+            "description": "Barack Obama is the 44th and current President of the United States, and the first African American to hold the office. He was formerly a United States Senator from Illinois, a constitutional law professor and a community organizer.",
+            "publicly_visible": true,
+            "verified_at": null,
+            "summary": "President of the United States",
+            "locale": "en-US",
+            "confirmed_at": "2014-06-13T21:09:33Z",
+            "is_person": true,
+            "member_of": {},
+            "additional_data": {
+              "state": null,
+              "title": "President",
+              "district": null,
+              "active": true
+            },
+            "photo": {
+              "id": 17846428,
+              "url": "photos/3/be/jr/aLBEJRhxynnCyDY-fullsize.jpg",
+              "sizes": {
+                "small": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-48x48-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 48,
+                    "height": 48
+                  }
+                },
+                "medium": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-128x128-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 128,
+                    "height": 128
+                  }
+                },
+                "large": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-400x400-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 400,
+                    "height": 400
+                  }
+                },
+                "xlarge": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-800x800-noPad.jpg?1453772756",
+                  "processing": false,
+                  "size": {
+                    "width": 800,
+                    "height": 800
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": 4448290,
+            "display_name": "Douglas A. Silliman",
+            "email": null,
+            "type": "Custom",
+            "slug": "douglas-a-silliman",
+            "description": null,
+            "photo_id": null,
+            "publicly_visible": false,
+            "verified_at": null,
+            "summary": null,
+            "locale": "en-US",
+            "confirmed_at": null,
+            "is_person": true,
+            "member_of": {},
+            "additional_data": {
+              "first_name": "Douglas",
+              "last_name": "A. Silliman",
+              "title": "U.S. Ambassador to Kuwait"
+            }
+          }
+        ],
+        "creator_name": "Jasmine Coverson",
+        "creator_photo": {
+          "id": 116295662,
+          "url": "photos/2/dr/xq/eoDRXqbkHAfxbsl-fullsize.jpg",
+          "sizes": {
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-48x48-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 48,
+                "height": 48
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-128x128-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 128,
+                "height": 128
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-400x400-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "xlarge": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-800x800-noPad.jpg?1453772955",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 800
+              }
+            }
+          }
+        },
+        "display_title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "displayed_signature_count": 172376,
+        "petition_title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "petition_status": "victory",
+        "calculated_goal": 200000,
+        "media": {
+          "id": 116294762,
+          "url": "photos/2/wc/hq/vrWchQUtCfztgTh-fullsize.jpg",
+          "sizes": {
+            "square": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x400-noPad.jpg?1452814189",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x225-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 225
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-800x450-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 450
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-1600x900-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 1600,
+                "height": 900
+              }
+            }
+          },
+          "type": "photo"
+        },
+        "primary_target": {
+          "id": 750542,
+          "display_name": "Barack Obama",
+          "email": null,
+          "type": "Politician",
+          "slug": "barack-obama",
+          "description": "Barack Obama is the 44th and current President of the United States, and the first African American to hold the office. He was formerly a United States Senator from Illinois, a constitutional law professor and a community organizer.",
+          "publicly_visible": true,
+          "verified_at": null,
+          "summary": "President of the United States",
+          "locale": "en-US",
+          "confirmed_at": "2014-06-13T21:09:33Z",
+          "is_person": true,
+          "member_of": {},
+          "additional_data": {
+            "state": null,
+            "title": "President",
+            "district": null,
+            "active": true
+          },
+          "photo": {
+            "id": 17846428,
+            "url": "photos/3/be/jr/aLBEJRhxynnCyDY-fullsize.jpg",
+            "sizes": {
+              "small": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-48x48-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 48,
+                  "height": 48
+                }
+              },
+              "medium": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-128x128-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 128,
+                  "height": 128
+                }
+              },
+              "large": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-400x400-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 400,
+                  "height": 400
+                }
+              },
+              "xlarge": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-800x800-noPad.jpg?1453772756",
+                "processing": false,
+                "size": {
+                  "width": 800,
+                  "height": 800
+                }
+              }
+            }
+          }
+        },
+        "progress": 86.188
+      }
+    },
+    {
+      "id": 376819946,
+      "comment": "My daughter served with Monique in the U. S.  Army,  they served our country and fought together in the war against Iraq.  Monique is not only one of my daughters closest friends she is like a daughter to me.  She is family,  please pray for the family, please help us bring these young women home by signing this petition and sharing this with your family and friends. ",
+      "created_at": "2016-01-16T01:22:34Z",
+      "user_id": 467826210,
+      "petition_id": 5526942,
+      "likes": 11,
+      "user": {
+        "id": 467826210,
+        "slug": "467826210",
+        "first_name": "Develyn",
+        "last_name": "Riley",
+        "short_display_name": "Develyn",
+        "display_name": "Develyn Riley",
+        "city": "Denver",
+        "state_code": "CO",
+        "country_code": "US",
+        "website": null,
+        "locale": "en-US",
+        "description": null
+      },
+      "petition": {
+        "id": 5526942,
+        "document_id": "5526942",
+        "ask": "Free Monique and Larissa Campaign: U.S. citizens unjustly imprisoned in Kuwait Prison",
+        "created_at": "2016-01-14T23:08:49Z",
+        "original_locale": "en-US",
+        "languages": [
+          "en"
+        ],
+        "title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "description": "<p><strong>My daughter Monique earned a stellar record for her seven years as a soldier in the United States Army, stationed in Kuwait. Now, she and her partner wallow in a Kuwaiti prison, facing 25 years on baseless charges.</strong></p>\n<p>After active duty, Monique and her partner Larissa later returned to Kuwait to work as military contractors. On the the morning of May 8, 2015, their house was raided and police confiscated one ounce of a “tobacco-like” substance. It was sent to a lab in Germany for analysis, and <strong>it was determined to be a substance that is completely legal in Kuwait.</strong> Yet, Kuwaiti officials held them in prison anyway. After 8 months of uncharged incarceration, <strong>the one ounce of legal substance magically turned into one pound of marijuana,</strong> and on January 12, 2016, Monique and Larissa were sentenced to 20-25 years  in prison.</p>\n<p><strong>I am begging the US Government to do what it can to get my daughter and her partner out of jail and back</strong> <strong>to the States. They have clearly been targeted by the Kuwaiti government for their lifestyle, and could spend half their lives in prison for it.</strong></p>\n<p>This whole ordeal is a nightmare. One minute, I was expecting her for Mother’s Day, and the next, I was told she was in prison. Everything I have learned has been through her friends and her lawyer, who has only called to demand more money -- money for services he hasn’t rendered. <strong>Right now, I would do anything just to hear her voice.</strong></p>\n<p>To this day, I cannot understand how the US government has allowed them to remain in prison. They were not in possession of an illegal substance, yet their freedom and belongings have been taken away from them. <strong>They are being held captive in a foreign land for a crime they did not commit, with no help in sight.</strong></p>\n<p><strong>I need all of you who read this to help me send a message to the US Government, and ask them to do what is right and get Monique and Larissa out of jail and bring them home. This injustice cannot stand. Please sign my petition.</strong></p>",
+        "targeting_description": "Douglas A. Silliman",
+        "letter_body": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "end_date": "2017-01-14",
+        "goal": null,
+        "relevant_location": {
+          "city": "Washington",
+          "country_code": "US",
+          "lat": 38.9406,
+          "lng": -77.0592,
+          "state_code": "DC",
+          "google_places_id": "ChIJE74dmc3Jt4kR7i5YvujUdms",
+          "photo_id": null
+        },
+        "restricted_location": null,
+        "slug": "free-monique-and-larissa-campaign-us-citizens-wrongfully-imprisoned-in-kuwait",
+        "status": "victory",
+        "victory_date": "2016-04-04",
+        "victory_description": "",
+        "is_verified_victory": true,
+        "is_victory": true,
+        "video": null,
+        "is_pledge": false,
+        "topic": "humanrights",
+        "tags": [
+          {
+            "id": 7579,
+            "locale": "en-US",
+            "name": "Criminal Justice",
+            "slug": "criminal-justice-11",
+            "photo_id": 141650750,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 2417,
+            "locale": "en-US",
+            "name": "Wrongful Convictions",
+            "slug": "wrongful-convictions",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 8820,
+            "locale": "en-US",
+            "name": "kuwait",
+            "slug": "kuwait",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 8534,
+            "locale": "en-US",
+            "name": "LGBT rights",
+            "slug": "lgbt-rights-3",
+            "photo_id": 141650801,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 3079,
+            "locale": "en-US",
+            "name": "lesbian",
+            "slug": "lesbian-2",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 17865,
+            "locale": "en-US",
+            "name": "LGBT families",
+            "slug": "lgbt-families",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 4382,
+            "locale": "en-US",
+            "name": "marijuana",
+            "slug": "marijuana-2",
+            "photo_id": null,
+            "created_by_staff_member": true
+          }
+        ],
+        "discoverable": true,
+        "total_signature_count": 172376,
+        "weekly_signature_count": 0,
+        "photo": {
+          "id": 116294762,
+          "url": "photos/2/wc/hq/vrWchQUtCfztgTh-fullsize.jpg",
+          "sizes": {
+            "square": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x400-noPad.jpg?1452814189",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x225-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 225
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-800x450-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 450
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-1600x900-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 1600,
+                "height": 900
+              }
+            }
+          },
+          "type": "photo"
+        },
+        "user": {
+          "id": 467083970,
+          "slug": "467083970",
+          "first_name": "Jasmine",
+          "last_name": "Coverson",
+          "short_display_name": "Jasmine",
+          "display_name": "Jasmine Coverson",
+          "city": "Phenix City",
+          "state_code": "AL",
+          "country_code": "US",
+          "website": null,
+          "locale": "en-US",
+          "description": null,
+          "photo": {
+            "id": 116295662,
+            "url": "photos/2/dr/xq/eoDRXqbkHAfxbsl-fullsize.jpg",
+            "sizes": {
+              "small": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-48x48-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 48,
+                  "height": 48
+                }
+              },
+              "medium": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-128x128-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 128,
+                  "height": 128
+                }
+              },
+              "large": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-400x400-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 400,
+                  "height": 400
+                }
+              },
+              "xlarge": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-800x800-noPad.jpg?1453772955",
+                "processing": false,
+                "size": {
+                  "width": 800,
+                  "height": 800
+                }
+              }
+            }
+          }
+        },
+        "targets": [
+          {
+            "id": 750542,
+            "display_name": "Barack Obama",
+            "email": null,
+            "type": "Politician",
+            "slug": "barack-obama",
+            "description": "Barack Obama is the 44th and current President of the United States, and the first African American to hold the office. He was formerly a United States Senator from Illinois, a constitutional law professor and a community organizer.",
+            "publicly_visible": true,
+            "verified_at": null,
+            "summary": "President of the United States",
+            "locale": "en-US",
+            "confirmed_at": "2014-06-13T21:09:33Z",
+            "is_person": true,
+            "member_of": {},
+            "additional_data": {
+              "state": null,
+              "title": "President",
+              "district": null,
+              "active": true
+            },
+            "photo": {
+              "id": 17846428,
+              "url": "photos/3/be/jr/aLBEJRhxynnCyDY-fullsize.jpg",
+              "sizes": {
+                "small": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-48x48-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 48,
+                    "height": 48
+                  }
+                },
+                "medium": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-128x128-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 128,
+                    "height": 128
+                  }
+                },
+                "large": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-400x400-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 400,
+                    "height": 400
+                  }
+                },
+                "xlarge": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-800x800-noPad.jpg?1453772756",
+                  "processing": false,
+                  "size": {
+                    "width": 800,
+                    "height": 800
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": 4448290,
+            "display_name": "Douglas A. Silliman",
+            "email": null,
+            "type": "Custom",
+            "slug": "douglas-a-silliman",
+            "description": null,
+            "photo_id": null,
+            "publicly_visible": false,
+            "verified_at": null,
+            "summary": null,
+            "locale": "en-US",
+            "confirmed_at": null,
+            "is_person": true,
+            "member_of": {},
+            "additional_data": {
+              "first_name": "Douglas",
+              "last_name": "A. Silliman",
+              "title": "U.S. Ambassador to Kuwait"
+            }
+          }
+        ],
+        "creator_name": "Jasmine Coverson",
+        "creator_photo": {
+          "id": 116295662,
+          "url": "photos/2/dr/xq/eoDRXqbkHAfxbsl-fullsize.jpg",
+          "sizes": {
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-48x48-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 48,
+                "height": 48
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-128x128-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 128,
+                "height": 128
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-400x400-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "xlarge": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-800x800-noPad.jpg?1453772955",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 800
+              }
+            }
+          }
+        },
+        "display_title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "displayed_signature_count": 172376,
+        "petition_title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "petition_status": "victory",
+        "calculated_goal": 200000,
+        "media": {
+          "id": 116294762,
+          "url": "photos/2/wc/hq/vrWchQUtCfztgTh-fullsize.jpg",
+          "sizes": {
+            "square": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x400-noPad.jpg?1452814189",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x225-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 225
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-800x450-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 450
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-1600x900-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 1600,
+                "height": 900
+              }
+            }
+          },
+          "type": "photo"
+        },
+        "primary_target": {
+          "id": 750542,
+          "display_name": "Barack Obama",
+          "email": null,
+          "type": "Politician",
+          "slug": "barack-obama",
+          "description": "Barack Obama is the 44th and current President of the United States, and the first African American to hold the office. He was formerly a United States Senator from Illinois, a constitutional law professor and a community organizer.",
+          "publicly_visible": true,
+          "verified_at": null,
+          "summary": "President of the United States",
+          "locale": "en-US",
+          "confirmed_at": "2014-06-13T21:09:33Z",
+          "is_person": true,
+          "member_of": {},
+          "additional_data": {
+            "state": null,
+            "title": "President",
+            "district": null,
+            "active": true
+          },
+          "photo": {
+            "id": 17846428,
+            "url": "photos/3/be/jr/aLBEJRhxynnCyDY-fullsize.jpg",
+            "sizes": {
+              "small": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-48x48-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 48,
+                  "height": 48
+                }
+              },
+              "medium": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-128x128-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 128,
+                  "height": 128
+                }
+              },
+              "large": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-400x400-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 400,
+                  "height": 400
+                }
+              },
+              "xlarge": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-800x800-noPad.jpg?1453772756",
+                "processing": false,
+                "size": {
+                  "width": 800,
+                  "height": 800
+                }
+              }
+            }
+          }
+        },
+        "progress": 86.188
+      }
+    },
+    {
+      "id": 376071026,
+      "comment": "I'm signing this because my friends are being wrongly accused of a crime and being held captive in my eyes in a foreign country and not even able to reach lawyer please help my friends ",
+      "created_at": "2016-01-15T01:09:21Z",
+      "user_id": 89803612,
+      "petition_id": 5526942,
+      "likes": 11,
+      "user": {
+        "id": 89803612,
+        "slug": "89803612",
+        "first_name": "Darby",
+        "last_name": "Wilson",
+        "short_display_name": "Darby",
+        "display_name": "Darby Wilson",
+        "city": "Columbus",
+        "state_code": "GA",
+        "country_code": "US",
+        "website": null,
+        "locale": "en-US",
+        "description": null,
+        "photo": {
+          "id": 116308342,
+          "url": "photos/0/ee/zh/SkeEzhoSwUFxzSN-fullsize.jpg",
+          "sizes": {
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/0/ee/zh/SkeEzhoSwUFxzSN-48x48-noPad.jpg?1452820212",
+              "processing": false,
+              "size": {
+                "width": 48,
+                "height": 48
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/0/ee/zh/SkeEzhoSwUFxzSN-128x128-noPad.jpg?1452820212",
+              "processing": false,
+              "size": {
+                "width": 128,
+                "height": 128
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/0/ee/zh/SkeEzhoSwUFxzSN-400x400-noPad.jpg?1452820212",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "xlarge": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/0/ee/zh/SkeEzhoSwUFxzSN-800x800-noPad.jpg?1453773958",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 800
+              }
+            }
+          }
+        }
+      },
+      "petition": {
+        "id": 5526942,
+        "document_id": "5526942",
+        "ask": "Free Monique and Larissa Campaign: U.S. citizens unjustly imprisoned in Kuwait Prison",
+        "created_at": "2016-01-14T23:08:49Z",
+        "original_locale": "en-US",
+        "languages": [
+          "en"
+        ],
+        "title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "description": "<p><strong>My daughter Monique earned a stellar record for her seven years as a soldier in the United States Army, stationed in Kuwait. Now, she and her partner wallow in a Kuwaiti prison, facing 25 years on baseless charges.</strong></p>\n<p>After active duty, Monique and her partner Larissa later returned to Kuwait to work as military contractors. On the the morning of May 8, 2015, their house was raided and police confiscated one ounce of a “tobacco-like” substance. It was sent to a lab in Germany for analysis, and <strong>it was determined to be a substance that is completely legal in Kuwait.</strong> Yet, Kuwaiti officials held them in prison anyway. After 8 months of uncharged incarceration, <strong>the one ounce of legal substance magically turned into one pound of marijuana,</strong> and on January 12, 2016, Monique and Larissa were sentenced to 20-25 years  in prison.</p>\n<p><strong>I am begging the US Government to do what it can to get my daughter and her partner out of jail and back</strong> <strong>to the States. They have clearly been targeted by the Kuwaiti government for their lifestyle, and could spend half their lives in prison for it.</strong></p>\n<p>This whole ordeal is a nightmare. One minute, I was expecting her for Mother’s Day, and the next, I was told she was in prison. Everything I have learned has been through her friends and her lawyer, who has only called to demand more money -- money for services he hasn’t rendered. <strong>Right now, I would do anything just to hear her voice.</strong></p>\n<p>To this day, I cannot understand how the US government has allowed them to remain in prison. They were not in possession of an illegal substance, yet their freedom and belongings have been taken away from them. <strong>They are being held captive in a foreign land for a crime they did not commit, with no help in sight.</strong></p>\n<p><strong>I need all of you who read this to help me send a message to the US Government, and ask them to do what is right and get Monique and Larissa out of jail and bring them home. This injustice cannot stand. Please sign my petition.</strong></p>",
+        "targeting_description": "Douglas A. Silliman",
+        "letter_body": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "end_date": "2017-01-14",
+        "goal": null,
+        "relevant_location": {
+          "city": "Washington",
+          "country_code": "US",
+          "lat": 38.9406,
+          "lng": -77.0592,
+          "state_code": "DC",
+          "google_places_id": "ChIJE74dmc3Jt4kR7i5YvujUdms",
+          "photo_id": null
+        },
+        "restricted_location": null,
+        "slug": "free-monique-and-larissa-campaign-us-citizens-wrongfully-imprisoned-in-kuwait",
+        "status": "victory",
+        "victory_date": "2016-04-04",
+        "victory_description": "",
+        "is_verified_victory": true,
+        "is_victory": true,
+        "video": null,
+        "is_pledge": false,
+        "topic": "humanrights",
+        "tags": [
+          {
+            "id": 7579,
+            "locale": "en-US",
+            "name": "Criminal Justice",
+            "slug": "criminal-justice-11",
+            "photo_id": 141650750,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 2417,
+            "locale": "en-US",
+            "name": "Wrongful Convictions",
+            "slug": "wrongful-convictions",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 8820,
+            "locale": "en-US",
+            "name": "kuwait",
+            "slug": "kuwait",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 8534,
+            "locale": "en-US",
+            "name": "LGBT rights",
+            "slug": "lgbt-rights-3",
+            "photo_id": 141650801,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 3079,
+            "locale": "en-US",
+            "name": "lesbian",
+            "slug": "lesbian-2",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 17865,
+            "locale": "en-US",
+            "name": "LGBT families",
+            "slug": "lgbt-families",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 4382,
+            "locale": "en-US",
+            "name": "marijuana",
+            "slug": "marijuana-2",
+            "photo_id": null,
+            "created_by_staff_member": true
+          }
+        ],
+        "discoverable": true,
+        "total_signature_count": 172376,
+        "weekly_signature_count": 0,
+        "photo": {
+          "id": 116294762,
+          "url": "photos/2/wc/hq/vrWchQUtCfztgTh-fullsize.jpg",
+          "sizes": {
+            "square": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x400-noPad.jpg?1452814189",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x225-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 225
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-800x450-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 450
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-1600x900-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 1600,
+                "height": 900
+              }
+            }
+          },
+          "type": "photo"
+        },
+        "user": {
+          "id": 467083970,
+          "slug": "467083970",
+          "first_name": "Jasmine",
+          "last_name": "Coverson",
+          "short_display_name": "Jasmine",
+          "display_name": "Jasmine Coverson",
+          "city": "Phenix City",
+          "state_code": "AL",
+          "country_code": "US",
+          "website": null,
+          "locale": "en-US",
+          "description": null,
+          "photo": {
+            "id": 116295662,
+            "url": "photos/2/dr/xq/eoDRXqbkHAfxbsl-fullsize.jpg",
+            "sizes": {
+              "small": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-48x48-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 48,
+                  "height": 48
+                }
+              },
+              "medium": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-128x128-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 128,
+                  "height": 128
+                }
+              },
+              "large": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-400x400-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 400,
+                  "height": 400
+                }
+              },
+              "xlarge": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-800x800-noPad.jpg?1453772955",
+                "processing": false,
+                "size": {
+                  "width": 800,
+                  "height": 800
+                }
+              }
+            }
+          }
+        },
+        "targets": [
+          {
+            "id": 750542,
+            "display_name": "Barack Obama",
+            "email": null,
+            "type": "Politician",
+            "slug": "barack-obama",
+            "description": "Barack Obama is the 44th and current President of the United States, and the first African American to hold the office. He was formerly a United States Senator from Illinois, a constitutional law professor and a community organizer.",
+            "publicly_visible": true,
+            "verified_at": null,
+            "summary": "President of the United States",
+            "locale": "en-US",
+            "confirmed_at": "2014-06-13T21:09:33Z",
+            "is_person": true,
+            "member_of": {},
+            "additional_data": {
+              "state": null,
+              "title": "President",
+              "district": null,
+              "active": true
+            },
+            "photo": {
+              "id": 17846428,
+              "url": "photos/3/be/jr/aLBEJRhxynnCyDY-fullsize.jpg",
+              "sizes": {
+                "small": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-48x48-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 48,
+                    "height": 48
+                  }
+                },
+                "medium": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-128x128-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 128,
+                    "height": 128
+                  }
+                },
+                "large": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-400x400-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 400,
+                    "height": 400
+                  }
+                },
+                "xlarge": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-800x800-noPad.jpg?1453772756",
+                  "processing": false,
+                  "size": {
+                    "width": 800,
+                    "height": 800
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": 4448290,
+            "display_name": "Douglas A. Silliman",
+            "email": null,
+            "type": "Custom",
+            "slug": "douglas-a-silliman",
+            "description": null,
+            "photo_id": null,
+            "publicly_visible": false,
+            "verified_at": null,
+            "summary": null,
+            "locale": "en-US",
+            "confirmed_at": null,
+            "is_person": true,
+            "member_of": {},
+            "additional_data": {
+              "first_name": "Douglas",
+              "last_name": "A. Silliman",
+              "title": "U.S. Ambassador to Kuwait"
+            }
+          }
+        ],
+        "creator_name": "Jasmine Coverson",
+        "creator_photo": {
+          "id": 116295662,
+          "url": "photos/2/dr/xq/eoDRXqbkHAfxbsl-fullsize.jpg",
+          "sizes": {
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-48x48-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 48,
+                "height": 48
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-128x128-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 128,
+                "height": 128
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-400x400-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "xlarge": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-800x800-noPad.jpg?1453772955",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 800
+              }
+            }
+          }
+        },
+        "display_title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "displayed_signature_count": 172376,
+        "petition_title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "petition_status": "victory",
+        "calculated_goal": 200000,
+        "media": {
+          "id": 116294762,
+          "url": "photos/2/wc/hq/vrWchQUtCfztgTh-fullsize.jpg",
+          "sizes": {
+            "square": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x400-noPad.jpg?1452814189",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x225-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 225
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-800x450-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 450
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-1600x900-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 1600,
+                "height": 900
+              }
+            }
+          },
+          "type": "photo"
+        },
+        "primary_target": {
+          "id": 750542,
+          "display_name": "Barack Obama",
+          "email": null,
+          "type": "Politician",
+          "slug": "barack-obama",
+          "description": "Barack Obama is the 44th and current President of the United States, and the first African American to hold the office. He was formerly a United States Senator from Illinois, a constitutional law professor and a community organizer.",
+          "publicly_visible": true,
+          "verified_at": null,
+          "summary": "President of the United States",
+          "locale": "en-US",
+          "confirmed_at": "2014-06-13T21:09:33Z",
+          "is_person": true,
+          "member_of": {},
+          "additional_data": {
+            "state": null,
+            "title": "President",
+            "district": null,
+            "active": true
+          },
+          "photo": {
+            "id": 17846428,
+            "url": "photos/3/be/jr/aLBEJRhxynnCyDY-fullsize.jpg",
+            "sizes": {
+              "small": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-48x48-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 48,
+                  "height": 48
+                }
+              },
+              "medium": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-128x128-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 128,
+                  "height": 128
+                }
+              },
+              "large": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-400x400-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 400,
+                  "height": 400
+                }
+              },
+              "xlarge": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-800x800-noPad.jpg?1453772756",
+                "processing": false,
+                "size": {
+                  "width": 800,
+                  "height": 800
+                }
+              }
+            }
+          }
+        },
+        "progress": 86.188
+      }
+    },
+    {
+      "id": 376825494,
+      "comment": "II'm urging our government to acknowledge this matter because we've always displayed strong beliefs of the right to democracy for citizens abroad so to let actual citizens of the USA to become subjected to the same injustice we fight so hard to provide others would be a travesty in the least. ",
+      "created_at": "2016-01-16T01:32:38Z",
+      "user_id": 467829930,
+      "petition_id": 5526942,
+      "likes": 10,
+      "user": {
+        "id": 467829930,
+        "slug": "467829930",
+        "first_name": "Vanessa",
+        "last_name": "Smith",
+        "short_display_name": "Vanessa",
+        "display_name": "Vanessa Smith",
+        "city": "Miami",
+        "state_code": "FL",
+        "country_code": "US",
+        "website": null,
+        "locale": "en-US",
+        "description": null
+      },
+      "petition": {
+        "id": 5526942,
+        "document_id": "5526942",
+        "ask": "Free Monique and Larissa Campaign: U.S. citizens unjustly imprisoned in Kuwait Prison",
+        "created_at": "2016-01-14T23:08:49Z",
+        "original_locale": "en-US",
+        "languages": [
+          "en"
+        ],
+        "title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "description": "<p><strong>My daughter Monique earned a stellar record for her seven years as a soldier in the United States Army, stationed in Kuwait. Now, she and her partner wallow in a Kuwaiti prison, facing 25 years on baseless charges.</strong></p>\n<p>After active duty, Monique and her partner Larissa later returned to Kuwait to work as military contractors. On the the morning of May 8, 2015, their house was raided and police confiscated one ounce of a “tobacco-like” substance. It was sent to a lab in Germany for analysis, and <strong>it was determined to be a substance that is completely legal in Kuwait.</strong> Yet, Kuwaiti officials held them in prison anyway. After 8 months of uncharged incarceration, <strong>the one ounce of legal substance magically turned into one pound of marijuana,</strong> and on January 12, 2016, Monique and Larissa were sentenced to 20-25 years  in prison.</p>\n<p><strong>I am begging the US Government to do what it can to get my daughter and her partner out of jail and back</strong> <strong>to the States. They have clearly been targeted by the Kuwaiti government for their lifestyle, and could spend half their lives in prison for it.</strong></p>\n<p>This whole ordeal is a nightmare. One minute, I was expecting her for Mother’s Day, and the next, I was told she was in prison. Everything I have learned has been through her friends and her lawyer, who has only called to demand more money -- money for services he hasn’t rendered. <strong>Right now, I would do anything just to hear her voice.</strong></p>\n<p>To this day, I cannot understand how the US government has allowed them to remain in prison. They were not in possession of an illegal substance, yet their freedom and belongings have been taken away from them. <strong>They are being held captive in a foreign land for a crime they did not commit, with no help in sight.</strong></p>\n<p><strong>I need all of you who read this to help me send a message to the US Government, and ask them to do what is right and get Monique and Larissa out of jail and bring them home. This injustice cannot stand. Please sign my petition.</strong></p>",
+        "targeting_description": "Douglas A. Silliman",
+        "letter_body": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "end_date": "2017-01-14",
+        "goal": null,
+        "relevant_location": {
+          "city": "Washington",
+          "country_code": "US",
+          "lat": 38.9406,
+          "lng": -77.0592,
+          "state_code": "DC",
+          "google_places_id": "ChIJE74dmc3Jt4kR7i5YvujUdms",
+          "photo_id": null
+        },
+        "restricted_location": null,
+        "slug": "free-monique-and-larissa-campaign-us-citizens-wrongfully-imprisoned-in-kuwait",
+        "status": "victory",
+        "victory_date": "2016-04-04",
+        "victory_description": "",
+        "is_verified_victory": true,
+        "is_victory": true,
+        "video": null,
+        "is_pledge": false,
+        "topic": "humanrights",
+        "tags": [
+          {
+            "id": 7579,
+            "locale": "en-US",
+            "name": "Criminal Justice",
+            "slug": "criminal-justice-11",
+            "photo_id": 141650750,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 2417,
+            "locale": "en-US",
+            "name": "Wrongful Convictions",
+            "slug": "wrongful-convictions",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 8820,
+            "locale": "en-US",
+            "name": "kuwait",
+            "slug": "kuwait",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 8534,
+            "locale": "en-US",
+            "name": "LGBT rights",
+            "slug": "lgbt-rights-3",
+            "photo_id": 141650801,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 3079,
+            "locale": "en-US",
+            "name": "lesbian",
+            "slug": "lesbian-2",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 17865,
+            "locale": "en-US",
+            "name": "LGBT families",
+            "slug": "lgbt-families",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 4382,
+            "locale": "en-US",
+            "name": "marijuana",
+            "slug": "marijuana-2",
+            "photo_id": null,
+            "created_by_staff_member": true
+          }
+        ],
+        "discoverable": true,
+        "total_signature_count": 172376,
+        "weekly_signature_count": 0,
+        "photo": {
+          "id": 116294762,
+          "url": "photos/2/wc/hq/vrWchQUtCfztgTh-fullsize.jpg",
+          "sizes": {
+            "square": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x400-noPad.jpg?1452814189",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x225-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 225
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-800x450-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 450
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-1600x900-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 1600,
+                "height": 900
+              }
+            }
+          },
+          "type": "photo"
+        },
+        "user": {
+          "id": 467083970,
+          "slug": "467083970",
+          "first_name": "Jasmine",
+          "last_name": "Coverson",
+          "short_display_name": "Jasmine",
+          "display_name": "Jasmine Coverson",
+          "city": "Phenix City",
+          "state_code": "AL",
+          "country_code": "US",
+          "website": null,
+          "locale": "en-US",
+          "description": null,
+          "photo": {
+            "id": 116295662,
+            "url": "photos/2/dr/xq/eoDRXqbkHAfxbsl-fullsize.jpg",
+            "sizes": {
+              "small": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-48x48-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 48,
+                  "height": 48
+                }
+              },
+              "medium": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-128x128-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 128,
+                  "height": 128
+                }
+              },
+              "large": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-400x400-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 400,
+                  "height": 400
+                }
+              },
+              "xlarge": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-800x800-noPad.jpg?1453772955",
+                "processing": false,
+                "size": {
+                  "width": 800,
+                  "height": 800
+                }
+              }
+            }
+          }
+        },
+        "targets": [
+          {
+            "id": 750542,
+            "display_name": "Barack Obama",
+            "email": null,
+            "type": "Politician",
+            "slug": "barack-obama",
+            "description": "Barack Obama is the 44th and current President of the United States, and the first African American to hold the office. He was formerly a United States Senator from Illinois, a constitutional law professor and a community organizer.",
+            "publicly_visible": true,
+            "verified_at": null,
+            "summary": "President of the United States",
+            "locale": "en-US",
+            "confirmed_at": "2014-06-13T21:09:33Z",
+            "is_person": true,
+            "member_of": {},
+            "additional_data": {
+              "state": null,
+              "title": "President",
+              "district": null,
+              "active": true
+            },
+            "photo": {
+              "id": 17846428,
+              "url": "photos/3/be/jr/aLBEJRhxynnCyDY-fullsize.jpg",
+              "sizes": {
+                "small": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-48x48-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 48,
+                    "height": 48
+                  }
+                },
+                "medium": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-128x128-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 128,
+                    "height": 128
+                  }
+                },
+                "large": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-400x400-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 400,
+                    "height": 400
+                  }
+                },
+                "xlarge": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-800x800-noPad.jpg?1453772756",
+                  "processing": false,
+                  "size": {
+                    "width": 800,
+                    "height": 800
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": 4448290,
+            "display_name": "Douglas A. Silliman",
+            "email": null,
+            "type": "Custom",
+            "slug": "douglas-a-silliman",
+            "description": null,
+            "photo_id": null,
+            "publicly_visible": false,
+            "verified_at": null,
+            "summary": null,
+            "locale": "en-US",
+            "confirmed_at": null,
+            "is_person": true,
+            "member_of": {},
+            "additional_data": {
+              "first_name": "Douglas",
+              "last_name": "A. Silliman",
+              "title": "U.S. Ambassador to Kuwait"
+            }
+          }
+        ],
+        "creator_name": "Jasmine Coverson",
+        "creator_photo": {
+          "id": 116295662,
+          "url": "photos/2/dr/xq/eoDRXqbkHAfxbsl-fullsize.jpg",
+          "sizes": {
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-48x48-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 48,
+                "height": 48
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-128x128-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 128,
+                "height": 128
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-400x400-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "xlarge": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-800x800-noPad.jpg?1453772955",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 800
+              }
+            }
+          }
+        },
+        "display_title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "displayed_signature_count": 172376,
+        "petition_title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "petition_status": "victory",
+        "calculated_goal": 200000,
+        "media": {
+          "id": 116294762,
+          "url": "photos/2/wc/hq/vrWchQUtCfztgTh-fullsize.jpg",
+          "sizes": {
+            "square": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x400-noPad.jpg?1452814189",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x225-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 225
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-800x450-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 450
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-1600x900-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 1600,
+                "height": 900
+              }
+            }
+          },
+          "type": "photo"
+        },
+        "primary_target": {
+          "id": 750542,
+          "display_name": "Barack Obama",
+          "email": null,
+          "type": "Politician",
+          "slug": "barack-obama",
+          "description": "Barack Obama is the 44th and current President of the United States, and the first African American to hold the office. He was formerly a United States Senator from Illinois, a constitutional law professor and a community organizer.",
+          "publicly_visible": true,
+          "verified_at": null,
+          "summary": "President of the United States",
+          "locale": "en-US",
+          "confirmed_at": "2014-06-13T21:09:33Z",
+          "is_person": true,
+          "member_of": {},
+          "additional_data": {
+            "state": null,
+            "title": "President",
+            "district": null,
+            "active": true
+          },
+          "photo": {
+            "id": 17846428,
+            "url": "photos/3/be/jr/aLBEJRhxynnCyDY-fullsize.jpg",
+            "sizes": {
+              "small": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-48x48-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 48,
+                  "height": 48
+                }
+              },
+              "medium": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-128x128-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 128,
+                  "height": 128
+                }
+              },
+              "large": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-400x400-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 400,
+                  "height": 400
+                }
+              },
+              "xlarge": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-800x800-noPad.jpg?1453772756",
+                "processing": false,
+                "size": {
+                  "width": 800,
+                  "height": 800
+                }
+              }
+            }
+          }
+        },
+        "progress": 86.188
+      }
+    },
+    {
+      "id": 377100262,
+      "comment": "Ive known MO since 9 th grade. When they had moved to Fort Benning, Ga. She has always been a positive yet quite person. As time passed and she has been soo focused in the Military. Has always been a wonderful role model at that... Would lift your spirits quickly as well. I pray daily and will keep sharing this petition..",
+      "created_at": "2016-01-16T13:27:47Z",
+      "user_id": 467129686,
+      "petition_id": 5526942,
+      "likes": 9,
+      "user": {
+        "id": 467129686,
+        "slug": "467129686",
+        "first_name": "Erica",
+        "last_name": "Waddell",
+        "short_display_name": "Erica",
+        "display_name": "Erica Waddell",
+        "city": "Columbus",
+        "state_code": "GA",
+        "country_code": "US",
+        "website": null,
+        "locale": "en-US",
+        "description": null,
+        "photo": {
+          "id": 116310826,
+          "url": "photos/5/po/mr/jmPOMRhnWKUMBIZ-fullsize.jpg",
+          "sizes": {
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/5/po/mr/jmPOMRhnWKUMBIZ-48x48-noPad.jpg?1452821810",
+              "processing": false,
+              "size": {
+                "width": 48,
+                "height": 48
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/5/po/mr/jmPOMRhnWKUMBIZ-128x128-noPad.jpg?1452821811",
+              "processing": false,
+              "size": {
+                "width": 128,
+                "height": 128
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/5/po/mr/jmPOMRhnWKUMBIZ-400x400-noPad.jpg?1452821810",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "xlarge": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/5/po/mr/jmPOMRhnWKUMBIZ-800x800-noPad.jpg?1453773959",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 800
+              }
+            }
+          }
+        }
+      },
+      "petition": {
+        "id": 5526942,
+        "document_id": "5526942",
+        "ask": "Free Monique and Larissa Campaign: U.S. citizens unjustly imprisoned in Kuwait Prison",
+        "created_at": "2016-01-14T23:08:49Z",
+        "original_locale": "en-US",
+        "languages": [
+          "en"
+        ],
+        "title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "description": "<p><strong>My daughter Monique earned a stellar record for her seven years as a soldier in the United States Army, stationed in Kuwait. Now, she and her partner wallow in a Kuwaiti prison, facing 25 years on baseless charges.</strong></p>\n<p>After active duty, Monique and her partner Larissa later returned to Kuwait to work as military contractors. On the the morning of May 8, 2015, their house was raided and police confiscated one ounce of a “tobacco-like” substance. It was sent to a lab in Germany for analysis, and <strong>it was determined to be a substance that is completely legal in Kuwait.</strong> Yet, Kuwaiti officials held them in prison anyway. After 8 months of uncharged incarceration, <strong>the one ounce of legal substance magically turned into one pound of marijuana,</strong> and on January 12, 2016, Monique and Larissa were sentenced to 20-25 years  in prison.</p>\n<p><strong>I am begging the US Government to do what it can to get my daughter and her partner out of jail and back</strong> <strong>to the States. They have clearly been targeted by the Kuwaiti government for their lifestyle, and could spend half their lives in prison for it.</strong></p>\n<p>This whole ordeal is a nightmare. One minute, I was expecting her for Mother’s Day, and the next, I was told she was in prison. Everything I have learned has been through her friends and her lawyer, who has only called to demand more money -- money for services he hasn’t rendered. <strong>Right now, I would do anything just to hear her voice.</strong></p>\n<p>To this day, I cannot understand how the US government has allowed them to remain in prison. They were not in possession of an illegal substance, yet their freedom and belongings have been taken away from them. <strong>They are being held captive in a foreign land for a crime they did not commit, with no help in sight.</strong></p>\n<p><strong>I need all of you who read this to help me send a message to the US Government, and ask them to do what is right and get Monique and Larissa out of jail and bring them home. This injustice cannot stand. Please sign my petition.</strong></p>",
+        "targeting_description": "Douglas A. Silliman",
+        "letter_body": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "end_date": "2017-01-14",
+        "goal": null,
+        "relevant_location": {
+          "city": "Washington",
+          "country_code": "US",
+          "lat": 38.9406,
+          "lng": -77.0592,
+          "state_code": "DC",
+          "google_places_id": "ChIJE74dmc3Jt4kR7i5YvujUdms",
+          "photo_id": null
+        },
+        "restricted_location": null,
+        "slug": "free-monique-and-larissa-campaign-us-citizens-wrongfully-imprisoned-in-kuwait",
+        "status": "victory",
+        "victory_date": "2016-04-04",
+        "victory_description": "",
+        "is_verified_victory": true,
+        "is_victory": true,
+        "video": null,
+        "is_pledge": false,
+        "topic": "humanrights",
+        "tags": [
+          {
+            "id": 7579,
+            "locale": "en-US",
+            "name": "Criminal Justice",
+            "slug": "criminal-justice-11",
+            "photo_id": 141650750,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 2417,
+            "locale": "en-US",
+            "name": "Wrongful Convictions",
+            "slug": "wrongful-convictions",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 8820,
+            "locale": "en-US",
+            "name": "kuwait",
+            "slug": "kuwait",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 8534,
+            "locale": "en-US",
+            "name": "LGBT rights",
+            "slug": "lgbt-rights-3",
+            "photo_id": 141650801,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 3079,
+            "locale": "en-US",
+            "name": "lesbian",
+            "slug": "lesbian-2",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 17865,
+            "locale": "en-US",
+            "name": "LGBT families",
+            "slug": "lgbt-families",
+            "photo_id": null,
+            "created_by_staff_member": true
+          },
+          {
+            "id": 4382,
+            "locale": "en-US",
+            "name": "marijuana",
+            "slug": "marijuana-2",
+            "photo_id": null,
+            "created_by_staff_member": true
+          }
+        ],
+        "discoverable": true,
+        "total_signature_count": 172376,
+        "weekly_signature_count": 0,
+        "photo": {
+          "id": 116294762,
+          "url": "photos/2/wc/hq/vrWchQUtCfztgTh-fullsize.jpg",
+          "sizes": {
+            "square": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x400-noPad.jpg?1452814189",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x225-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 225
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-800x450-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 450
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-1600x900-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 1600,
+                "height": 900
+              }
+            }
+          },
+          "type": "photo"
+        },
+        "user": {
+          "id": 467083970,
+          "slug": "467083970",
+          "first_name": "Jasmine",
+          "last_name": "Coverson",
+          "short_display_name": "Jasmine",
+          "display_name": "Jasmine Coverson",
+          "city": "Phenix City",
+          "state_code": "AL",
+          "country_code": "US",
+          "website": null,
+          "locale": "en-US",
+          "description": null,
+          "photo": {
+            "id": 116295662,
+            "url": "photos/2/dr/xq/eoDRXqbkHAfxbsl-fullsize.jpg",
+            "sizes": {
+              "small": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-48x48-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 48,
+                  "height": 48
+                }
+              },
+              "medium": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-128x128-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 128,
+                  "height": 128
+                }
+              },
+              "large": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-400x400-noPad.jpg?1452813396",
+                "processing": false,
+                "size": {
+                  "width": 400,
+                  "height": 400
+                }
+              },
+              "xlarge": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-800x800-noPad.jpg?1453772955",
+                "processing": false,
+                "size": {
+                  "width": 800,
+                  "height": 800
+                }
+              }
+            }
+          }
+        },
+        "targets": [
+          {
+            "id": 750542,
+            "display_name": "Barack Obama",
+            "email": null,
+            "type": "Politician",
+            "slug": "barack-obama",
+            "description": "Barack Obama is the 44th and current President of the United States, and the first African American to hold the office. He was formerly a United States Senator from Illinois, a constitutional law professor and a community organizer.",
+            "publicly_visible": true,
+            "verified_at": null,
+            "summary": "President of the United States",
+            "locale": "en-US",
+            "confirmed_at": "2014-06-13T21:09:33Z",
+            "is_person": true,
+            "member_of": {},
+            "additional_data": {
+              "state": null,
+              "title": "President",
+              "district": null,
+              "active": true
+            },
+            "photo": {
+              "id": 17846428,
+              "url": "photos/3/be/jr/aLBEJRhxynnCyDY-fullsize.jpg",
+              "sizes": {
+                "small": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-48x48-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 48,
+                    "height": 48
+                  }
+                },
+                "medium": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-128x128-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 128,
+                    "height": 128
+                  }
+                },
+                "large": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-400x400-noPad.jpg?1423787998",
+                  "processing": false,
+                  "size": {
+                    "width": 400,
+                    "height": 400
+                  }
+                },
+                "xlarge": {
+                  "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-800x800-noPad.jpg?1453772756",
+                  "processing": false,
+                  "size": {
+                    "width": 800,
+                    "height": 800
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": 4448290,
+            "display_name": "Douglas A. Silliman",
+            "email": null,
+            "type": "Custom",
+            "slug": "douglas-a-silliman",
+            "description": null,
+            "photo_id": null,
+            "publicly_visible": false,
+            "verified_at": null,
+            "summary": null,
+            "locale": "en-US",
+            "confirmed_at": null,
+            "is_person": true,
+            "member_of": {},
+            "additional_data": {
+              "first_name": "Douglas",
+              "last_name": "A. Silliman",
+              "title": "U.S. Ambassador to Kuwait"
+            }
+          }
+        ],
+        "creator_name": "Jasmine Coverson",
+        "creator_photo": {
+          "id": 116295662,
+          "url": "photos/2/dr/xq/eoDRXqbkHAfxbsl-fullsize.jpg",
+          "sizes": {
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-48x48-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 48,
+                "height": 48
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-128x128-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 128,
+                "height": 128
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-400x400-noPad.jpg?1452813396",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "xlarge": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/dr/xq/eoDRXqbkHAfxbsl-800x800-noPad.jpg?1453772955",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 800
+              }
+            }
+          }
+        },
+        "display_title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "displayed_signature_count": 172376,
+        "petition_title": "Free Monique and Larissa Campaign: US citizens wrongfully imprisoned in Kuwait",
+        "petition_status": "victory",
+        "calculated_goal": 200000,
+        "media": {
+          "id": 116294762,
+          "url": "photos/2/wc/hq/vrWchQUtCfztgTh-fullsize.jpg",
+          "sizes": {
+            "square": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x400-noPad.jpg?1452814189",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 400
+              }
+            },
+            "small": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-400x225-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 400,
+                "height": 225
+              }
+            },
+            "medium": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-800x450-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 800,
+                "height": 450
+              }
+            },
+            "large": {
+              "url": "//d22r54gnmuhwmk.cloudfront.net/photos/2/wc/hq/vrWchQUtCfztgTh-1600x900-noPad.jpg?1452814188",
+              "processing": false,
+              "size": {
+                "width": 1600,
+                "height": 900
+              }
+            }
+          },
+          "type": "photo"
+        },
+        "primary_target": {
+          "id": 750542,
+          "display_name": "Barack Obama",
+          "email": null,
+          "type": "Politician",
+          "slug": "barack-obama",
+          "description": "Barack Obama is the 44th and current President of the United States, and the first African American to hold the office. He was formerly a United States Senator from Illinois, a constitutional law professor and a community organizer.",
+          "publicly_visible": true,
+          "verified_at": null,
+          "summary": "President of the United States",
+          "locale": "en-US",
+          "confirmed_at": "2014-06-13T21:09:33Z",
+          "is_person": true,
+          "member_of": {},
+          "additional_data": {
+            "state": null,
+            "title": "President",
+            "district": null,
+            "active": true
+          },
+          "photo": {
+            "id": 17846428,
+            "url": "photos/3/be/jr/aLBEJRhxynnCyDY-fullsize.jpg",
+            "sizes": {
+              "small": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-48x48-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 48,
+                  "height": 48
+                }
+              },
+              "medium": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-128x128-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 128,
+                  "height": 128
+                }
+              },
+              "large": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-400x400-noPad.jpg?1423787998",
+                "processing": false,
+                "size": {
+                  "width": 400,
+                  "height": 400
+                }
+              },
+              "xlarge": {
+                "url": "//d22r54gnmuhwmk.cloudfront.net/photos/3/be/jr/aLBEJRhxynnCyDY-800x800-noPad.jpg?1453772756",
+                "processing": false,
+                "size": {
+                  "width": 800,
+                  "height": 800
+                }
+              }
+            }
+          }
+        },
+        "progress": 86.188
+      }
+    }
+  ],
+  "last_page": false
+}

@@ -1,0 +1,255 @@
+
+	"_id" : ObjectId("5780937fd9ccb32891d1cbb7"),
+	"status" : "closed",
+	"category" : "Environment",
+	"goal" : 5000,
+	"creator_name" : "Christopher David Moore",
+	"title" : "Freeze all of BP's assets, before it is too late",
+	"url" : "https://api.change.org/p/freeze-all-of-bp-s-assets-before-it-is-too-late",
+	"overview" : "<p>In the construction industry, builders that get sued for one reason or another simply drop their company name to escape paying law suits. It only takes 6 hours to make a new company.(REBRANDING) Same owner, same company practices, different name and zero responsibility to the lawsuits of prior company.</p>\n<p>This could be the reason BP is slow to act. Stall tactics so they can move things around. False accounts to how much oil is spewing out daily, because the amount matters in terms of fines levied against them.</p>\n<p>We must act NOW. WE MUST ACT NOW BEFORE BP RUNS AND HIDES UNDER ANOTHER NAME.</p>\n<p>FREEZE ALL THAT IS CONNECTED TO BP!  THE OWNERS ASSETS TOO,  just as the EPA would do if  ordinary citizens were dumping toxic chemicals in the creeks or on land.</p>",
+	"created_at" : "2010-05-31T09:14:21Z",
+	"signature_count" : 279,
+	"end_at" : "2010-08-29T23:59:59Z",
+	"organization_name" : null,
+	"letter_body" : "You must freeze all of BP's assets before they hide under a new company name, before they re brand. You must do this before the people of the United States have to flip the bill on the clean up. If you do not freeze all of BP's assets and owners assets, under the EPA's authority, we the people will consider this inaction a crime against us. We shall not pay a dime for the incompetents of BP and those who were suppose to oversee the drilling procedure. That is the federal government of the United States of America. \n\nWe the people have every right to DEMAND this action, be taken quickly and without hesitation. This is our country. British Petroleum has desecrated our waters and our lands. They must pay for their unmistakable incompetence. \n\nBritish Petroleum must not escape paying the bill in full. From plugging the leak to cleaning the waters and lands effected to providing the funds to keep everyone in the area above water on their living expenses to all projected profits of the fisheries to the expected impact for years to come. Anyone and everyone!!! Everyone in the area must be made whole plus compensated for their suffering. The stress of wondering if their lives will ever be the same is worth something grand. Is it not?\n\nWe DEMAND ACTION NOW on these matters, so that BP can not escape after to spill is plugged. You must act now so that, in the end, our country can say \"Yes, the politicians covered our butts on this one.\"\n\nThank you for your time on this matter and PLEASE ACT QUICKLY before it is too late. DO NOT TRUST BP TO DO WHAT IS RIGHT!!!!  They are destroyers of Eco-systems for profit!!!",
+	"petition_id" : 30001,
+	"creator_url" : "https://api.change.org/u/moorsey",
+	"image_url" : "https://d22r54gnmuhwmk.cloudfront.net/app-assets/petitions/show/default_petition-8290d88b72fb74c3e759135dcbc48b22.png",
+	"organization_url" : null,
+	"targets" : [
+		{
+			"type" : "us_government",
+			"name" : "President of the United States"
+		},
+		{
+			"type" : "us_government",
+			"name" : "U.S. Senate"
+		},
+		{
+			"type" : "us_government",
+			"name" : "U.S. House of Representatives"
+		}
+	],
+	"creator_locale" : "en-US",
+	"creator_state" : "PA",
+	"victory_date" : null,
+	"num_past_petitions" : 0,
+	"displayed_signature_count" : 279,
+	"display_title" : "Freeze all of BP's assets, before it is too late",
+	"discoverable" : true,
+	"creator_description" : " I am a spinal injury patient. I need to have safe access to marijuana. Marijuana is medicine and medicine of the most natural form. My doctor and I feel marijauna should  and will be allowed to be prescribed to any and all individuals that feel it is the best course of action for them.  We KNOW marijauna has proven itself time and time again,  to be a benefit to those who rather injest marijuana instead of  horrible pills that have more side effects( physical addiction, violent vommitting, horrible withdraw ) than benefits.\r\n\r\nWe need to awaken the sleeping giant once again. And instead of awakening for the war effort, awakened for the end of war and prohibition. My belief is that the end of prohibition IS the end of war ( in time, as it works it's way around us)  We need our voice back. We must keep up the good fight for all of us past, present, and future.\r\nFOR PEACE, GIVE LOVE, and TAKE NO SHIT FROM ANYONE!!!\r\n\r\nGathering pro marijuana friends.",
+	"languages" : [
+		"en"
+	],
+	"last_past_victory_date" : null,
+	"num_past_victories" : 0,
+	"targets_detailed" : [
+		{
+			"publicly_visible" : false,
+			"display_name" : "U.S. House of Representatives",
+			"description" : null,
+			"member_of" : {
+
+			},
+			"locale" : "en-US",
+			"confirmed_at" : "2013-12-18T21:46:55Z",
+			"summary" : null,
+			"id" : 808912,
+			"email" : null,
+			"additional_data" : {
+				"type" : "UsFederalHouse"
+			},
+			"is_person" : false,
+			"verified_at" : null,
+			"type" : "Group",
+			"slug" : "u-s-house-of-representatives",
+			"photo" : {
+				"url" : "photos/4/lw/he/QglWHEjPcxVGjHr-fullsize.jpg",
+				"id" : 14361706,
+				"sizes" : {
+					"small" : {
+						"url" : "//d22r54gnmuhwmk.cloudfront.net/photos/4/lw/he/QglWHEjPcxVGjHr-48x48-noPad.jpg?1423788112",
+						"processing" : false,
+						"size" : {
+							"width" : 48,
+							"height" : 48
+						}
+					},
+					"large" : {
+						"url" : "//d22r54gnmuhwmk.cloudfront.net/photos/4/lw/he/QglWHEjPcxVGjHr-400x400-noPad.jpg?1423788112",
+						"processing" : false,
+						"size" : {
+							"width" : 400,
+							"height" : 400
+						}
+					},
+					"medium" : {
+						"url" : "//d22r54gnmuhwmk.cloudfront.net/photos/4/lw/he/QglWHEjPcxVGjHr-128x128-noPad.jpg?1423788111",
+						"processing" : false,
+						"size" : {
+							"width" : 128,
+							"height" : 128
+						}
+					},
+					"xlarge" : {
+						"url" : "//d22r54gnmuhwmk.cloudfront.net/photos/4/lw/he/QglWHEjPcxVGjHr-800x800-noPad.jpg?1453772985",
+						"processing" : false,
+						"size" : {
+							"width" : 800,
+							"height" : 800
+						}
+					}
+				}
+			}
+		},
+		{
+			"publicly_visible" : false,
+			"display_name" : "U.S. Senate",
+			"description" : null,
+			"member_of" : {
+
+			},
+			"locale" : "en-US",
+			"confirmed_at" : "2013-12-18T21:47:07Z",
+			"summary" : null,
+			"id" : 808913,
+			"email" : null,
+			"additional_data" : {
+				"type" : "UsFederalSenate"
+			},
+			"is_person" : false,
+			"verified_at" : null,
+			"type" : "Group",
+			"slug" : "u-s-senate",
+			"photo" : {
+				"url" : "photos/8/hc/rk/nDHcrkPwmdaeaBD-fullsize.jpg",
+				"id" : 14361607,
+				"sizes" : {
+					"small" : {
+						"url" : "//d22r54gnmuhwmk.cloudfront.net/photos/8/hc/rk/nDHcrkPwmdaeaBD-48x48-noPad.jpg?1423799280",
+						"processing" : false,
+						"size" : {
+							"width" : 48,
+							"height" : 48
+						}
+					},
+					"large" : {
+						"url" : "//d22r54gnmuhwmk.cloudfront.net/photos/8/hc/rk/nDHcrkPwmdaeaBD-400x400-noPad.jpg?1423799280",
+						"processing" : false,
+						"size" : {
+							"width" : 400,
+							"height" : 400
+						}
+					},
+					"medium" : {
+						"url" : "//d22r54gnmuhwmk.cloudfront.net/photos/8/hc/rk/nDHcrkPwmdaeaBD-128x128-noPad.jpg?1423799281",
+						"processing" : false,
+						"size" : {
+							"width" : 128,
+							"height" : 128
+						}
+					},
+					"xlarge" : {
+						"url" : "//d22r54gnmuhwmk.cloudfront.net/photos/8/hc/rk/nDHcrkPwmdaeaBD-800x800-noPad.jpg?1453773058",
+						"processing" : false,
+						"size" : {
+							"width" : 800,
+							"height" : 800
+						}
+					}
+				}
+			}
+		},
+		{
+			"publicly_visible" : true,
+			"display_name" : "President of the United States",
+			"description" : null,
+			"member_of" : {
+
+			},
+			"locale" : "en-US",
+			"confirmed_at" : "2013-12-18T21:46:33Z",
+			"summary" : "",
+			"id" : 809032,
+			"email" : null,
+			"additional_data" : {
+				"type" : "UsPresident"
+			},
+			"is_person" : true,
+			"verified_at" : null,
+			"type" : "Role",
+			"slug" : "president-of-the-united-states",
+			"photo" : {
+				"url" : "photos/0/pw/mc/kqpwMcRoTGYxLmw-fullsize.jpg",
+				"id" : 114995450,
+				"sizes" : {
+					"small" : {
+						"url" : "//d22r54gnmuhwmk.cloudfront.net/photos/0/pw/mc/kqpwMcRoTGYxLmw-48x48-noPad.jpg?1452214437",
+						"processing" : false,
+						"size" : {
+							"width" : 48,
+							"height" : 48
+						}
+					},
+					"large" : {
+						"url" : "//d22r54gnmuhwmk.cloudfront.net/photos/0/pw/mc/kqpwMcRoTGYxLmw-400x400-noPad.jpg?1452214437",
+						"processing" : false,
+						"size" : {
+							"width" : 400,
+							"height" : 400
+						}
+					},
+					"medium" : {
+						"url" : "//d22r54gnmuhwmk.cloudfront.net/photos/0/pw/mc/kqpwMcRoTGYxLmw-128x128-noPad.jpg?1452214437",
+						"processing" : false,
+						"size" : {
+							"width" : 128,
+							"height" : 128
+						}
+					},
+					"xlarge" : {
+						"url" : "//d22r54gnmuhwmk.cloudfront.net/photos/0/pw/mc/kqpwMcRoTGYxLmw-800x800-noPad.jpg?1453772722",
+						"processing" : false,
+						"size" : {
+							"width" : 800,
+							"height" : 800
+						}
+					}
+				}
+			}
+		}
+	],
+	"is_verified_victory" : false,
+	"has_video" : false,
+	"creator_has_website" : true,
+	"photo" : null,
+	"progress" : 5.58,
+	"is_victory" : false,
+	"creator_fb_permissions" : 0,
+	"original_locale" : "en-US",
+	"description" : "<p>In the construction industry, builders that get sued for one reason or another simply drop their company name to escape paying law suits. It only takes 6 hours to make a new company.(REBRANDING) Same owner, same company practices, different name and zero responsibility to the lawsuits of prior company.</p>\n<p>This could be the reason BP is slow to act. Stall tactics so they can move things around. False accounts to how much oil is spewing out daily, because the amount matters in terms of fines levied against them.</p>\n<p>We must act NOW. WE MUST ACT NOW BEFORE BP RUNS AND HIDES UNDER ANOTHER NAME.</p>\n<p>FREEZE ALL THAT IS CONNECTED TO BP!  THE OWNERS ASSETS TOO,  just as the EPA would do if  ordinary citizens were dumping toxic chemicals in the creeks or on land.</p>",
+	"tags" : [
+		"Environment"
+	],
+	"creator_last_name" : "Moore",
+	"creator_type" : "user",
+	"creator_first_name" : "Christopher David",
+	"creator_city" : "West Chester",
+	"creator_photo" : "photos/6/qj/ny/hfQJNyHYFKVqFNX-fullsize.jpg",
+	"ask" : "Freeze all of BP's assets, before it is too late",
+	"calculated_goal" : 5000,
+	"creator_display_name" : "Christopher David Moore",
+	"creator_has_slug" : true,
+	"last_past_verified_victory_date" : null,
+	"creator_country" : "US",
+	"num_past_verified_victories" : 0,
+	"is_pledge" : false,
+	"news_coverages" : 0,
+	"milestones" : 0,
+	"num_comments" : 0,
+	"last_update" : null,
+	"comments_likes" : 0,
+	"num_tweets" : 0,
+	"fb_popularity" : 0,
+	"endorsements" : 0
+}
