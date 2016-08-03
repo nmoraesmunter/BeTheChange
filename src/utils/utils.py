@@ -34,7 +34,7 @@ def preprocess_data(url):
     y = final_df.pop("status")
     final_df.pop("display_title")
     final_df.pop("letter_body")
-    final_df.pop("id")
+    #final_df.pop("id")
     final_df.pop("_id")
     final_df.pop("is_verified_victory")
     X = final_df

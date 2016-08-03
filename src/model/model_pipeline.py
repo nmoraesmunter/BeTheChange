@@ -2,18 +2,21 @@ from __future__ import division
 from sklearn.pipeline import Pipeline, FeatureUnion
 from sklearn.feature_extraction.text import TfidfTransformer, CountVectorizer
 from sklearn.feature_selection import SelectKBest
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.cross_validation import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, confusion_matrix, \
     roc_curve, auc, precision_recall_curve
 from utils.utils import read_mongo
-from sklearn.ensemble import GradientBoostingClassifier, AdaBoostClassifier, RandomForestClassifier, VotingClassifier
+from sklearn.ensemble import AdaBoostClassifier
+from sklearn.naive_bayes import MultinomialNB
 from sklearn.grid_search import GridSearchCV
 from sklearn.base import BaseEstimator
 import matplotlib.pyplot as plt
 import numpy as np
-from pprint import pprint
 from time import time
+from pprint import pprint
 from utils.utils import save_model
+
 
 
 class ColumnExtractor(BaseEstimator):
@@ -53,10 +56,11 @@ class WeightedAdaClassifier(AdaBoostClassifier):
 
 class ModelPipeline(object):
 
-    def __init__(self, clf, params = {}):
+    def __init__(self, clf):
+
 
         self.columns =[]
-        self.count_vectorizer = CountVectorizer(stop_words="english", max_features=100)
+        self.count_vectorizer = CountVectorizer(stop_words="english", max_features=100, ngram_range=(1,3))
 
         self.pipeline = Pipeline([
             ('features', FeatureUnion([
@@ -71,9 +75,10 @@ class ModelPipeline(object):
             ])),
             ('clf', clf)
             ])
-        self.pipeline.set_params(**params)
 
     def fit(self, X_train, y_train):
+
+
         self.pipeline.fit(X_train, y_train)
         nlp_col = ['tf_%s' % x for x in self.count_vectorizer.get_feature_names()]
         non_nlp_col = list(X_train.columns.drop("description"))
@@ -81,6 +86,7 @@ class ModelPipeline(object):
 
     def predict(self, X_test):
         return self.pipeline.predict(X_test)
+
 
     def feat_importances(self, n=20, string=True):
 
@@ -94,28 +100,18 @@ class ModelPipeline(object):
 
     def grid_search(self, X, y):
 
-        rf_parameters = {
-           'clf__n_estimators': [200],
+        parameters = {
+            'clf__n_estimators': [100, 200, 300] ,
             'clf__max_features': ['sqrt', 50, 80],
-            'clf__max_depth' : [50, 100],
-            'clf__oob_score': [False],
-            'clf__min_samples_split':[20, 25]
+            'clf__max_depth': [None, 50, 100],
+            'clf__oob_score': [False, True],
+            'clf__random_state':[29],
+            'clf__class_weight':['balanced', None, 'balanced_subsample'],
+            'clf__min_samples_split': [2, 10, 20]
         }
 
-        ada_parameters = {
-           'clf__n_estimators': [200],
-            'clf__max_features': ['sqrt', 50, 80],
-            'clf__max_depth' : [50, 100],
-            'clf__oob_score': [False],
-            'clf__min_samples_split':[20, 25]
-        }
 
-        param_grid = {"base_estimator__criterion": ["gini", "entropy"],
-                      "base_estimator__splitter": ["best", "random"],
-                      "n_estimators": [1, 2]
-                      }
-
-        grid_search = GridSearchCV(self.pipeline, parameters, n_jobs=-1, verbose=1)
+        grid_search = GridSearchCV(self.pipeline, parameters, n_jobs=-1, verbose=1, scoring = "recall")
 
         print("Performing grid search...")
         print("pipeline:", [name for name, _ in self.pipeline.steps])
@@ -133,6 +129,8 @@ class ModelPipeline(object):
             print("\t%s: %r" % (param_name, best_parameters[param_name]))
         return best_parameters
 
+
+
 if __name__ == "__main__":
 
     df = read_mongo("changeorg", "featured_petitions",
@@ -143,7 +141,7 @@ if __name__ == "__main__":
 
     df.pop("display_title")
     df.pop("letter_body")
-    df.pop("id")
+    #df.pop("id")
     df.pop("_id")
     #  df.pop("displayed_signature_count")
     #  df.pop("displayed_supporter_count")
@@ -156,36 +154,26 @@ if __name__ == "__main__":
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
-
     parameters = {
-        'n_estimators': 200,
-        'max_features': 'sqrt',
-        'max_depth': None
-    }
-    parameters = {
-    }
-
-    rf = WeightedRFClassifier()
-    rf.set_params(**parameters)
-    ada = WeightedAdaClassifier(**parameters)
- #   vc = VotingClassifier(estimators=[('rf', rf), ('ada', ada)], voting='hard')
-
-    model_pipeline = ModelPipeline(ada)
-  #  bp = model_pipeline.grid_search(X_train, y_train)
-
-    parameters = {
-        'clf__n_estimators': 200,
-        'clf__max_features': 50,
-        'clf__max_depth': 100,
-        'clf__oob_score': False,
-        'clf__min_samples_split': 25
+        'n_estimators': 300,
+        'max_features': 80,
+        'max_depth': None,
+        'min_samples_leaf' : 20,
+        'random_state':29,
+        'class_weight': None
     }
 
-   # model_pipeline = ModelPipeline(rf)
+    rfc = WeightedRFClassifier()
+    rfc.set_params(**parameters)
+
+    model_pipeline = ModelPipeline(rfc)
+    #best_params = model_pipeline.grid_search(X_train, y_train)
+
+
     model_pipeline.fit(X_train, y_train)
+    model_pipeline.transform(X_train)
 
-    save_model(model_pipeline, "model")
-
+    save_model(model_pipeline, "rf_new_petitions_model")
 
     y_pred_train = model_pipeline.predict(X_train)
     y_pred = model_pipeline.predict(X_test)
@@ -215,6 +203,8 @@ if __name__ == "__main__":
 
     print model_pipeline.feat_importances(20)
 
+    '''
+
     y_score = model_pipeline.pipeline.predict_proba(X_test)[:,1]
 
     false_positive_rate, true_positive_rate, thresholds = roc_curve(y_test, y_score)
@@ -233,31 +223,6 @@ if __name__ == "__main__":
     plt.xlabel('False Positive Rate')
     plt.show()
 
+'''
 
 
-
-
-
-
-
-    """
-    Calculate accuracy, precision, recall for varying thresholds.
-
-    thresholds = y_score
-    thresholds.sort()
-    thresh_acc = []
-    thresh_prec = []
-    thresh_rec = []
-    for threshold in thresholds:
-        y_predicted = []
-        for ytp in y_score:
-            y_predicted.append(int(ytp >= threshold))
-        thresh_acc.append(accuracy_score(y_test, y_predicted))
-        thresh_prec.append(precision_score(y_test, y_predicted))
-        thresh_rec.append(recall_score(y_test, y_predicted))
-    plt.plot(thresholds, thresh_acc, label='accuracy')
-    plt.plot(thresholds, thresh_prec, label='precision')
-    plt.plot(thresholds, thresh_rec, label='recall')
-    plt.legend()
-    plt.show()
-    """

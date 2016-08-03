@@ -5,6 +5,7 @@ from src.utils import utils
 
 from flask import Flask, request, render_template
 from src.model.model_pipeline import ModelPipeline, ColumnExtractor, ColumnPop, WeightedAdaClassifier, WeightedRFClassifier
+from src.model.similarities_pipeline import SimilaritiesPipeline
 
 app = Flask(__name__)
 
@@ -32,12 +33,18 @@ def predict():
         prediction = "This is going to change the world!  "
         is_victory = 1
 
+    '''
+    Get similar petitions
+    '''
+    similar_petitions = similarities_model.top_similar_petitions(X["description"][0])
+
     return render_template('index.html', SUCCESS_SCORE = score, PETITION_ID = petition_id,
-                           PREDICTION = prediction, IS_VICTORY = is_victory, PREDICTED = True)
+                           PREDICTION = prediction, IS_VICTORY = is_victory, PREDICTED = True, SIMILAR = similar_petitions)
 
 
 if __name__ == '__main__':
     # Load the model
-    model = utils.load_model("model")
+    model = utils.load_model("rf_new_petitions_model")
+    similarities_model = utils.load_model("similarities_model")
 
     app.run(host='0.0.0.0', port=8080, debug=True)
