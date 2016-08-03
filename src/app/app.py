@@ -4,7 +4,7 @@ import pandas as pd
 from src.utils import utils
 
 from flask import Flask, request, render_template
-from src.model.model_pipeline import ModelPipeline, ColumnExtractor, ColumnPop
+from src.model.model_pipeline import ModelPipeline, ColumnExtractor, ColumnPop, WeightedAdaClassifier, WeightedRFClassifier
 
 app = Flask(__name__)
 
@@ -26,10 +26,10 @@ def predict():
     Project Success Score
     '''
     score = round(y_score[0][1] * 100, 2)
-    prediction = "Oh oh, this looks bad...   "
+    prediction = "Oh oh, it looks bad...   "
     is_victory = 0
     if score > 50:
-        prediction = "This is going to BeTheChange!  "
+        prediction = "This is going to change the world!  "
         is_victory = 1
 
     return render_template('index.html', SUCCESS_SCORE = score, PETITION_ID = petition_id,
@@ -38,6 +38,6 @@ def predict():
 
 if __name__ == '__main__':
     # Load the model
-    model = utils.load_model("rf_new_petitions_model")
+    model = utils.load_model("model")
 
     app.run(host='0.0.0.0', port=8080, debug=True)

@@ -2,20 +2,21 @@ from __future__ import division
 from sklearn.pipeline import Pipeline, FeatureUnion
 from sklearn.feature_extraction.text import TfidfTransformer, CountVectorizer
 from sklearn.feature_selection import SelectKBest
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.cross_validation import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, confusion_matrix, \
     roc_curve, auc, precision_recall_curve
 from utils.utils import read_mongo
-from sklearn.ensemble import AdaBoostClassifier
-from sklearn.naive_bayes import MultinomialNB
+from sklearn.ensemble import GradientBoostingClassifier, AdaBoostClassifier, RandomForestClassifier, VotingClassifier
 from sklearn.grid_search import GridSearchCV
+from sklearn.base import BaseEstimator
 import matplotlib.pyplot as plt
 import numpy as np
+from pprint import pprint
+from time import time
 from utils.utils import save_model
 
 
-class ColumnExtractor(object):
+class ColumnExtractor(BaseEstimator):
 
     def __init__(self, column_name):
         self.column_name = column_name
@@ -27,7 +28,7 @@ class ColumnExtractor(object):
         return self
 
 
-class ColumnPop(object):
+class ColumnPop(BaseEstimator):
 
     def __init__(self, column_name):
         self.column_name = column_name
@@ -39,15 +40,21 @@ class ColumnPop(object):
     def fit(self, X, y=None):
         return self
 
+class WeightedRFClassifier(RandomForestClassifier):
+    def fit(self, X , y = None):
+        weights = np.array([1/y.mean() if i == 1 else 1 for i in y])
+        return super(RandomForestClassifier, self).fit(X,y,sample_weight=weights)
+
+class WeightedAdaClassifier(AdaBoostClassifier):
+    def fit(self, X , y = None):
+        weights = np.array([1/y.mean() if i == 1 else 1 for i in y])
+        return super(AdaBoostClassifier, self).fit(X,y,sample_weight=weights)
 
 
 class ModelPipeline(object):
 
-    def __init__(self):
+    def __init__(self, clf, params = {}):
 
-        rfc = RandomForestClassifier(
-            n_estimators=200,
-            min_samples_leaf=20, max_features='sqrt', max_depth=None)
         self.columns =[]
         self.count_vectorizer = CountVectorizer(stop_words="english", max_features=100)
 
@@ -62,13 +69,12 @@ class ModelPipeline(object):
                 ('pop', ColumnPop("description"))
                 ]))
             ])),
-            ('rfc', rfc)
+            ('clf', clf)
             ])
+        self.pipeline.set_params(**params)
 
     def fit(self, X_train, y_train):
-
-        weights = np.array([1/y_train.mean() if i == 1 else 1 for i in y_train])
-        self.pipeline.fit(X_train, y_train, rfc__sample_weight = weights)
+        self.pipeline.fit(X_train, y_train)
         nlp_col = ['tf_%s' % x for x in self.count_vectorizer.get_feature_names()]
         non_nlp_col = list(X_train.columns.drop("description"))
         self.columns = nlp_col + non_nlp_col
@@ -85,6 +91,47 @@ class ModelPipeline(object):
         else:
             return self.columns[np.argsort(imp)[-1:-(n+1):-1]], \
                 sorted(imp)[-1:-(n+1):-1]
+
+    def grid_search(self, X, y):
+
+        rf_parameters = {
+           'clf__n_estimators': [200],
+            'clf__max_features': ['sqrt', 50, 80],
+            'clf__max_depth' : [50, 100],
+            'clf__oob_score': [False],
+            'clf__min_samples_split':[20, 25]
+        }
+
+        ada_parameters = {
+           'clf__n_estimators': [200],
+            'clf__max_features': ['sqrt', 50, 80],
+            'clf__max_depth' : [50, 100],
+            'clf__oob_score': [False],
+            'clf__min_samples_split':[20, 25]
+        }
+
+        param_grid = {"base_estimator__criterion": ["gini", "entropy"],
+                      "base_estimator__splitter": ["best", "random"],
+                      "n_estimators": [1, 2]
+                      }
+
+        grid_search = GridSearchCV(self.pipeline, parameters, n_jobs=-1, verbose=1)
+
+        print("Performing grid search...")
+        print("pipeline:", [name for name, _ in self.pipeline.steps])
+        print("parameters:")
+        pprint(parameters)
+        t0 = time()
+        grid_search.fit(X, y)
+        print("done in %0.3fs" % (time() - t0))
+        print()
+
+        print("Best score: %0.3f" % grid_search.best_score_)
+        print("Best parameters set:")
+        best_parameters = grid_search.best_estimator_.get_params()
+        for param_name in sorted(parameters.keys()):
+            print("\t%s: %r" % (param_name, best_parameters[param_name]))
+        return best_parameters
 
 if __name__ == "__main__":
 
@@ -109,11 +156,36 @@ if __name__ == "__main__":
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
-    model_pipeline = ModelPipeline()
 
+    parameters = {
+        'n_estimators': 200,
+        'max_features': 'sqrt',
+        'max_depth': None
+    }
+    parameters = {
+    }
+
+    rf = WeightedRFClassifier()
+    rf.set_params(**parameters)
+    ada = WeightedAdaClassifier(**parameters)
+ #   vc = VotingClassifier(estimators=[('rf', rf), ('ada', ada)], voting='hard')
+
+    model_pipeline = ModelPipeline(ada)
+  #  bp = model_pipeline.grid_search(X_train, y_train)
+
+    parameters = {
+        'clf__n_estimators': 200,
+        'clf__max_features': 50,
+        'clf__max_depth': 100,
+        'clf__oob_score': False,
+        'clf__min_samples_split': 25
+    }
+
+   # model_pipeline = ModelPipeline(rf)
     model_pipeline.fit(X_train, y_train)
 
-    save_model(model_pipeline, "rf_new_petitions_model")
+    save_model(model_pipeline, "model")
+
 
     y_pred_train = model_pipeline.predict(X_train)
     y_pred = model_pipeline.predict(X_test)
@@ -163,23 +235,7 @@ if __name__ == "__main__":
 
 
 
-    precision, recall, thresholds = precision_recall_curve(y_test, y_score)
 
-
-    pr_auc = auc(recall, precision)
-
-
-
-    plt.title('Precision-Recall curve')
-    plt.plot(recall, precision, 'b',
-             label='PRC = %0.2f' % pr_auc)
-    plt.legend(loc='lower right')
-    plt.plot([0, 1], [0, 1], 'r--')
-    plt.xlim([-0.1, 1.1])
-    plt.ylim([-0.1, 1.1])
-    plt.xlabel('Recall')
-    plt.ylabel('Precision')
-    plt.show()
 
 
 
