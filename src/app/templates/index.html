@@ -103,7 +103,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="#results">About</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#services">Services</a>
@@ -128,22 +128,64 @@
                 <i class="fa fa-globe fa-4x sr-icons"></i>
                 <hr>
                 <p>Predict success of a change.org petition</p>
-                <form action="/dashboard" style="color: black;" method='POST'>
+                <form action="/predict" style="color: black;" method='POST'>
                     <input type='text' name="petition_url" class="w3-input w3-border w3-round-large"
                            width="575" align="right" placeholder='Paste your petition url'>
                     </input
-
                 </form>
             </div>
+
         </div>
     </header>
 
-    <section class="bg-primary" id="about">
+    <section class="bg-primary" id="results">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    {% if IS_VICTORY %}
+                    <h2 class="section-heading">{{PREDICTION}}<i class="fa fa-smile-o fa-4x"></i></h2>
+                    {% else %}
+                    <h2 class="section-heading">{{PREDICTION}}<i class="fa fa-meh-o fa-4x"></i></h2>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+         <br/>
+         <br/>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6 text-center">
+                    <br/>
+                </div>
+                {% if PREDICTED %}
+                <div class="col-lg-3 col-md-6 text-center">
+                    <script src="https://d18kwxxua7ik1y.cloudfront.net/product/embeds/v1/change-embeds.js"
+                            type="text/javascript"></script>
+                    <div class="change-embed-petition" data-petition-id={{PETITION_ID}}></div>
+                    <br/>
+                </div>
+
+                <div class="col-lg-3 col-md-6 text-center">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <h2 class="section-heading"> {{SUCCESS_SCORE}} <i class="fa fa-percent fa-2x"></i></h2>
+                    <p>of being a VICTORY</p>
+                    <a href="#similar" class="page-scroll btn btn-default btn-xl sr-button">Similar petitions</a>
+                </div>
+            {% endif %}
+            </div>
+        </div>
+    </section>
+
+       <section class="bg-primary" id="similar">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">Similar Petitions</h2>
-                    <hr class="light">
                 </div>
             </div>
         </div>
@@ -180,6 +222,9 @@
             </div>
         </div>
     </section>
+
+
+
     <section id="services" class = "bf-dark">
         <div class="container">
             <div class="row">
@@ -350,8 +395,12 @@
         </div>
     </section>
 
+
+
     <!-- jQuery -->
     <script src="../static/vendor/jquery/jquery.min.js"></script>
+
+
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -363,7 +412,9 @@
 
     <!-- Theme JavaScript -->
     <script src="../static/js/creative.min.js"></script>
-
+    {% if PREDICTED %}
+    <script> $(function(){ window.location.hash = "results"; }); </script>
+    {% endif %}
 </body>
 
 </html>

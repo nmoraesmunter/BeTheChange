@@ -4,6 +4,7 @@ import pandas as pd
 from src.utils import utils
 
 from flask import Flask, request, render_template
+from src.model.model_pipeline import ModelPipeline, ColumnExtractor, ColumnPop
 
 app = Flask(__name__)
 
@@ -16,24 +17,27 @@ def index():
 # Dashboard page
 @app.route('/predict', methods=['POST'])
 def predict():
-
-     # Scrape urls
+    # Scrape urls
     project_url = str(request.form['petition_url'])
-    X,y = utils.preprocess_data(project_url)
+    X, y, petition_id = utils.preprocess_data(project_url)
 
-    y_predict = model.predict(X)
+    y_score = model.pipeline.predict_proba(X)
     '''
     Project Success Score
     '''
-    score = 85
+    score = round(y_score[0][1] * 100, 2)
+    prediction = "Oh oh, this looks bad...   "
+    is_victory = 0
+    if score > 50:
+        prediction = "This is going to BeTheChange!  "
+        is_victory = 1
 
-
-
-    return render_template('dashboard.html', PROJECT_URL=project_url,  SUCCESS_SCORE = score)
+    return render_template('index.html', SUCCESS_SCORE = score, PETITION_ID = petition_id,
+                           PREDICTION = prediction, IS_VICTORY = is_victory, PREDICTED = True)
 
 
 if __name__ == '__main__':
     # Load the model
-    model = utils.load_model("rf_new_petitions_model.pkl")
+    model = utils.load_model("rf_new_petitions_model")
 
     app.run(host='0.0.0.0', port=8080, debug=True)
