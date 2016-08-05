@@ -1,14 +1,12 @@
 from __future__ import division
 from sklearn.pipeline import Pipeline, FeatureUnion
 from sklearn.feature_extraction.text import TfidfTransformer, CountVectorizer
-from sklearn.feature_selection import SelectKBest
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.cross_validation import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, confusion_matrix, \
     roc_curve, auc, precision_recall_curve
 from utils.utils import read_mongo
 from sklearn.ensemble import AdaBoostClassifier
-from sklearn.naive_bayes import MultinomialNB
 from sklearn.grid_search import GridSearchCV
 from sklearn.base import BaseEstimator
 import matplotlib.pyplot as plt
@@ -16,6 +14,27 @@ import numpy as np
 from time import time
 from pprint import pprint
 from utils.utils import save_model
+
+from imblearn.under_sampling import RandomUnderSampler
+from imblearn.under_sampling import RandomUnderSampler
+from imblearn.under_sampling import NearMiss
+from imblearn.under_sampling import CondensedNearestNeighbour
+from imblearn.under_sampling import OneSidedSelection
+from imblearn.under_sampling import NeighbourhoodCleaningRule
+from imblearn.under_sampling import TomekLinks
+from imblearn.under_sampling import ClusterCentroids
+from imblearn.under_sampling import EditedNearestNeighbours
+from imblearn.under_sampling import InstanceHardnessThreshold
+from imblearn.under_sampling import RepeatedEditedNearestNeighbours
+
+from imblearn.over_sampling import RandomOverSampler
+from imblearn.over_sampling import SMOTE
+
+from imblearn.combine import SMOTETomek
+from imblearn.combine import SMOTEENN
+
+from imblearn.ensemble import EasyEnsemble
+from imblearn.ensemble import BalanceCascade
 
 
 
@@ -45,8 +64,36 @@ class ColumnPop(BaseEstimator):
 
 class WeightedRFClassifier(RandomForestClassifier):
     def fit(self, X , y = None):
+        # 'Random under-sampling'
+        # CondensedNearestNeighbour(size_ngh=51, n_seeds_S=51)
+        #Accuracy: 0.939693267481
+        #Precision: 0.238095238095
+        #Recall: 0.897435897436
+        #SMOTE(ratio=ratio, kind='regular')
+        #Accuracy: 0.962568234988
+        #Precision: 0.324468085106
+        #Recall: 0.782051282051
+        #SMOTE(ratio=ratio, kind='borderline1')
+        #Accuracy: 0.971146347803
+        #Precision: 0.372093023256
+        #Recall: 0.615384615385
+        #SMOTE(ratio=ratio, kind='borderline2')
+        #Accuracy: 0.965427605927
+        #Precision: 0.333333333333
+        #Recall: 0.705128205128
+        #svm_args = {'class_weight': 'auto'}
+        #svmsmote = SMOTE(ratio=ratio, kind='svm', **svm_args)
+        #Accuracy: 0.972186119054
+        #Precision: 0.395683453237
+        #Recall: 0.705128205128
+
+        ratio = 'auto'
+
+        US = EasyEnsemble()
+
+        X, y = US.fit_sample(X.toarray(), y)
         weights = np.array([1/y.mean() if i == 1 else 1 for i in y])
-        return super(RandomForestClassifier, self).fit(X,y,sample_weight=weights)
+        return super(RandomForestClassifier, self).fit(X,y) #,sample_weight=weights)
 
 class WeightedAdaClassifier(AdaBoostClassifier):
     def fit(self, X , y = None):
@@ -60,7 +107,7 @@ class ModelPipeline(object):
 
 
         self.columns =[]
-        self.count_vectorizer = CountVectorizer(stop_words="english", max_features=100, ngram_range=(1,3))
+        self.count_vectorizer = CountVectorizer(stop_words="english", max_features=100)
 
         self.pipeline = Pipeline([
             ('features', FeatureUnion([
@@ -77,8 +124,6 @@ class ModelPipeline(object):
             ])
 
     def fit(self, X_train, y_train):
-
-
         self.pipeline.fit(X_train, y_train)
         nlp_col = ['tf_%s' % x for x in self.count_vectorizer.get_feature_names()]
         non_nlp_col = list(X_train.columns.drop("description"))
@@ -93,7 +138,7 @@ class ModelPipeline(object):
         imp = self.pipeline.steps[1][1].feature_importances_
         if string:
             return ''.join('%s: %s%%\n' % (self.columns[feat], round(
-                imp[feat] * 100, 1)) for feat in np.argsort(imp)[-1:-(n+1):-1])
+                imp[feat] * 100, 3)) for feat in np.argsort(imp)[-1:-(n+1):-1])
         else:
             return self.columns[np.argsort(imp)[-1:-(n+1):-1]], \
                 sorted(imp)[-1:-(n+1):-1]
@@ -134,23 +179,29 @@ class ModelPipeline(object):
 if __name__ == "__main__":
 
     df = read_mongo("changeorg", "featured_petitions",
-                    {"$and":[{"displayed_signature_count": {"$gt": 100}},
-                             {"created_at_year": {"$gt": 2014}},
-                            {"status": {"$in": ["victory", "closed"]}},
-                             {"languages_en":1}]})
+                    {"$and": [{"created_at_year": {"$gt": 2014}}
+                       # , {"displayed_signature_count":  {"$gt": 99}}
+                       # , {"status": 1 }
+                              ]})
 
+
+    df.fillna(0, inplace=True)
     df.pop("display_title")
     df.pop("letter_body")
-    #df.pop("id")
+    df.pop("id")
     df.pop("_id")
-    #  df.pop("displayed_signature_count")
-    #  df.pop("displayed_supporter_count")
-    df.pop("is_verified_victory")
+   # df.pop("displayed_signature_count")
+   # df.pop("displayed_supporter_count")
+    #df.pop("progress")
+    #df.pop("is_verified_victory")
     # df.pop("description")
-    df["status"] = df["status"].apply(lambda x: 1 if x == "victory" else 0)
+   # df["status"] = df["status"].apply(lambda x: 1 if x == "victory" else 0)
     print df.shape
     y = df.pop("status")
+    df.pop("is_verified_victory")
+   # y = df.pop("is_verified_victory")
     X = df
+
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
@@ -169,11 +220,9 @@ if __name__ == "__main__":
     model_pipeline = ModelPipeline(rfc)
     #best_params = model_pipeline.grid_search(X_train, y_train)
 
-
     model_pipeline.fit(X_train, y_train)
-    model_pipeline.transform(X_train)
 
-    save_model(model_pipeline, "rf_new_petitions_model")
+    save_model(model_pipeline, "rf_model_petitions")
 
     y_pred_train = model_pipeline.predict(X_train)
     y_pred = model_pipeline.predict(X_test)
@@ -201,9 +250,9 @@ if __name__ == "__main__":
      #Print the feature ranking
     print("------------------Feature ranking--------------------------------------")
 
-    print model_pipeline.feat_importances(20)
+    print model_pipeline.feat_importances(10)
 
-    '''
+
 
     y_score = model_pipeline.pipeline.predict_proba(X_test)[:,1]
 
@@ -221,8 +270,8 @@ if __name__ == "__main__":
     plt.ylim([-0.1, 1.1])
     plt.ylabel('True Positive Rate')
     plt.xlabel('False Positive Rate')
-    plt.show()
-
+  #  plt.show()
+'''
 '''
 
 

@@ -11,8 +11,7 @@ class SimilaritiesPipeline(object):
 
     def __init__(self):
         self.pipeline = Pipeline([
-                    ('counts', CountVectorizer(stop_words="english", max_features=1000,
-                                               ngram_range=(1,2), lowercase=True)),
+                    ('counts', CountVectorizer(stop_words="english", max_features=100)),
                     ('tf_idf', TfidfTransformer())])
 
     def fit_transform(self, X):

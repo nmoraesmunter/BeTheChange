@@ -20,9 +20,13 @@ def index():
 def predict():
     # Scrape urls
     project_url = str(request.form['petition_url'])
-    X, y, petition_id = utils.preprocess_data(project_url)
+    is_petitioner = False
+    X, y, petition_id = utils.preprocess_data(project_url, is_petitioner)
 
-    y_score = model.pipeline.predict_proba(X)
+    if is_petitioner:
+        y_score = model_petitioner.pipeline.predict_proba(X)
+    else:
+        y_score = model_user.pipeline.predict_proba(X)
     '''
     Project Success Score
     '''
@@ -36,15 +40,18 @@ def predict():
     '''
     Get similar petitions
     '''
-    similar_petitions = similarities_model.top_similar_petitions(X["description"][0])
+  #  similar_petitions = similarities_model.top_similar_petitions(X["description"][0])
+    similar_petitions = [1423479, 808914, 1423479, 808914]
 
     return render_template('index.html', SUCCESS_SCORE = score, PETITION_ID = petition_id,
-                           PREDICTION = prediction, IS_VICTORY = is_victory, PREDICTED = True, SIMILAR = similar_petitions)
+                           PREDICTION = prediction, IS_VICTORY = is_victory,
+                           PREDICTED = True, SIMILAR=similar_petitions)
 
 
 if __name__ == '__main__':
     # Load the model
-    model = utils.load_model("rf_new_petitions_model")
+    model_petitioner = utils.load_model("rf_model_raw_petitions")
+    model_user = utils.load_model("rf_model_petitions")
     similarities_model = utils.load_model("similarities_model")
 
     app.run(host='0.0.0.0', port=8080, debug=True)

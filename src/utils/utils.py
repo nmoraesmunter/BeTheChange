@@ -8,11 +8,19 @@ from src.collectors.data_collector import DataCollector
 from src.preprocess.data_pipeline import DataPipeline
 import pandas as pd
 
+def drop_columns(df, columns):
+    for col in columns:
+        if col in df:
+            df.pop(col)
+    return df
 
-
-def preprocess_data(url):
+def preprocess_data(url, is_petitioner):
     conn = MongoConnection.default_connection()
-    featured_petitions = conn['changeorg']['featured_petitions']
+    collection  = 'featured_petitions'
+    if is_petitioner:
+        collection = 'featured_petitions_raw'
+
+    featured_petitions = conn['changeorg'][collection]
 
     html = requests.get(url).content
     petition_soup = BeautifulSoup(html, 'html.parser')
@@ -25,18 +33,19 @@ def preprocess_data(url):
     if cursor.count() == 0:
         dc = DataCollector(petition_id)
         petition_json = dc.get_detailed_data()
-        df = pd.DataFrame.from_dict(petition_json)
-        dp = DataPipeline(df)
+        df = pd.DataFrame.from_dict(petition_json, orient= "index").T
+        dp = DataPipeline(df, is_petitioner, True)
         final_df = dp.apply_pipeline()
     else:
         final_df = pd.DataFrame.from_dict(list(cursor))
 
+    to_drop = ["display_title", "letter_body", "_id", "is_verified_victory", "id"]
+    if is_petitioner:
+        to_drop = ["display_title", "letter_body","_id", "is_verified_victory", "id",
+               "displayed_signature_count", "displayed_supporter_count"]
+    final_df = drop_columns(final_df, to_drop)
     y = final_df.pop("status")
-    final_df.pop("display_title")
-    final_df.pop("letter_body")
-    #final_df.pop("id")
-    final_df.pop("_id")
-    final_df.pop("is_verified_victory")
+
     X = final_df
 
     return X,y, petition_id
