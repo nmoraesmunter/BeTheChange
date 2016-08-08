@@ -39,29 +39,7 @@ from imblearn.ensemble import BalanceCascade
 
 
 
-class ColumnExtractor(BaseEstimator):
 
-    def __init__(self, column_name):
-        self.column_name = column_name
-
-    def transform(self, X):
-        return X[self.column_name].values
-
-    def fit(self, X, y=None):
-        return self
-
-
-class ColumnPop(BaseEstimator):
-
-    def __init__(self, column_name):
-        self.column_name = column_name
-
-    def transform(self, X):
-        X = X.drop(self.column_name, axis=1)
-        return X.values
-
-    def fit(self, X, y=None):
-        return self
 
 class WeightedRFClassifier(RandomForestClassifier):
     def fit(self, X , y = None):
@@ -88,47 +66,34 @@ class WeightedRFClassifier(RandomForestClassifier):
         #Precision: 0.395683453237
         #Recall: 0.705128205128
 
-       # smote = SMOTE(ratio='auto', kind='regular')
-        #X, y = smote.fit_sample(X.toarray(), y)
-        weights = np.array([1/y.mean() if i == 1 else 1 for i in y])
-        return super(RandomForestClassifier, self).fit(X,y,sample_weight=weights)
+        smote = SMOTE(ratio='auto', kind='regular')
+        X, y = smote.fit_sample(X, y)
+       # weights = np.array([1/y.mean() if i == 1 else 1 for i in y])
+        return super(RandomForestClassifier, self).fit(X,y)#,sample_weight=weights)
 
 class WeightedAdaClassifier(AdaBoostClassifier):
     def fit(self, X , y = None):
         smote = SMOTE(ratio='auto', kind='regular')
-        X, y = smote.fit_sample(X.toarray(), y)
-       # weights = np.array([1/y.mean() if i == 1 else 1 for i in y])
-        return super(AdaBoostClassifier, self).fit(X,y ) #,sample_weight=weights)
+        X, y = smote.fit_sample(X, y)
+      #  weights = np.array([1/y.mean() if i == 1 else 1 for i in y])
+        return super(AdaBoostClassifier, self).fit(X,y) #,sample_weight=weights)
 
 
 class ModelPipeline(object):
 
     def __init__(self, clf):
 
-
         self.columns =[]
-        self.count_vectorizer = CountVectorizer(stop_words="english")
 
         self.pipeline = Pipeline([
-            ('features', FeatureUnion([
-                ('nlp', Pipeline([
-                    ('extract', ColumnExtractor("description")),
-                    ('counts', self.count_vectorizer),
-                    ('tf_idf', TfidfTransformer())
-                ])),
-                ('non-nlp', Pipeline([
-                ('pop', ColumnPop("description"))
-                ]))
-            ])),
             ('clf', clf)
             ])
 
 
+
     def fit(self, X_train, y_train):
         self.pipeline.fit(X_train, y_train)
-        nlp_col = ['tf_%s' % x for x in self.count_vectorizer.get_feature_names()]
-        non_nlp_col = list(X_train.columns.drop("description"))
-        self.columns = nlp_col + non_nlp_col
+        self.columns = list(X_train.columns)
 
     def predict(self, X_test):
         return self.pipeline.predict(X_test)
@@ -136,7 +101,7 @@ class ModelPipeline(object):
 
     def feat_importances(self, n=10, string=True):
 
-        imp = self.pipeline.steps[1][1].feature_importances_
+        imp = self.pipeline.steps[0][1].feature_importances_
         if string:
             return ''.join('%s: %s%%\n' % (self.columns[feat], round(
                 imp[feat] * 100, 3)) for feat in np.argsort(imp)[-1:-(n+1):-1])
@@ -175,21 +140,31 @@ class ModelPipeline(object):
             print("\t%s: %r" % (param_name, best_parameters[param_name]))
         return best_parameters
 
-def generate_model(rf, model_name):
 
-    collection = "featured_petitions_raw"
-    query = {"$and": [{"created_at_year": {"$gt": 2014}}]}
-    target = "status"
-    to_pop = "is_verified_victory"
+def generate_model( rf, model_name):
+
+    collection = "featured_petitions"
+    query = {"$and": [{"status": 1}]}
+    target = "is_verified_victory"
+  #  to_pop = "status"
+
+    extract_features = ["goal_days_ratio", "milestones", "num_words_letter_body", "comments_likes",
+                        "progress", "news_coverages", "created_at_quarter", "display_title_len",
+                        "num_bold_words_description", "num_targets", "count_group_targets", "num_targets",
+                        "num_capitalized_words_description", "num_capitalized_words_display_title",
+                         "count_custom_targets", "count_democrat_targets", "count_republican_targets",
+                        "is_organization", "is_verified_victory", "num_responses", "same_state"]
 
     df = read_mongo("changeorg", collection, query)
-   # df = df[df["days_range_end_date"] > 0]
+    df = df[df["days_range_end_date"] > 0]
+    df = df[extract_features]
     df.fillna(0, inplace=True)
-    df.pop("display_title")
-    df.pop("letter_body")
-    df.pop("id")
-    df.pop("_id")
-    df.pop(to_pop)
+   # df.pop("display_title")
+   # df.pop("letter_body")
+   # df.pop("description")
+   # df.pop("id")
+   # df.pop("_id")
+  #  df.pop(to_pop)
     y = df.pop(target)
     X = df
 
@@ -201,7 +176,7 @@ def generate_model(rf, model_name):
 
     rf_parameters = {
         'n_estimators': 300,
-        'max_features': 80,
+      #  'max_features': 80,
         'max_depth': None,
         'min_samples_leaf': 20,
         'random_state': 29,
@@ -246,7 +221,6 @@ def generate_model(rf, model_name):
 
     print model_pipeline.feat_importances(100)
 
-
     y_score = model_pipeline.pipeline.predict_proba(X_test)[:,1]
 
     false_positive_rate, true_positive_rate, thresholds = roc_curve(y_test, y_score)
@@ -265,8 +239,16 @@ def generate_model(rf, model_name):
     plt.xlabel('False Positive Rate')
     plt.show()
 
+
 if __name__ == "__main__":
 
-    generate_model(False, "rf_victories")
+    generate_model(True, "rf_verified_victories")
+    generate_model(False, "ada_verified_victories")
+
+
+
+
+
+
 
 

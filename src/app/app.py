@@ -40,8 +40,8 @@ def predict():
     '''
     Get similar petitions
     '''
-  #  similar_petitions = similarities_model.top_similar_petitions(X["description"][0])
-    similar_petitions = [1423479, 808914, 1423479, 808914]
+    similar_petitions = similarities_model.top_similar_petitions(X["description"][0])
+  #  similar_petitions = [1423479, 808920, 1423479, 908914]
 
     return render_template('index.html', SUCCESS_SCORE = score, PETITION_ID = petition_id,
                            PREDICTION = prediction, IS_VICTORY = is_victory,
@@ -50,7 +50,7 @@ def predict():
 
 if __name__ == '__main__':
     # Load the model
-    model_petitioner = utils.load_model("rf_model_raw_petitions")
+    model_petitioner = utils.load_model("rf_model_petitions")
     model_user = utils.load_model("rf_model_petitions")
     similarities_model = utils.load_model("similarities_model")
 

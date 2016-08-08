@@ -103,13 +103,13 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="#results">About</a>
+                        <a class="page-scroll" href="#results">Results</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Services</a>
+                        <a class="page-scroll" href="#services">Technologies</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#portfolio">Portfolio</a>
+                        <a class="page-scroll" href="#portfolio">Stats</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
@@ -131,7 +131,10 @@
                 <h2><i class="fa fa-globe fa-4x sr-icons"></i></h2>
                 <hr>
                 <p>Predict success of a change.org petition</p>
+
                 <form action="/predict" style="color: black;" method='POST'>
+
+
                     <input type='text' name="petition_url" class="w3-input w3-border w3-round-large"
                            width="575" align="right" placeholder='Paste your petition url'>
                     </input
@@ -352,6 +355,8 @@
 
         d3.select(self.frameElement).style("height", "600px");
 
+
+
                 </script>
             </div>
         </div>
@@ -412,6 +417,17 @@
     {% if PREDICTED %}
     <script> $(function(){ window.location.hash = "results"; }); </script>
     {% endif %}
+    <script>
+        $("[type=checkbox]").change(function () {
+            $checkbox = $(this)
+            $icon = $checkbox.siblings("[class*=icon-]")
+
+            checked = $checkbox.is(":checked")
+
+            $icon.toggleClass('icon-check', checked)
+                .toggleClass('icon-check-empty', !checked)
+        });
+     </script>
 </body>
 
 </html>
