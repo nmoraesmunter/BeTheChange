@@ -4,7 +4,8 @@ import pandas as pd
 from src.utils import utils
 
 from flask import Flask, request, render_template
-from src.model.model_pipeline import ModelPipeline, ColumnExtractor, ColumnPop, WeightedAdaClassifier, WeightedRFClassifier
+from src.model.model_pipeline import ModelPipeline, ColumnExtractor, ColumnPop, WeightedAdaClassifier, \
+    WeightedRFClassifier, WeightedSVM
 from src.model.similarities_pipeline import SimilaritiesPipeline
 
 app = Flask(__name__)
@@ -54,4 +55,4 @@ if __name__ == '__main__':
     model_user = utils.load_model("rf_model_petitions")
     similarities_model = utils.load_model("similarities_model")
 
-    app.run(host='0.0.0.0', port=8080, debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=False, threaded=True)
