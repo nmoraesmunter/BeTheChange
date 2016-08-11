@@ -6,7 +6,7 @@ from sklearn.cross_validation import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, confusion_matrix, \
     roc_curve, auc, precision_recall_curve
 from utils.utils import read_mongo
-from sklearn.ensemble import AdaBoostClassifier
+from sklearn.ensemble import AdaBoostClassifier, GradientBoostingClassifier
 from sklearn.grid_search import GridSearchCV
 from sklearn.base import BaseEstimator
 import matplotlib.pyplot as plt
@@ -14,6 +14,7 @@ import numpy as np
 from time import time
 from pprint import pprint
 from utils.utils import save_model
+from sklearn.svm import SVC
 from sklearn.linear_model import LogisticRegression
 
 from imblearn.under_sampling import RandomUnderSampler
@@ -66,7 +67,7 @@ class ColumnPop(BaseEstimator):
 class WeightedRFClassifier(RandomForestClassifier):
     def fit(self, X , y = None):
         # 'Random under-sampling'
-        # CondensedNearestNeighbour(size_ngh=51, n_seeds_S=51)
+        smote =  CondensedNearestNeighbour(size_ngh=51, n_seeds_S=51)
         #Accuracy: 0.939693267481
         #Precision: 0.238095238095
         #Recall: 0.897435897436
@@ -89,16 +90,23 @@ class WeightedRFClassifier(RandomForestClassifier):
         #Recall: 0.705128205128
 
        # smote = SMOTE(ratio='auto', kind='regular')
-        #X, y = smote.fit_sample(X.toarray(), y)
+        X, y = smote.fit_sample(X.toarray(), y)
         weights = np.array([1/y.mean() if i == 1 else 1 for i in y])
         return super(RandomForestClassifier, self).fit(X,y,sample_weight=weights)
 
 class WeightedAdaClassifier(AdaBoostClassifier):
     def fit(self, X , y = None):
-        smote = SMOTE(ratio='auto', kind='regular')
-        X, y = smote.fit_sample(X.toarray(), y)
-       # weights = np.array([1/y.mean() if i == 1 else 1 for i in y])
-        return super(AdaBoostClassifier, self).fit(X,y ) #,sample_weight=weights)
+       # smote = SMOTE(ratio='auto', kind='regular')
+       # X, y = smote.fit_sample(X.toarray(), y)
+        weights = np.array([1/y.mean() if i == 1 else 1 for i in y])
+        return super(AdaBoostClassifier, self).fit(X,y,sample_weight=weights)
+
+
+class WeightedSVM(SVC):
+    def fit(self, X , y = None):
+        svc = super(SVC, self)
+        svc.set_params(class_weight = 'balanced')
+        return super(SVC, self).fit(X.toarray(),y)
 
 
 class ModelPipeline(object):
@@ -183,7 +191,7 @@ def generate_model(rf, model_name):
     to_pop = "is_verified_victory"
 
     df = read_mongo("changeorg", collection, query)
-   # df = df[df["days_range_end_date"] > 0]
+    df = df[df["days_range_end_date"] > 0]
     df.fillna(0, inplace=True)
     df.pop("display_title")
     df.pop("letter_body")
@@ -213,6 +221,7 @@ def generate_model(rf, model_name):
     else:
         clf = WeightedAdaClassifier()
         clf.set_params(**ada_parameters)
+
 
     model_pipeline = ModelPipeline(clf)
 
@@ -267,6 +276,6 @@ def generate_model(rf, model_name):
 
 if __name__ == "__main__":
 
-    generate_model(False, "rf_victories")
+    generate_model(True, "rf_victories")
 
 
