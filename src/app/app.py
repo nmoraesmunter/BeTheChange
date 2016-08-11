@@ -7,6 +7,8 @@ from flask import Flask, request, render_template
 from src.model.model_pipeline import ModelPipeline, ColumnExtractor, ColumnPop, WeightedAdaClassifier, \
     WeightedRFClassifier, WeightedSVM
 from src.model.similarities_pipeline import SimilaritiesPipeline
+import sys
+sys.settrace
 
 app = Flask(__name__)
 

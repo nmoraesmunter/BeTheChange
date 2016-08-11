@@ -1,10 +1,10 @@
+import numpy as np
 from sklearn.metrics.pairwise import linear_kernel
 from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfTransformer, CountVectorizer
 from sklearn.cross_validation import train_test_split
-from utils.utils import read_mongo
-from utils.utils import save_model
-import numpy as np
+from src.utils.utils import read_mongo
+from src.utils.utils import save_model
 
 
 class SimilaritiesPipeline(object):

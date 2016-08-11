@@ -1,5 +1,5 @@
-import pandas as pd
 import numpy as np
+import pandas as pd
 from bs4 import BeautifulSoup
 import requests
 from src.db.connection import MongoConnection

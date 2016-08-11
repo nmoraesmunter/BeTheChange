@@ -1,6 +1,6 @@
 from __future__ import division
-import pandas as pd
 import numpy as np
+import pandas as pd
 import text_processor
 from targets_processor import TargetsProcessor
 from src.db.connection import MongoConnection
@@ -328,7 +328,7 @@ if __name__ == "__main__":
     cursor = petitions_scraped.find( {"id": {"$gt":0}})
     data = pd.DataFrame(list(cursor))
 
-    data_pipeline = DataPipeline(data, True, False)
+    data_pipeline = DataPipeline(data, False, False)
     f_data = data_pipeline.apply_pipeline()
     data_pipeline.save_df()
 

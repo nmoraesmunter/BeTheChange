@@ -1,19 +1,18 @@
 from __future__ import division
+import numpy as np
 from sklearn.pipeline import Pipeline, FeatureUnion
 from sklearn.feature_extraction.text import TfidfTransformer, CountVectorizer
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.cross_validation import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, confusion_matrix, \
     roc_curve, auc, precision_recall_curve
-from utils.utils import read_mongo
+from src.utils.utils import read_mongo
 from sklearn.ensemble import AdaBoostClassifier, GradientBoostingClassifier
 from sklearn.grid_search import GridSearchCV
 from sklearn.base import BaseEstimator
-import matplotlib.pyplot as plt
-import numpy as np
 from time import time
 from pprint import pprint
-from utils.utils import save_model
+from src.utils.utils import save_model
 from sklearn.svm import SVC
 from sklearn.linear_model import LogisticRegression
 
@@ -262,17 +261,6 @@ def generate_model(rf, model_name):
 
     roc_auc = auc(false_positive_rate, true_positive_rate)
 
-
-    plt.title('Receiver Operating Characteristic')
-    plt.plot(false_positive_rate, true_positive_rate, 'b',
-             label='AUC = %0.2f' % roc_auc)
-    plt.legend(loc='lower right')
-    plt.plot([0, 1], [0, 1], 'r--')
-    plt.xlim([-0.1, 1.1])
-    plt.ylim([-0.1, 1.1])
-    plt.ylabel('True Positive Rate')
-    plt.xlabel('False Positive Rate')
-    plt.show()
 
 if __name__ == "__main__":
 
