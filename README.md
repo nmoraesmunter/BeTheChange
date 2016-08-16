@@ -18,8 +18,6 @@ What features are most important? Does politics play a role in the outcome of th
 
 
 
-
-
 ### Business Understanding
 
 With this project we want to answer the following questions:
@@ -40,73 +38,73 @@ Following CRISP-DM we can describe part of the process in the following image:
 
 ![](img/bethechange_pipeline.jpg)
 
+
+### Collecting the data
+
+Getting the data was one of the biggest challenges of this project since change.org
+ doesn't make it easy: 
+    * Change.org has a [API](https://github.com/change/api_docs) but it is deprecated. 
+    * Tha API only retrieves information for a petition by ID.
+    * You can not search petitions through the API.
+    * Pure web scraping was not possible, change.org only shows open petitions and 
+     victories, but there is no way to search by country or dates.
+    * I considered using the google search api to get a list all the published 
+     change.org petitions, but, google API is limited to the first 100 results. 
+    * Petitions have an ID that seems to be generated as a digit number correlatively
+     from 5 digits number to 6 digits numbers. 
+So, my initial approach was to write a [crawler](https://github.com/nmoraesmunter/BeTheChange/blob/master/src/collectors/api/changeorg/petitions_crawler.py) to call the deprecated change.org API with the generated 
+ID numbers (some of them failed) and collect the basic information for each petitions.
+I used multiprocessing in EC2 instances to accelerate this process.
+This way I got around 3,000,000 petitions (all petitions generated over the world) in json 
+format stored in my MongoDB.
+For the project I used the closed petitions (successes and failures) made to the US, around 50,000.
+Given this data I [webscraped](https://github.com/nmoraesmunter/BeTheChange/blob/master/src/collectors/data_collector.py) more detailed data for each petition. 
+And I also [webscraped the political party](https://github.com/nmoraesmunter/BeTheChange/blob/master/src/collectors/data_collector.py) for each decision maker through ballotpedia.com
+  
+ 
+
+
 ### Data Understanding
 
-First we need to get the data.
+Only 2,000 petitions of the 50,000 were closed as victories by the user,
+and only 1,000 were final implemented changes confirmed by change.org.
+Given this ratio we see that one of the challenges will be to deal with
+the huge class imbalancement.
 
-1. Get all petitions through change.org API using a crawler that generates all possible petition IDs between 5 and 6 digits.
-    * Store in json format in a MongoDB in S3
-    * It has not been possible to gather data earlier than 2010
-    * Total number of petitions:
-2. Filter:
-    * Petitions made to the US government
-    * Status is closed or victory
-        * Preview and open status are not included because they are not labeled
-3. Get user/organization information through API
-    * Store in json format in a MongoDB in S3
-4. Save the whole html for each petition in MongoDB
-    * Store in html format in a MongoDB in S3
-5. Analyze content of html and discover first insights
-6. Decide what content to extract, for example:
-    * Petition text
-    * Topic
-    * Letter
-    * Hashtag if included
-    * Number of updates
-    * List of "supported by"
-    * Weekly signature count
-    * Is victory
-    * Is verified victory
-    * Victory date
-    * Is pledge
-    * Has fundraiser
-    * Embedded tweets
-        * Get number of retweets and likes through Twitter API
-    * Number of comments
-7. Webscrape mentioned data using BeautifulSoup.
-8. Get political history by state between 2010 and 2016.
-    * Who was in power?
-    * What party they belong to?
-9. Data hygiene
-10. Get random sample to start playing with
-11. Exploratory Data Analysis
+Another problem is the blurredness of the concept Victory. After analyzing the
+data, I could observe that Victory was not equivalent
+to get the targeted number of signatures. Victory is a status set but the user 
+and proof of victory is not required. Confirmed Victory is neither equivalent
+to get the 100% of the goal. I assume that there are petitions that also 
+make signatures collections offline.
 
 
 ### Data Preparation
 
-1. Clean data:
-    * Missing data
-    * Outliers
-2. Feature engineering
+1. [Clean data](https://github.com/nmoraesmunter/BeTheChange/blob/master/notebooks/clean_data.ipynb)
+2. [Feature engineering](https://github.com/nmoraesmunter/BeTheChange/blob/master/src/preprocess/data_pipeline.py)
 
 
 ### Modeling
 
 1. Split data in training set (70%) and test set (30%)
-2. NLP
-3. Try different classification models(RandomForest, AdaBoost, SGDBoost, SVM...)
-4. Calibrate parameters to optimal values
+2. Building [model pipeline](https://github.com/nmoraesmunter/BeTheChange/blob/master/src/model/model_pipeline.py) using sklearn Pipeline. 
+3. Applied [NLP](https://github.com/nmoraesmunter/BeTheChange/blob/master/src/model/similarities_pipeline.py) on the description and did Feature Union in the mentioned pipeline.
+4. Tried different classification models(LogisticRegression, RandomForest, AdaBoost, SGDBoost, SVM...)
+5. Settled up with RandomForest and AdaBoost
+6. Calibrate parameters to optimal values applying GridSearch over the Pipeline.
 
 ### Evaluation
 
 1. Cross-validation
 2. Review the steps
-2. Determine if there are other features that have not been considered
+3. Determine if there are other features that have not been considered
 
 ### Deployment
 
 1. Build web app to show results and add functionality to predict success of a new petition
-2. Add some interactive visualizations
+2. Add functionality of showing similar petitions.
+3. Add some interactive visualizations (unfinished)
 
 http://bethechange.rocks/
 
@@ -114,4 +112,13 @@ http://bethechange.rocks/
 ### Presentation
 
 https://docs.google.com/presentation/d/1_d4bupIu_A5mwM0lFnpAxrtY53IASyOmPd3bQCzHlUM/edit?usp=sharing
+
+
+### Code walk-through
+
+
+### How to run it
+
+
+
 
