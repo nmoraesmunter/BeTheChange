@@ -71,7 +71,7 @@ and only 1,000 were final implemented changes confirmed by change.org.
 Given this ratio we see that one of the challenges will be to deal with
 the huge class imbalancement.
 
-Another problem is the blurredness of the concept Victory. After analyzing the
+Another problem is the blurriness of the concept Victory. After analyzing the
 data, I could observe that Victory was not equivalent
 to get the targeted number of signatures. Victory is a status set but the user 
 and proof of victory is not required. Confirmed Victory is neither equivalent
@@ -83,7 +83,8 @@ make signatures collections offline.
 
 1. [Clean data](https://github.com/nmoraesmunter/BeTheChange/blob/master/notebooks/clean_data.ipynb)
 2. [Feature engineering](https://github.com/nmoraesmunter/BeTheChange/blob/master/src/preprocess/data_pipeline.py)
-
+3. You can find the [scraped](	
+https://s3-us-west-2.amazonaws.com/bethechangeorg/petitions_scraped.json) and [featured data](https://s3-us-west-2.amazonaws.com/bethechangeorg/featured_petitions.json) in S3
 
 ### Modeling
 
@@ -112,6 +113,24 @@ http://bethechange.rocks/
 ### Presentation
 
 https://docs.google.com/presentation/d/1_d4bupIu_A5mwM0lFnpAxrtY53IASyOmPd3bQCzHlUM/edit?usp=sharing
+
+
+### Tech stack
+
+Python
+    * Sklearn
+    * Pandas
+    * Numpy
+    * BeautifulSoup
+    * Multiprocessing
+    * Flask
+
+AWS
+    * EC2
+    * S3
+
+MongoDB
+
 
 
 ### Code walk-through
